@@ -115,8 +115,7 @@ var chatController = (function () {
 
 
     ChatController.prototype.setupChatView = function setupChatView () {
-        viewFactory.setup(this.config);
-        return viewFactory.createChatView();
+        return viewFactory.createView(this.config.HTML_FILE_PATH, this.config.CSS_FILE_PATH, null);
     };
 
     ChatController.prototype.setupChatStyle = function setupChatStyle() {

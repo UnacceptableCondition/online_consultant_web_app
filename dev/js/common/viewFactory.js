@@ -1,38 +1,34 @@
-var viewFactory = (function () {
+var viewFactory = (function (dataSource) {
 
-    function ViewFactory () {
-        this.db = dataSource;
-        this.config = null;
-    }
+    function ViewFactory () {}
 
-    ViewFactory.prototype.createChatView = function createChatView () {
+    ViewFactory.prototype.createView = function createChatView (htmlPath, cssPath, containerClass) {
         var that = this;
         return new Promise(function(resolve, reject) {
-            if(that.config) {
-                that.includeChatCssToPage(that.createCSSLink(
-                    that.config.CSS_FILE_PATH,
-                    "stylesheet",
-                    "text/css",
-                    "touch-soft-chat-css"
-                ));
-                resolve(that.includeChatHTMLToPage(that.config.HTML_FILE_PATH));
+            if(htmlPath) {
+                if(cssPath) {
+                    that.includeViewCssToPage(that.createCSSLink(
+                        cssPath,
+                        "stylesheet",
+                        "text/css",
+                        "touch-soft-chat-css"
+                    ));
+                }
+                resolve(that.includeViewHTMLToPage(htmlPath, containerClass));
             } else {
-                reject(new Error("config is null. Please use setChatViewConfig to add new config"));
+                reject(new Error("htmlPath is null. Please add htmlPath"));
             }
         });
     };
 
-    ViewFactory.prototype.setup = function setup (configObj) {
-        this.config = configObj
-    };
-
-    ViewFactory.prototype.includeChatHTMLToPage = function includeChatHTMLToPage (htmlPath) {
-        return this.db.commonAPI.getHTML(htmlPath).then(function (html) {
-            document.body.innerHTML = html;
+    ViewFactory.prototype.includeViewHTMLToPage = function includeChatHTMLToPage (htmlPath, containerClass) {
+        var containerDiv = (containerClass) ? getElement(containerClass) : document.body;
+        return dataSource.commonAPI.getHTML(htmlPath).then(function (html) {
+            containerDiv.innerHTML = html;
         })
     };
 
-    ViewFactory.prototype.includeChatCssToPage = function includeChatCssToPage (link) {
+    ViewFactory.prototype.includeViewCssToPage = function includeChatCssToPage (link) {
         document.head.appendChild(link);
     };
 

@@ -59,5 +59,10 @@ var mainConfig = {
     DATA_BASE_URL: "https://touchsoftchatproject.firebaseio.com",
 
     UPDATE_USERS_TIME: 5000,
-    ONLINE_INTERVAL: 120000
+    ONLINE_INTERVAL: 120000,
+
+
+    LAUNCHER_HTML_PATH:
+    DASHBOARD_HTML_PATH: "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/dev/html/dashboard.html",
+    CONTENT_CLASS: "content"
 };

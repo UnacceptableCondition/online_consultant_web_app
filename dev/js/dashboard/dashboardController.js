@@ -1,5 +1,7 @@
 var dashboardController = (function createController(config, dataSource, uDataManager, uListManager, sorter){
 
+    var intervalId = [];
+
     function DashboardController() {}
 
     DashboardController.prototype.startApp = function () {
@@ -269,13 +271,17 @@ var dashboardController = (function createController(config, dataSource, uDataMa
 
     DashboardController.prototype.setupIntervalFunctions = function setupIntervalFunctions () {
         var that = this;
-        setInterval(function setIntervalUpdateUsers () {
+        intervalId.push(setInterval(function setIntervalUpdateUsers () {
             that.updateUsers();
-        }, config.UPDATE_USERS_TIME);
+        }, config.UPDATE_USERS_TIME))
+    };
+
+    DashboardController.prototype.closeApp = function () {
+        intervalId.forEach(function (id) {
+            clearInterval(id)
+        })
     };
 
     return new DashboardController();
 
 })(mainConfig, dataSource, userDataManager, userListManager, sorter);
-
-dashboardController.startApp();

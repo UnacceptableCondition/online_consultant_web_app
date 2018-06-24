@@ -9,14 +9,15 @@ var chatController = (function () {
     ChatController.prototype.startApp = function () {
         var that = this;
         // localStorage.removeItem(this.config.LOCAL_STORAGE_NAME);
-        return this.setupChatSettings().then( function () {
+        return this.setupChatView().then( function () {
             that.authorization(that.config.chatSettings.requireName);
+            that.setupChatBasicListeners();
         }).then(function () {
             if(that.config.currentUserSettings.userId) {
-                userDataManager.getUserData().then(function () {
+                userDataManager.getUserData(that.config.currentUserSettings.userId).then(function () {
                     that.setupChatStyle();
                     that.setupIntervalFunctions();
-                    document.addEventListener("mousemove", userDataManager.setMessageAsRead.bind(userDataManager));
+                    that.setupChatSendListeners();
                 });
             } else {
                 that.setupChatStyle();
@@ -47,7 +48,6 @@ var chatController = (function () {
     };
 
     ChatController.prototype.toggleAuthorizationMenuVisible = function () {
-        console.log(getElement(this.config.DOM.AUTHORIZATION_MENU_CLASS));
         getElement(this.config.DOM.AUTHORIZATION_MENU_CLASS).classList.toggle(
             this.config.INVISIBLE_CLASS
         )
@@ -73,42 +73,50 @@ var chatController = (function () {
         this.saveUserIdToLocalStorage(this.config.currentUserSettings.userId);
         this.toggleAuthorizationMenuVisible();
         this.setupIntervalFunctions();
+        this.setupChatSendListeners();
     };
 
     // Setup Chat //
 
-    ChatController.prototype.setupChatSettings  = function setupChatSettings () {
+    ChatController.prototype.setupChatSendListeners = function () {
+        // setup chat listeners
         var that = this;
-        return this.setupChatView().then(function () {
-            // setup chat listeners
-            getElement(that.config.DOM.SEND_USER_NAME_BUTTON).addEventListener(
-                "click",
-                that.getUserNameFromInput.bind(that)
-            );
-            getElement(that.config.DOM.SEND_MESSAGE_FULL_SIZE_BUTTON).addEventListener(
-                'click',
-                userDataManager.sendMessage.bind(userDataManager, null)
-            );
-            getElement(that.config.DOM.SET_MAX_STYLE_BUTTON).addEventListener(
-                'click',
-                that.minMaxStyleToggle.bind(that)
-            );
-            getElement(that.config.DOM.SET_MIN_STYLE_BUTTON).addEventListener(
-                'click',
-                that.minMaxStyleToggle.bind(that)
-            );
-            getElement(that.config.DOM.SEND_MESSAGE_MIN_SIZE_BUTTON).addEventListener(
-                'click',
-                userDataManager.sendMessage.bind(userDataManager, null)
-            );
+        getElement(that.config.DOM.SEND_MESSAGE_FULL_SIZE_BUTTON).addEventListener(
+            'click',
+            userDataManager.sendMessage.bind(userDataManager,
+                that.config.currentUserSettings.userName
+            )
+        );
 
-        })
+        getElement(that.config.DOM.SEND_MESSAGE_MIN_SIZE_BUTTON).addEventListener(
+            'click',
+            userDataManager.sendMessage.bind(userDataManager,
+                that.config.currentUserSettings.userName
+            )
+        );
+        document.addEventListener("mousemove", userDataManager.setMessageAsRead.bind(userDataManager));
+    };
+
+    ChatController.prototype.setupChatBasicListeners = function () {
+        var that = this;
+        getElement(that.config.DOM.SEND_USER_NAME_BUTTON).addEventListener(
+            "click",
+            that.getUserNameFromInput.bind(that)
+        );
+        getElement(that.config.DOM.SET_MAX_STYLE_BUTTON).addEventListener(
+            'click',
+            that.minMaxStyleToggle.bind(that)
+        );
+        getElement(that.config.DOM.SET_MIN_STYLE_BUTTON).addEventListener(
+            'click',
+            that.minMaxStyleToggle.bind(that)
+        );
     };
 
 
     ChatController.prototype.setupChatView = function setupChatView () {
-        chatViewFactory.setup(this.config);
-        return chatViewFactory.createChatView();
+        viewFactory.setup(this.config);
+        return viewFactory.createChatView();
     };
 
     ChatController.prototype.setupChatStyle = function setupChatStyle() {
@@ -166,7 +174,7 @@ var chatController = (function () {
     ChatController.prototype.setupIntervalFunctions = function () {
         var that = this;
         setInterval( function () {
-            userDataManager.getUserData();
+            userDataManager.getUserData(that.config.currentUserSettings.userId);
             that.activityNotify();
         }, that.config.UPDATE_USER_DATA_TIME)
     };

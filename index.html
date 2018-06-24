@@ -8,71 +8,32 @@
 </head>
 <body>
 <div class="navigation-touchsoft-dashboard">
-    <a class="navigation-touchsoft-dashboard__elem" href="">Dashboard</a>
-    <a class="navigation-touchsoft-dashboard__elem" href="">Configuration</a>
-    <a class="navigation-touchsoft-dashboard__elem" href="">About</a>
+    <a class="navigation-touchsoft-dashboard__elem" href="#dashboard">Dashboard</a>
+    <a class="navigation-touchsoft-dashboard__elem" href="#configuration">Configuration</a>
+    <a class="navigation-touchsoft-dashboard__elem" href="#about">About</a>
     <a href="" class="navigation-touchsoft-dashboard__elem-logo">Online consultant</a>
 </div>
-<div class="root-touchsoft-dashboard">
-    <div class="root-touchsoft-dashboard_users">
-        <div class="root-touchsoft-dashboard_users-filter">
-        <h1 class="root-touchsoft-dashboard_name">Interlocutors</h1>
-        <hr class="root-touchsoft-dashboard__decorate">
-        <div class="root-touchsoft-dashboard_filter-wrapper">
-            <div class="root-touchsoft-dashboard_filter">
-                <h2 class="root-touchsoft-dashboard_filter-name">Search</h2>
-                <input type="text" class="root-touchsoft-dashboard_filter-input" id="input-filter" placeholder="enter name...">
-            </div>
-        <div class="root-touchsoft-dashboard_sort-wrapper">
-            <h2 class="root-touchsoft-dashboard_filter-name">Sort by</h2>
-            <div class="root-touchsoft-dashboard_sort-wrapper-select">
-                <select name="sort"  class="root-touchsoft-dashboard_sort">
-                    <option selected value="online" class="root-touchsoft-dashboard_sort-option">Online</option>
-                    <option value="userName" class="root-touchsoft-dashboard_sort-option">Имя</option>
-                </select>
-            </div>
-        </div>
-        </div>
-        <hr class="root-touchsoft-dashboard__decorate">
-        </div>
-        <div class="root-touchsoft-dashboard_users-list">
 
-        </div>
-    </div>
-    <div class="root-touchsoft-dashboard_active-user ">
-        <div class="root-touchsoft-dashboard_chat root-touchsoft-dashboard_invisible-element ">
-            <div class="root-touchsoft-dashboard_chat-messages">
+<div class="content">
 
-            </div>
-            <div class="root-touchsoft-dashboard_input-message">
-                <textarea name="" class="root-touchsoft-dashboard_textarea-for-message" placeholder="enter your message..."></textarea>
-            </div>
-            <div class="root-touchsoft-dashboard_send-button">
-                Send
-            </div>
-            <div class="root-touchsoft-dashboard_close-chat">
 
-            </div>
-        </div>
-        <div class="root-touchsoft-dashboard_control">
 
-        </div>
-    </div>
 </div>
 
-<!-- <script src="https://rawgit.com/UnacceptableCondition/dashboard_touchsoft/master/js/dashboardConfig.js"></script>
-<script src="https://rawgit.com/UnacceptableCondition/dashboard_touchsoft/master/js/dashboardDataSource.js"></script>
-<script src="https://rawgit.com/UnacceptableCondition/dashboard_touchsoft/master/js/dashboardSorter.js"></script>
-<script src="https://rawgit.com/UnacceptableCondition/dashboard_touchsoft/master/js/dashboardUsersManager.js"></script>
-<script src="https://rawgit.com/UnacceptableCondition/dashboard_touchsoft/master/js/dashboardChatManager.js"></script>
-<script src="https://rawgit.com/UnacceptableCondition/dashboard_touchsoft/master/js/dashboardController.js"></script> -->
 
-<script src="old/dashboardConfig.js"></script>
-<script src="old/dashboardDataSource.js"></script>
-<script src="old/dashboardSorter.js"></script>
-<script src="old/dashboardUsersManager.js"></script>
-<script src="old/dashboardChatManager.js"></script>
-<script src="old/dashboardController.js"></script>
+<script src="dev/js/dashboard/config/dashboardConfig.js"></script>
+<script src="dev/js/common/config/commonConfig.js"></script>
 
+
+<script src="dev/js/common/sorter.js"></script>
+
+<script src="dev/js/common/dataSource/dataConnector.js"></script>
+<script src="dev/js/common/dataSource/dataSource.js"></script>
+<script src="dev/js/common/chat/messageListManager.js"></script>
+<script src="dev/js/common/chat/userDataManager.js"></script>
+
+<script src="dev/js/dashboard/userList/dashboardUserListManager.js"></script>
+<script src="dev/js/dashboard/dashboardController.js"></script>
+<script src="dev/js/dashboard/mainController.js"></script>
 </body>
 </html>

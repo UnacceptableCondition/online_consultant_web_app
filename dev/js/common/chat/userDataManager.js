@@ -34,10 +34,9 @@ var userDataManager =  (function () {
         messageListManager.setup(configObj);
     };
 
-
-    UserDataManager.prototype.getUserData = function getUserData () {
+    UserDataManager.prototype.getUserData = function getUserData (userId) {
         var that = this;
-        return dataSource.usersAPI.getUserData(this.config.currentUserSettings.userId).then(function (data) {
+        return dataSource.usersAPI.getUserData(userId).then(function (data) {
             that.config.currentUserSettings.userName = data.userName;
             that.config.currentUserSettings.isMinimize = data.isMinimize;
             if(data.messages) {
@@ -80,14 +79,12 @@ var userDataManager =  (function () {
         )
     };
 
-    UserDataManager.prototype.sendMessage = function sendMessage (senderName, senderId) {
+    UserDataManager.prototype.sendMessage = function sendMessage (senderName) {
         var message = this.getMessageFromInputElement();
         var date = getCurrentDate();
-        var userName = senderName || this.config.currentUserSettings.userName;
-        var userId = senderId || this.config.currentUserSettings.userId;
-        var messageObject = createMessageObject(message, date, userName, false);
+        var messageObject = createMessageObject(message, date, senderName, false);
         messageListManager.addMessageToMessageList(messageObject);
-        this.saveMessageToDataSource(userId, messageObject);
+        this.saveMessageToDataSource(messageObject);
     };
 
     UserDataManager.prototype.getMessageFromInputElement = function () {
@@ -105,20 +102,21 @@ var userDataManager =  (function () {
     };
 
 
-    UserDataManager.prototype.saveMessageToDataSource = function saveMessageToDataSource (senderId, messageObject) {
-        var userSettings = [{
-            userId: senderId,
-            fieldName: "sendNewMessage",
-            fieldValue: true
-        }];
-
+    UserDataManager.prototype.saveMessageToDataSource = function saveMessageToDataSource (messageObject) {
+        if(messageObject.sender === this.config.currentUserSettings.userName) {
+            console.log(messageObject.sender);
+            var userSettings = [{
+                userId: this.config.currentUserSettings.userId,
+                fieldName: "sendNewMessage",
+                fieldValue: true
+            }];
+            this.saveUserSettingsToDataSource(
+                userSettings
+            );
+        }
         dataSource.usersAPI.sendMessage(
-            senderId,
+            this.config.currentUserSettings.userId,
             messageObject
-        );
-
-        this.saveUserSettingsToDataSource(
-            userSettings
         );
     };
 
@@ -132,8 +130,6 @@ var userDataManager =  (function () {
             );
         });
     };
-
-
 
 
     return new UserDataManager();

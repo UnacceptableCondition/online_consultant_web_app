@@ -1,4 +1,4 @@
-var userListManager = (function createUserList (dataSource) {
+var userListManager = (function createUserList (config) {
     //  ////////////////////////////////////////////////////////////////////////
     /* Формат объекта в списке юзера
       * userId: "Ivan300000",
@@ -108,13 +108,13 @@ var userListManager = (function createUserList (dataSource) {
     // Делает невидимыми тех пользователей в списке, в именах которых нет переданной подстроки
     UserListManager.prototype.filterByName = function filterByName() {
         this.uList.forEach(function filterName (element) {
-            element.visible = element.userId.indexOf(this.config.currentDashboardCondition.filterBy) !== -1;
+            element.visible = element.userId.indexOf(config.currentDashboardCondition.filterBy) !== -1;
         });
     };
 
     // Сортирует список юзеров по полю
     UserListManager.prototype.sortUsersByField = function sortUsersByOnline() {
-        this.sorter.quickSort(this.uList, 0, this.uList.length - 1, this.config.currentDashboardCondition.sortBy);
+        this.sorter.quickSort(this.uList, 0, this.uList.length - 1, config.currentDashboardCondition.sortBy);
     };
 
     // Отобразить/ Обновить представление юзеров на странице
@@ -130,4 +130,4 @@ var userListManager = (function createUserList (dataSource) {
 
     return new UserListManager()
 
-})(dataSource);
+})(mainConfig);

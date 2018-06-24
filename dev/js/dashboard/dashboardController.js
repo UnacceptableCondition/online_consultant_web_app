@@ -40,7 +40,7 @@ var dashboardController = (function createController(config, dataSource, uDataMa
                 this.filter();
             }
             if (condition.sort) {
-                getElement(config.DOM.CSS_FILTER_INPUT_ID).value = condition.sort;
+                getElement(config.DOM.CSS_SORT_SELECT_ID).value = condition.sort;
                 this.sort();
             }
             if (condition.currentUserId) {
@@ -161,7 +161,7 @@ var dashboardController = (function createController(config, dataSource, uDataMa
     ) {
         var that = this;
         config.currentUserSettings.userId = userId;
-        uDataManager.getUserData()
+        uDataManager.getUserData(userId)
             .then(function  () {
                 getElement(config.DOM.CSS_CHAT_CONTAINS_BLOCK_STYLE).classList.remove(config.INVISIBLE_CLASS);
                 that.saveCurrentConditionToLocalStorage();
@@ -204,7 +204,7 @@ var dashboardController = (function createController(config, dataSource, uDataMa
     // Обновлет массив сообщений в модуле чата и выводит их на экран
     DashboardController.prototype.updateUserMessagesAndDisplayIt = function updateUserMessagesAndDisplayIt(
     ) {
-        uDataManager.getUserData();
+        uDataManager.getUserData(config.currentUserSettings.userId);
         this.markMessageFromUserAsRead(config.currentUserSettings.userId);
     };
 
@@ -272,9 +272,6 @@ var dashboardController = (function createController(config, dataSource, uDataMa
         setInterval(function setIntervalUpdateUsers () {
             that.updateUsers();
         }, config.UPDATE_USERS_TIME);
-        // setInterval(function setIntervalBlink () {
-        //     that.toggleNewMessageIndicatorToUser();
-        // }, controllerRef.config.BLINK_NEW_MESSAGES_TIME);
     };
 
     return new DashboardController();

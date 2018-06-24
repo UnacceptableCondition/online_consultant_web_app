@@ -1,0 +1,230 @@
+
+
+/*BEGIN COMMON STYLES*/
+
+.root_chat_for_touchsoft-title, .root_chat_for_touchsoft__top, .root_chat_for_touchsoft__top_messages, .root_chat_for_touchsoft__top_minimize-button,
+.root_chat_for_touchsoft__bottom, .root_chat_for_touchsoft__bottom_user-message, .root_chat_for_touchsoft__bottom_send-button,
+.root_chat_for_touchsoft_minimize-style, .root_chat_for_touchsoft_input-name-block, .root_chat_for_touchsoft_minimize-style__message, .root_chat_for_touchsoft_minimize-style__button {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+
+.root_chat_for_touchsoft__top_minimize-button, .root_chat_for_touchsoft__bottom_send-button,
+.root_chat_for_touchsoft_minimize-style__max-button, .root_chat_for_touchsoft_minimize-style__send-button,
+.root_chat_for_touchsoft_input-name-block, .root_chat_for_touchsoft-title{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.root_chat_for_touchsoft__top, .root_chat_for_touchsoft__bottom {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+/*END COMMON STYLES*/
+
+.root_chat_for_touchsoft {
+    width: 300px;
+    height: 450px;
+    border: 2px solid gainsboro;
+    border-radius: 5px;
+    background-color: white;
+    z-index: 2;
+
+    /*FLEX COLUMN*/
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+/*BEGIN TOP BLOCK*/
+.root_chat_for_touchsoft__top{
+    height: 70%;
+    width: 100%;
+    padding-top: 1%;
+}
+
+.root_chat_for_touchsoft__top_messages{
+    height: 100%;
+    min-width: 90%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 5px;
+    overflow-y: scroll;
+
+}
+
+.root_chat_for_touchsoft__top_minimize-button{
+    height: 8%;
+    width: 8%;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    background-color: grey;
+
+}
+.root_chat_for_touchsoft-title{
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 5px;
+    width: 100%;
+    height:40px;
+    background-color: #33acaf;
+    cursor: move;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+
+}
+
+.root_chat_for_touchsoft-title:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+/*END TOP BLOCK*/
+
+
+
+
+/*BEGIN BOTTOM BLOCK*/
+.root_chat_for_touchsoft__bottom{
+    height: 30%;
+    width: 100%;
+    padding: 1% 0 1% 0;
+}
+
+
+.root_chat_for_touchsoft__bottom_user-message {
+    width: 80%;
+    height: 100%;
+}
+
+.root_chat_for_touchsoft__bottom_send-button {
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding-top: 15%;
+    background-color: grey;
+
+}
+
+.root_chat_for_touchsoft__textarea {
+    width: 95%;
+    height: 95%;
+    resize: none;
+
+    outline: none;
+}
+
+/*END BOTTOM BLOCK*/
+
+
+
+
+
+/*BEGIN MIN-STYLE CHAT*/
+
+.root_chat_for_touchsoft_minimize-style{
+    width: 500px;
+    height: 40px;
+    border: 2px solid gainsboro;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    background-color: white;
+    padding: 0 5px;
+    z-index: 2;
+
+    /*FLEX COLUMN*/
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    /*POSITION*/
+    position: fixed;
+    bottom: 10px;
+    left: 25%
+}
+
+.root_chat_for_touchsoft_minimize-style__message{
+    width: 80%;
+    height: 80%;
+}
+
+.root_chat_for_touchsoft_minimize-style__message-input {
+    width: 100%;
+    height: 80%;
+}
+
+.root_chat_for_touchsoft_minimize-style__max-button{
+    width: 5%;
+    height:  60%;
+    text-align: center;
+    padding-top: 1%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    background-color: grey;
+}
+
+.root_chat_for_touchsoft_minimize-style__send-button{
+    width: 10%;
+    height:  60%;
+    text-align: center;
+    padding-top: 1%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    background-color: grey;
+}
+
+/*END MIN-STYLE CHAT*/
+
+
+
+/*TOGGLE CLASSES */
+
+.invisible {
+    visibility: hidden;
+}
+
+.root_chat_for_touchsoft_right-position {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.root_chat_for_touchsoft_left-position {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
+
+/* INPUT NAME */
+
+.root_chat_for_touchsoft_input-name-block {
+    width: 300px;
+    height: 450px;
+    border: 2px solid gainsboro;
+    border-radius: 5px;
+    background-color: white;
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    text-align: center;
+
+    /*FLEX*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.root_chat_for_touchsoft_input-name, .root_chat_for_touchsoft_input-name-button {
+
+}

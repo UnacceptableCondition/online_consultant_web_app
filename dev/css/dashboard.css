@@ -1,0 +1,315 @@
+@font-face {
+    font-family: "Mont Heavy Demo";
+    src: url(../fonts/mont-heavy-demo.ttf)
+}
+@font-face {
+    font-family: "Lato Bold";
+    src: url(../fonts/Lato-Bold.ttf)
+}
+@font-face {
+    font-family: "Gotham Book";
+    src: url(../fonts/Gotham-Book.ttf)
+}
+@font-face {
+    font-family: "Made Evolve";
+    src: url(../fonts/Made-evolve-sans-medium.otf)
+}
+@font-face {
+    font-family: Serdolic;
+    src: url(../fonts/Serdolic.ttf)
+}
+@font-face {
+    font-family: "Bitstream Vera Serif";
+    src: url(../fonts/Bitstream-Vera-Serif.ttf)
+}
+@font-face {
+    font-family: SeasideResortNF;
+    src: url(../fonts/SeasideResortNF.ttf)
+}
+body{
+    background: #f0e9ce;
+}
+.navigation-touchsoft-dashboard{
+    display: flex;
+    width: 1050px;
+    height: 40px;
+    border: none;
+    margin: 5px auto;
+    background: #dd4871;
+}
+.navigation-touchsoft-dashboard__elem{
+    width: 130px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 3;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #fff;
+    border-right: 1px solid white;
+}
+.navigation-touchsoft-dashboard__elem-logo{
+    width: 650px;
+    text-align: right;
+    font: 28px SeasideResortNF, sans serif;
+    color: #fff;
+    text-decoration: none;
+}
+.root-touchsoft-dashboard {
+    display: grid;
+    width:1050px;
+    height: 540px;
+    grid-template-columns: 350px 700px;
+    border-radius: 5px;
+    border: 1px solid #f0d8b0;
+    margin: 10px auto;
+    background: #F6F6F6;
+}
+.root-touchsoft-dashboard_users-filter {
+    padding: 5px;
+}
+.root-touchsoft-dashboard_users{
+    width: 350px;
+    height: 540px;
+    border: none;
+    border-right: 1px solid #dfc16d;
+    background: #68a78d;
+    border-radius: 5px;
+}
+.root-touchsoft-dashboard_name{
+    font: 14px "Mont Heavy Demo", sans-serif;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-align: center;
+}
+.root-touchsoft-dashboard_filter-wrapper{
+    display:flex;
+    justify-content: space-between;
+}
+.root-touchsoft-dashboard__decorate{
+    border: 1px solid #ffffff;
+}
+.root-touchsoft-dashboard_filter-name {
+    font: 12px "Lato Bold", sans-serif;
+    text-transform: lowercase;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-align: left;
+    margin:0;
+    white-space: nowrap;
+    position: relative;
+}
+
+.root-touchsoft-dashboard_filter-input {
+    width: 200px;
+    height: 30px;
+    outline: none;
+    background: #ffffff;
+    border: none;
+    border-radius: 5px;
+    color: #b77d5c;
+    box-sizing: border-box;
+    padding-left: 2px;
+}
+.root-touchsoft-dashboard_sort-wrapper-select {
+    /*align-self: flex-end;*/
+    width:120px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    position: relative;
+}
+.root-touchsoft-dashboard_sort{
+    width:100%;
+    height: 100%;
+    border-radius: 5px;
+    border: none;
+    -webkit-appearance: none;
+    outline: none;
+    color: #b77d5c;
+    font: 14px "Gotham Book", sans-serif;
+    cursor: pointer;
+}
+.root-touchsoft-dashboard_sort-wrapper-select:before{
+    content:'';
+    border-style:solid;
+    border-width: 6px 6px 0 6px;
+    border-color: #b77d5c transparent transparent transparent;
+    position: absolute;
+    top: 45%;
+    right: 5px;
+    z-index: 1;
+}
+.root-touchsoft-dashboard_sort-wrapper-select:after{
+    content:'';
+    border-style:solid;
+    border-width: 6px 6px 0 6px;
+    border-color: #ffffff transparent transparent transparent;
+    position: absolute;
+    top: 40%;
+    right: 5px;
+    z-index: 1;
+}
+.root-touchsoft-dashboard_users-list{
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    /*flex-direction: column;*/
+    width: 350px;
+    height: 410px;
+    overflow-y: scroll;
+    background: #ab6e50;
+}
+.root-touchsoft-dashboard_user{
+    box-sizing: border-box;
+    width: 320px;
+    height: 40px;
+    background: #ffffff;
+    color: #2a1820;
+    font: 14px "Lato Bold", sans-serif;
+    text-align: left;
+    border: 1px dashed #ab6e50;
+    border-radius: 10px;
+    margin: 5px auto;
+    padding: 10px;
+    position:relative;
+}
+.root-touchsoft-dashboard_user:hover {
+    box-shadow: inset -3px -4px 67px 4px rgba(145,163,156,1);
+    cursor: pointer;
+}
+::-webkit-scrollbar{
+    width: 15px;
+    background: #ffffff;
+}
+::-webkit-scrollbar-thumb{
+    background:#68a78d;
+    border: 3px solid #ffffff;
+    border-radius: 15px;
+}
+.root-touchsoft-dashboard_user-online {
+    width: 10px;
+    height: 10px;
+    background-color: #dd4871;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+}
+.root-touchsoft-dashboard_user-offline {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #91a39c;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    box-sizing: border-box;
+}
+.root-touchsoft-dashboard_user-have-new-message{
+    width: 20px;
+    height: 20px;
+    background: url(../img/message.png) no-repeat;
+    background-size: 20px;
+    position: absolute;
+    top: 28%;
+    right:30px;
+}
+.root-touchsoft-dashboard_active-user {
+    width: 700px;
+    border: none;
+    position: relative;
+}
+.root-touchsoft-dashboard_chat{
+    width: 300px;
+    height: 500px;
+    border: 1px solid #68a78d;
+    margin: 20px;
+    background: #68a78d;
+    border-radius: 5px;
+}
+.root-touchsoft-dashboard_chat-messages{
+    width: 250px;
+    height: 300px;
+    margin: 20px auto;
+    border: 1px solid white;
+    background: #ffffff;
+    overflow-y: scroll;
+    border-radius: 5px;
+    font: 14px "Gotham Book", sans serif;
+}
+.root-touchsoft-dashboard_input-message {
+    width: 250px;
+    height: 100px;
+    margin: 10px auto;
+    box-sizing: border-box;
+    border: none;
+}
+.root-touchsoft-dashboard_textarea-for-message{
+    width: 100%;
+    height: 100%;
+    resize: none;
+    outline: none;
+    border: 1px solid #68a78d;
+    border-radius: 5px;
+    box-sizing:border-box;
+    font: 14px "Made Evolve", sans serif;
+}
+.root-touchsoft-dashboard_send-button {
+    box-sizing:border-box;
+    width: 100px;
+    height: 40px;
+    margin: 10px auto;
+    border: 1px solid #68a78d;
+    text-align: center;
+    padding-top: 10px;
+    text-transform: uppercase;
+    font: 16px "Bitstream Vera Serif", sans-serif;
+    background: linear-gradient(180deg, #B87853, #ab6e50);
+    -webkit-box-shadow: inset -1px 0px 37px 0px #E59E5A;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.root-touchsoft-dashboard_send-button:hover{
+    -webkit-box-shadow: inset 0px 0px 0px 0px #FF9EB9;
+    transition:.4s;
+    font-size: 17px;
+}
+.root-touchsoft-dashboard_invisible-element{
+    visibility: hidden;
+}
+.root-touchsoft-dashboard_close-chat {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px dashed #dd4871;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background:#F6F6F6;
+    cursor: pointer;
+}
+.root-touchsoft-dashboard_close-chat:before{
+    position: absolute;
+    top: 3px;
+    right: 14px;
+    content: ' ';
+    height: 25px;
+    width: 2px;
+    background-color: #dd4871;
+    transform: rotate(45deg);
+}
+.root-touchsoft-dashboard_close-chat:after{
+    position: absolute;
+    top: 3px;
+    right: 14px;
+    content: ' ';
+    height: 25px;
+    width: 2px;
+    background-color: #dd4871;
+    transform: rotate(-45deg);
+}
+.root-touchsoft-dashboard_message-not-read{
+    color: #dd4871;
+}

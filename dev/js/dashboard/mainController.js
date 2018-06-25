@@ -27,10 +27,10 @@ function handleUrl(url) {
     closePreviousPage(hash);
 
 
-    getElement('a.' + mainConfig.NAVIGATION_ACTIVE_CSS, true).forEach(function (element) {
+    document.querySelectorAll('a.' + mainConfig.NAVIGATION_ACTIVE_CSS).forEach(function (element) {
         element.classList.remove(mainConfig.NAVIGATION_ACTIVE_CSS)
     });
-    getElement('a[href="' + hash + '"]', true).forEach(function (element) {
+    document.querySelectorAll('a[href="#' + hash + '"]').forEach(function (element) {
         element.classList.add(mainConfig.NAVIGATION_ACTIVE_CSS);
     });
 

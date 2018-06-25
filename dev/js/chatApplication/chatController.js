@@ -53,12 +53,10 @@ var chatController = (function () {
         )
     };
 
-    // INCLUDE
     ChatController.prototype.getHash = function getHash(str) {
         var date = new Date();
         return str + date.getTime();
     };
-    // INCLUDE
 
     // Если требуется ввести имя, получаем его и заносим юзера в бд
     ChatController.prototype.getUserNameFromInput = function () {
@@ -156,7 +154,6 @@ var chatController = (function () {
         }
     };
 
-    // INCLUDE
     // WORK WITH LOCAL STORAGE //
 
     ChatController.prototype.saveUserIdToLocalStorage = function saveUserIdToLocalStorage(userId) {
@@ -168,7 +165,6 @@ var chatController = (function () {
     };
 
     // WORK WITH LOCAL STORAGE //
-    // INCLUDE
 
     ChatController.prototype.setupIntervalFunctions = function () {
         var that = this;

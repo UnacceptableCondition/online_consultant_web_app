@@ -181,3 +181,6 @@ var chatController = (function () {
     return new ChatController();
 
 })();
+
+chatController.setup(mainConfig);
+chatController.startApp();

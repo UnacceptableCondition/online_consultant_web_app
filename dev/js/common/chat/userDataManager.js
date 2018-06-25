@@ -82,6 +82,7 @@ var userDataManager =  (function () {
     };
 
 
+
     UserDataManager.prototype.saveMessageToDataSource = function saveMessageToDataSource (messageObject) {
         if(messageObject.sender === this.config.currentUserSettings.userName) {
             console.log(messageObject.sender);

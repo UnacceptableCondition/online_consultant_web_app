@@ -27,6 +27,7 @@ var path = {
     },
     src: {
         html: 'dev/*.html',
+        chatJS: 'dev/js/chatApp.js',
         dashboardMainHTML: 'dev/html/dashboard/*.html',
         dashboardHTML: 'dev/html/dashboard/*.html',
         dashboardJS: 'dev/js/dashboardApp.js',
@@ -61,9 +62,9 @@ var config = {
 gulp.task('js:buildDashboard', function buildJS () {
     gulp.src(path.src.dashboardJS)
         .pipe(rigger()).on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
-        //.pipe(sourcemaps.init())
-        //.pipe(uglify()).on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
-       // .pipe(sourcemaps.write())
+        .pipe(sourcemaps.init())
+        .pipe(uglify()).on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.js))
         .pipe(reload({stream: true}));
 });
@@ -112,6 +113,21 @@ gulp.task("html:buildDashboard", function buildHTML () {
 
 
 gulp.task('dashboard:build', ['js:buildDashboard', 'style:buildDashboard','image:build', 'fonts:build', "html:buildDashboard"]);
+
+// CHAT APP
+gulp.task('js:buildChat', function buildJS () {
+    gulp.src(path.src.chatJS)
+        .pipe(rigger()).on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+        .pipe(sourcemaps.init())
+        .pipe(uglify()).on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(path.build.js))
+        .pipe(reload({stream: true}));
+});
+
+
+gulp.task('chat:build', ['js:buildChat']);
+
 
 
 

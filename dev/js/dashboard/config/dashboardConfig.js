@@ -73,7 +73,7 @@ var mainConfig = {
     ONLINE_INTERVAL: 120000,
 
 
-    ABOUT_HTML_PATH: "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/deploy/html/about.html",
+    ABOUT_HTML_PATH: "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/dev/html/dashboard/about.html",
     LAUNCHER_HTML_PATH: "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/dev/html/chatLauncher.html",
     DASHBOARD_HTML_PATH: "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/dev/html/dashboard.html",
     CONTENT_CLASS: "content",

@@ -2,15 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ca758c6-1d1f-4c80-826d-1bc8253ec648" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dev/dashboardMain.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dev/js/chatApp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dev/js/dashboard/about.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dev/js/dashboard/launcher.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dev/js/dashboardApp.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dashboardTest.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/old/chat.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/old/dashboardChatManager.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/old/dashboardConfig.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/old/dashboardController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/old/dashboardDataSource.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/old/dashboardSorter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/old/dashboardUsersManager.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/old/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/package.json" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/html/chat.html" afterPath="$PROJECT_DIR$/dev/html/chatApplication/chat.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/html/chatLauncher.html" afterPath="$PROJECT_DIR$/dev/html/dashboard/chatLauncher.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/html/dashboard.html" afterPath="$PROJECT_DIR$/dev/html/dashboard/dashboard.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/dashboard/dashboardController.js" afterPath="$PROJECT_DIR$/dev/js/dashboard/dashboard.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test.html" afterPath="$PROJECT_DIR$/Test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/html/chatLauncher.html" afterPath="$PROJECT_DIR$/dev/html/chatLauncher.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/chatApplication/chatController.js" afterPath="$PROJECT_DIR$/dev/js/chatApplication/chatController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/common/serviceFunctions/clearElementContent.js" afterPath="$PROJECT_DIR$/dev/js/common/serviceFunctions/clearElementContent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/common/viewFactory.js" afterPath="$PROJECT_DIR$/dev/js/common/viewFactory.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/css/chatLauncher.css" afterPath="$PROJECT_DIR$/dev/css/chatLauncher.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/css/dashboard.css" afterPath="$PROJECT_DIR$/dev/css/dashboard.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/common/chat/messageListManager.js" afterPath="$PROJECT_DIR$/dev/js/common/chat/messageListManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/common/chat/userDataManager.js" afterPath="$PROJECT_DIR$/dev/js/common/chat/userDataManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/common/config/commonConfig.js" afterPath="$PROJECT_DIR$/dev/js/common/config/commonConfig.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/common/dataSource/dataSource.js" afterPath="$PROJECT_DIR$/dev/js/common/dataSource/dataSource.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/dashboard/config/dashboardConfig.js" afterPath="$PROJECT_DIR$/dev/js/dashboard/config/dashboardConfig.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/dashboard/dashboardController.js" afterPath="$PROJECT_DIR$/dev/js/dashboard/dashboardController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/dashboard/mainController.js" afterPath="$PROJECT_DIR$/dev/js/dashboard/mainController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/dashboard/userList/dashboardUserListManager.js" afterPath="$PROJECT_DIR$/dev/js/dashboard/userList/dashboardUserListManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -25,21 +48,76 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dashboardController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dev/js/dashboard/dashboardController.js">
+      <file leaf-file-name="dashboardApp.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dev/js/dashboardApp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+            <state relative-caret-position="349">
+              <caret line="29" column="22" lean-forward="false" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
+      <file leaf-file-name="dataSource.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dev/js/common/dataSource/dataSource.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="2329">
+              <caret line="138" column="14" lean-forward="false" selection-start-line="138" selection-start-column="14" selection-end-line="138" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dataConnector.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dev/js/common/dataSource/dataConnector.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="836">
+              <caret line="53" column="27" lean-forward="false" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboardApp.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy/js/dashboardApp.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-20538">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1529908692474" expanded="true" signature="28:3129" ph="{&quot;ADMIN_NAME&quot;: &quot;Admin&quot;...}" />
+                <marker date="1529908692474" expanded="true" signature="42573:42581" ph="{...}" />
+                <marker date="1529908692474" expanded="true" signature="42573:42780" ph="{...}" />
+                <marker date="1529908692474" expanded="true" signature="42815:42955" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mainController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dev/js/dashboard/mainController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" column="57" lean-forward="false" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="about.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dev/html/dashboard/about.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-153">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="about.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dev/js/dashboard/about.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -48,78 +126,28 @@
       <file leaf-file-name="dashboardConfig.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dev/js/dashboard/config/dashboardConfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="64" column="23" lean-forward="false" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
+            <state relative-caret-position="227">
+              <caret line="78" column="29" lean-forward="false" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chatLauncher.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dev/html/chatLauncher.html">
+      <file leaf-file-name="dashboard.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dev/css/dashboard.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+            <state relative-caret-position="224">
+              <caret line="222" column="1" lean-forward="false" selection-start-line="222" selection-start-column="1" selection-end-line="222" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboardUserListManager.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dev/js/dashboard/userList/dashboardUserListManager.js">
+      <file leaf-file-name="dashboardMain.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dev/dashboardMain.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="36" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clearElementContent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dev/js/common/serviceFunctions/clearElementContent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userChatConfig.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dev/js/chatApplication/config/userChatConfig.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-272">
-              <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mainController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dev/js/dashboard/mainController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viewFactory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dev/js/common/viewFactory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Test.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Test.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="52" />
+            <state relative-caret-position="-153">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -137,12 +165,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>userIsOnline</find>
-      <find>updateUsers</find>
-      <find>activityNotify</find>
-      <find>saveUserSettingsToDataSource</find>
-      <find>markMessageFromUserAsRead</find>
-      <find>setMessageAsRead</find>
       <find>getMessageObjectsForMarkAsRead</find>
       <find>displayUsersList</find>
       <find>toggleNewMessageIndicatorToUser</find>
@@ -167,6 +189,12 @@
       <find>this.db</find>
       <find>view</find>
       <find>clear</find>
+      <find>clearUsersListDOM</find>
+      <find>this.config</find>
+      <find>usersList</find>
+      <find>this.DOM</find>
+      <find>dashboardController</find>
+      <find>this.dataConnector</find>
     </findStrings>
     <replaceStrings>
       <replace>MessagesManager</replace>
@@ -191,9 +219,11 @@
       <replace>DOM</replace>
       <replace>uDataManager</replace>
       <replace>uListManager</replace>
-      <replace>sorter</replace>
-      <replace>config</replace>
       <replace>dataSource</replace>
+      <replace>config</replace>
+      <replace>sorter</replace>
+      <replace>dashboard</replace>
+      <replace>dataConnector</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -202,25 +232,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dev/js/common/serviceFunctions/saveDataToLocalStorage.js" />
-        <option value="$PROJECT_DIR$/dev/js/common/userSettingsManager.js" />
-        <option value="$PROJECT_DIR$/dev/js/chatApplication/config/chatControllerConfig.js" />
-        <option value="$PROJECT_DIR$/dev/js/common/config/receivedMessageManagerConfig.js" />
-        <option value="$PROJECT_DIR$/dev/js/common/receivedMessageManager.js" />
-        <option value="$PROJECT_DIR$/dev/js/common/currentUserDataManager.js" />
-        <option value="$PROJECT_DIR$/dev/js/common/dispatchMessageManager.js" />
-        <option value="$PROJECT_DIR$/dev/js/common/serviceFunctions/getCurrentDate.js" />
-        <option value="$PROJECT_DIR$/dev/js/chatApplication/chatViewFactory.js" />
-        <option value="$PROJECT_DIR$/dev/js/test.js" />
-        <option value="$PROJECT_DIR$/dev/html/chat.html" />
-        <option value="$PROJECT_DIR$/dev/js/common/dataConnector.js" />
-        <option value="$PROJECT_DIR$/dev/js/common/dispatchDataManager.js" />
         <option value="$PROJECT_DIR$/dev/js/chatApplication/chatCustomizer.js" />
         <option value="$PROJECT_DIR$/dev/js/chat.js" />
         <option value="$PROJECT_DIR$/dev/js/common/messageListManager.js" />
         <option value="$PROJECT_DIR$/dev/dashboardTest.html" />
         <option value="$PROJECT_DIR$/dev/js/common/serviceFunctions/quickSort.js" />
-        <option value="$PROJECT_DIR$/dev/js/common/config/commonConfig.js" />
         <option value="$PROJECT_DIR$/dev/js/common/dataSource.js" />
         <option value="$PROJECT_DIR$/dev/js/common/serviceFunctions/setUserListCallback.js" />
         <option value="$PROJECT_DIR$/dev/js/common/config/setCurrentUserDataCallback.js" />
@@ -239,20 +255,34 @@
         <option value="$PROJECT_DIR$/Test.html" />
         <option value="$PROJECT_DIR$/dev/js/chatApplication/config/userChatConfig.js" />
         <option value="$PROJECT_DIR$/old/dashboardController.js" />
-        <option value="$PROJECT_DIR$/dev/js/common/chat/messageListManager.js" />
-        <option value="$PROJECT_DIR$/dev/js/common/chat/userDataManager.js" />
-        <option value="$PROJECT_DIR$/dev/js/dashboard/userList/dashboardUserListManager.js" />
         <option value="$PROJECT_DIR$/dashboardTest.html" />
         <option value="$PROJECT_DIR$/dev/js/chatApplication/viewFactory.js" />
         <option value="$PROJECT_DIR$/dev/html/dashboard.html" />
         <option value="$PROJECT_DIR$/dev/js/chatApplication/chatController.js" />
         <option value="$PROJECT_DIR$/dev/js/common/viewFactory.js" />
         <option value="$PROJECT_DIR$/dev/js/common/serviceFunctions/clearElementContent.js" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/dev/js/dashboard/dashboardController.js" />
-        <option value="$PROJECT_DIR$/dev/js/dashboard/mainController.js" />
-        <option value="$PROJECT_DIR$/dev/js/dashboard/config/dashboardConfig.js" />
         <option value="$PROJECT_DIR$/dev/html/chatLauncher.html" />
+        <option value="$PROJECT_DIR$/dev/js/dashboard/dashboardController.js" />
+        <option value="$PROJECT_DIR$/dev/js/common/config/commonConfig.js" />
+        <option value="$PROJECT_DIR$/dev/js/common/dataSource/dataSource.js" />
+        <option value="$PROJECT_DIR$/dev/js/dashboard/launcher.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/deploy/chatApp.html" />
+        <option value="$PROJECT_DIR$/deploy/js/chatApp.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/deploy/js/dashboard.js" />
+        <option value="$PROJECT_DIR$/deploy/js/main.js" />
+        <option value="$PROJECT_DIR$/deploy/dashboard.html" />
+        <option value="$PROJECT_DIR$/dev/js/dashboardApp.js" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/dev/js/dashboard/userList/dashboardUserListManager.js" />
+        <option value="$PROJECT_DIR$/dev/js/common/chat/messageListManager.js" />
+        <option value="$PROJECT_DIR$/dev/js/common/chat/userDataManager.js" />
+        <option value="$PROJECT_DIR$/dev/js/dashboard/about.js" />
+        <option value="$PROJECT_DIR$/dev/css/dashboard.css" />
+        <option value="$PROJECT_DIR$/dev/js/dashboard/config/dashboardConfig.js" />
+        <option value="$PROJECT_DIR$/dev/js/dashboard/mainController.js" />
       </list>
     </option>
   </component>
@@ -261,6 +291,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="325" />
@@ -283,7 +316,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -294,7 +326,18 @@
             <path>
               <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
               <item name="homework5" type="462c0819:PsiDirectoryNode" />
+              <item name="deploy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homework5" type="462c0819:PsiDirectoryNode" />
               <item name="dev" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homework5" type="462c0819:PsiDirectoryNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
@@ -306,66 +349,15 @@
               <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
               <item name="homework5" type="462c0819:PsiDirectoryNode" />
               <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homework5" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="chatApplication" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homework5" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="chatApplication" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homework5" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homework5" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="serviceFunctions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homework5" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
               <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homework5" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homework5" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="userList" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -376,11 +368,15 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Unaccaptable\Desktop\touchsoft\homework5\dev\js\common" />
-      <recent name="C:\Users\Unaccaptable\Desktop\touchsoft\homework5\old" />
-      <recent name="C:\Users\Unaccaptable\Desktop\touchsoft\homework5\dev\js\dashboard" />
-      <recent name="C:\Users\Unaccaptable\Desktop\touchsoft\homework5\dev\js\dashboard\userList" />
-      <recent name="C:\Users\Unaccaptable\Desktop\touchsoft\homework5\dev\js\common\dataSource" />
+      <recent name="C:\Users\Unaccaptable\Desktop\touchsoft\homework5\dev\html\dashboard" />
+      <recent name="C:\Users\Unaccaptable\Desktop\touchsoft\homework5\dev\css" />
+      <recent name="C:\Users\Unaccaptable\Desktop\touchsoft\homework5\dev\html\chatApplication" />
+      <recent name="C:\Users\Unaccaptable\Desktop\touchsoft\homework5\dev\css\chatApp" />
+      <recent name="C:\Users\Unaccaptable\Desktop\touchsoft\homework5\dev\css\dashboard" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Unaccaptable\Desktop\touchsoft\homework5\dev\css" />
+      <recent name="C:\Users\Unaccaptable\Desktop\touchsoft\homework5\dev" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -412,12 +408,13 @@
       <workItem from="1529593097375" duration="218000" />
       <workItem from="1529649262693" duration="36509000" />
       <workItem from="1529743179939" duration="39161000" />
-      <workItem from="1529825883727" duration="11627000" />
+      <workItem from="1529825883727" duration="31596000" />
+      <workItem from="1529906493180" duration="2190000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141958000" />
+    <option name="totallyTimeSpent" value="164117000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -430,15 +427,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31547618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31547618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -479,7 +475,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/dev/js/common/chat/userDataManager.js</url>
-          <line>81</line>
+          <line>61</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -488,196 +484,20 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dev/js/common/config/alias.js" />
-    <entry file="file://$PROJECT_DIR$/dev/js/common/config/dataSourceConfig.js" />
-    <entry file="file://$PROJECT_DIR$/dev/js/common/config/dataConnectorConfig.js" />
-    <entry file="file://$PROJECT_DIR$/dev/js/chatApplication/config/dispatchMessageManagerConfig.js" />
-    <entry file="file://$PROJECT_DIR$/dev/js/chatApplication/config/chatControllerConfig.js" />
-    <entry file="file://$PROJECT_DIR$/dev/js/chatApplication/config/innerChatViewConfig.js" />
-    <entry file="file://$PROJECT_DIR$/dev/js/chatApplication/config/messageListManagerConfig.js" />
-    <entry file="file://$PROJECT_DIR$/old/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old/dashboardSorter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="55" column="5" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="55" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/chatTests.js" />
-    <entry file="file://$PROJECT_DIR$/dev/js/dashboardTests.js" />
-    <entry file="file://$PROJECT_DIR$/dev/js/chatLauncher.js" />
-    <entry file="file://$PROJECT_DIR$/dev/css/chat.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/html/chat.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="31" column="26" lean-forward="false" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/css/dashboard.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2262">
-          <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/css/dashboard.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/common/dataSource/dataConnector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="3" column="69" lean-forward="false" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/common/callback.js" />
-    <entry file="file://$PROJECT_DIR$/dev/js/common/sorter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="55" column="5" lean-forward="false" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/common/callback/setUserListCallback.js" />
-    <entry file="file://$PROJECT_DIR$/dev/js/common/dataSource/dataSource.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="43" lean-forward="false" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/common/config/commonConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="42" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/dashboard/dashboardDataManager.js" />
     <entry file="file://$PROJECT_DIR$/dev/js/common/callback/setMessageListCallback.js" />
     <entry file="file://$PROJECT_DIR$/dev/js/common/callback/setCurrentUserDataCallback.js" />
     <entry file="file://$PROJECT_DIR$/dev/js/common/chat/dispatchDataManager.js" />
-    <entry file="file://$PROJECT_DIR$/dev/js/common/serviceFunctions/createMessageObject.js">
+    <entry file="file://$PROJECT_DIR$/old/dashboardDataSource.js" />
+    <entry file="file://$PROJECT_DIR$/old/dashboardUsersManager.js" />
+    <entry file="file://$PROJECT_DIR$/old/dashboardConfig.js" />
+    <entry file="file://$PROJECT_DIR$/old/dashboardChatManager.js" />
+    <entry file="file://$PROJECT_DIR$/old/chat.js" />
+    <entry file="file://$PROJECT_DIR$/old/dashboardController.js" />
+    <entry file="file://$PROJECT_DIR$/dev/js/common/config/commonConfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old/dashboardDataSource.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="61" column="5" lean-forward="false" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old/dashboardUsersManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-103">
-          <caret line="7" column="3" lean-forward="false" selection-start-line="7" selection-start-column="3" selection-end-line="21" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old/dashboardConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="26" column="4" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old/dashboardChatManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="8" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old/chat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6698">
-          <caret line="394" column="99" lean-forward="false" selection-start-line="394" selection-start-column="11" selection-end-line="394" selection-end-column="99" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/common/serviceFunctions/getCurrentDate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/common/chat/messageListManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-848">
-          <caret line="67" column="78" lean-forward="false" selection-start-line="67" selection-start-column="78" selection-end-line="67" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/common/chat/userDataManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-486">
-          <caret line="60" column="49" lean-forward="false" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old/dashboardController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="198" column="52" lean-forward="false" selection-start-line="198" selection-start-column="34" selection-end-line="198" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/html/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/chatApplication/chatCustomizer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="80" column="6" lean-forward="false" selection-start-line="80" selection-start-column="6" selection-end-line="80" selection-end-column="6" />
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -690,90 +510,276 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboardTest.html">
+    <entry file="file://$PROJECT_DIR$/dev/js/chatApplication/chatCustomizer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="60" column="6" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="60" selection-end-column="6" />
+        <state relative-caret-position="549">
+          <caret line="80" column="6" lean-forward="false" selection-start-line="80" selection-start-column="6" selection-end-line="80" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/common/serviceFunctions/clearElementContent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="1" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboardTest.html" />
+    <entry file="file://$PROJECT_DIR$/Test.html" />
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/chatApp.html" />
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="30" column="20" lean-forward="false" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/js/dashboard.js" />
+    <entry file="file://$PROJECT_DIR$/deploy/css/dashboard.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/css/chat.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/html/dashboard/chatLauncher.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-321">
+          <caret line="17" column="68" lean-forward="false" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/html/dashboard/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/css/chatLauncher.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/chatApplication/config/userChatConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-290">
+          <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/dashboard.html" />
+    <entry file="file://$PROJECT_DIR$/dev/html/chatApplication/chat.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="26" lean-forward="false" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/css/chatLauncher.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/common/viewFactory.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+          <caret line="12" column="35" lean-forward="false" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/chatApplication/config/userChatConfig.js">
+    <entry file="file://$PROJECT_DIR$/dev/js/dashboard/launcher.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-272">
-          <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+        <state relative-caret-position="254">
+          <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/common/serviceFunctions/clearElementContent.js">
+    <entry file="file://$PROJECT_DIR$/deploy/dashboardMain.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test.html">
+    <entry file="file://$PROJECT_DIR$/dev/js/chatApp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="52" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/dashboard/dashboardController.js">
+    <entry file="file://$PROJECT_DIR$/dev/js/dashboard/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+        <state relative-caret-position="349">
+          <caret line="262" column="26" lean-forward="false" selection-start-line="262" selection-start-column="26" selection-end-line="262" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="65" column="9" lean-forward="false" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/dashboard/userList/dashboardUserListManager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="36" selection-end-column="6" />
+        <state relative-caret-position="1666">
+          <caret line="116" column="0" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/dashboard/mainController.js">
+    <entry file="file://$PROJECT_DIR$/dev/js/common/chat/messageListManager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="48" />
+        <state relative-caret-position="-844">
+          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/common/serviceFunctions/createMessageObject.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/common/serviceFunctions/getCurrentDate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/common/chat/userDataManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1391">
+          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/common/dataSource/dataSource.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2329">
+          <caret line="138" column="14" lean-forward="false" selection-start-line="138" selection-start-column="14" selection-end-line="138" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/common/dataSource/dataConnector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="53" column="27" lean-forward="false" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/js/dashboardApp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-20538">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1529908692474" expanded="true" signature="28:3129" ph="{&quot;ADMIN_NAME&quot;: &quot;Admin&quot;...}" />
+            <marker date="1529908692474" expanded="true" signature="42573:42581" ph="{...}" />
+            <marker date="1529908692474" expanded="true" signature="42573:42780" ph="{...}" />
+            <marker date="1529908692474" expanded="true" signature="42815:42955" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/dashboard/about.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/css/dashboard.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="222" column="1" lean-forward="false" selection-start-line="222" selection-start-column="1" selection-end-line="222" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/dashboardMain.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/dashboardApp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="29" column="22" lean-forward="false" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/dashboard/config/dashboardConfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="64" column="23" lean-forward="false" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
+        <state relative-caret-position="227">
+          <caret line="78" column="29" lean-forward="false" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/html/chatLauncher.html">
+    <entry file="file://$PROJECT_DIR$/dev/js/dashboard/mainController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        <state relative-caret-position="493">
+          <caret line="29" column="57" lean-forward="false" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/html/dashboard/about.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

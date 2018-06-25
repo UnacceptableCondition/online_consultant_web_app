@@ -1,13 +1,42 @@
 {
-  "name": "UnacceptableCondition",
+  "name": "homework5",
   "version": "1.0.0",
   "description": "",
-  "main": "bind.js",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UnacceptableCondition/online_consultant_web_app.git"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
-
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UnacceptableCondition/online_consultant_web_app/issues"
+  },
+  "homepage": "https://github.com/UnacceptableCondition/online_consultant_web_app#readme",
+  "dependencies": {
+    "browser-sync": "^2.24.4",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-connect": "^5.5.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.3.0",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
+    "gulp-uncss": "^1.0.6",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^5.0.0",
+    "imagemin-pngquant": "^5.1.0",
+    "rimraf": "^2.6.2"
+  }
 }

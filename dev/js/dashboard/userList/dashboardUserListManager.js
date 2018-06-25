@@ -1,4 +1,4 @@
-var userListManager = (function createUserList (config) {
+var userListManager = (function createUserList (config, sorter) {
     //  ////////////////////////////////////////////////////////////////////////
     /* Формат объекта в списке юзера
       * userId: "Ivan300000",
@@ -18,23 +18,7 @@ var userListManager = (function createUserList (config) {
         this.uList = {};
     }
 
-    UserListManager.prototype.setup = function (configObj, sorterObj) {
-        this.config = configObj;
-        this.sorter = sorterObj;
-        this.DOM = {
-            usersList: getElement(
-                this.config.DOM.USER_LIST_CSS_CLASS
-            )
-        };
-    };
-
-
-    // Очищает DOM содержащий элементы списка юзеров
-    UserListManager.prototype.clearUsersListDOM = function clearUsersList() {
-        while (this.DOM.usersList.firstChild) {
-            this.DOM.usersList.removeChild(this.DOM.usersList.firstChild);
-        }
-    };
+    UserListManager.prototype.setup = function () {};
 
     // Создает DOM елемент для отображения юзера в списке
     UserListManager.prototype.createUserElement = function createUserElement(
@@ -45,15 +29,15 @@ var userListManager = (function createUserList (config) {
         var userIdDiv = document.createElement("div");
         var userIndicator = document.createElement("div");
 
-        userDiv.classList.add(this.config.USER_ELEMENT_CSS_CLASS);
+        userDiv.classList.add(config.USER_ELEMENT_CSS_CLASS);
 
-        userIdDiv.classList.add(this.config.USER_ID_ELEMENT_CSS_CLASS);
+        userIdDiv.classList.add(config.USER_ID_ELEMENT_CSS_CLASS);
         userIdDiv.innerHTML = userId;
 
         if (isOnline) {
-            userIndicator.classList.add(this.config.USER_INDICATOR_CSS_CLASS_ONLINE);
+            userIndicator.classList.add(config.USER_INDICATOR_CSS_CLASS_ONLINE);
         } else {
-            userIndicator.classList.add(this.config.USER_INDICATOR_CSS_CLASS_OFFLINE);
+            userIndicator.classList.add(config.USER_INDICATOR_CSS_CLASS_OFFLINE);
         }
 
         userDiv.appendChild(userIdDiv);
@@ -102,7 +86,7 @@ var userListManager = (function createUserList (config) {
     // возвращает true если юзер онлайн, false - оффлайн
     UserListManager.prototype.userIsOnline = function userIsOnline (lastUserOnlineTime) {
         var date = new Date();
-        return date.getTime() - lastUserOnlineTime <= this.config.ONLINE_INTERVAL;
+        return date.getTime() - lastUserOnlineTime <= config.ONLINE_INTERVAL;
     };
 
     // Делает невидимыми тех пользователей в списке, в именах которых нет переданной подстроки
@@ -114,20 +98,25 @@ var userListManager = (function createUserList (config) {
 
     // Сортирует список юзеров по полю
     UserListManager.prototype.sortUsersByField = function sortUsersByOnline() {
-        this.sorter.quickSort(this.uList, 0, this.uList.length - 1, config.currentDashboardCondition.sortBy);
+        sorter.quickSort(this.uList, 0, this.uList.length - 1, config.currentDashboardCondition.sortBy);
     };
 
     // Отобразить/ Обновить представление юзеров на странице
     UserListManager.prototype.displayUsers = function displayUsers() {
-        var that = this;
-        this.clearUsersListDOM();
+        clearElementContent(config.DOM.USER_LIST_CSS_CLASS);
         this.uList.forEach(function getElem (elem) {
             if (elem.visible) {
-                that.DOM.usersList.appendChild(elem.userElement);
+                getElement(config.DOM.USER_LIST_CSS_CLASS).appendChild(elem.userElement);
             }
         });
     };
 
+
+
+    // include
+
+    //= ../../common/serviceFunctions/clearElementContent.js
+
     return new UserListManager()
 
-})(mainConfig);
+})(mainConfig, sorter);

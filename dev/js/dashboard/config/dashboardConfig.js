@@ -15,6 +15,17 @@ var mainConfig = {
 
     },
 
+    launcher: {
+        pattern: "touchsoft_chat-launcher_",
+        after : [
+            "chatTitle", "chatUrl", "chatClass", "chatPositionSelect",
+            "allowMinimize", "allowDrag", "requireName", "showTime", "networkRadioXMR",
+            "networkRadioFetch", "scriptCode"
+        ],
+        srcStart: "&ltscript src='https://rawgit.com/UnacceptableCondition/Homework_2/master/js/chat.js?title='",
+        srcEnd:  "'&gt&lt/script&gt"
+    },
+
     ADMIN_NAME: "Admin",
 
     // класс в котором будем отображать сообщения
@@ -62,7 +73,10 @@ var mainConfig = {
     ONLINE_INTERVAL: 120000,
 
 
-    LAUNCHER_HTML_PATH:
+    ABOUT_HTML_PATH: "",
+    LAUNCHER_HTML_PATH: "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/dev/html/chatLauncher.html",
     DASHBOARD_HTML_PATH: "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/dev/html/dashboard.html",
-    CONTENT_CLASS: "content"
+    CONTENT_CLASS: "content",
+
+    NAVIGATION_ACTIVE_CSS: "navigation-active"
 };

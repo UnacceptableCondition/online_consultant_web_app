@@ -12,12 +12,14 @@ var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 var rimraf = require('rimraf');
 var browserSync = require("browser-sync");
+var gutil = require('gulp-util');
 
 var reload = browserSync.reload;
 
 var path = {
     build: {
         html: 'deploy/',
+        htmlTemplates: 'deploy/html/',
         js: 'deploy/js/',
         css: 'deploy/css/',
         img: 'deploy/img/',
@@ -25,10 +27,13 @@ var path = {
     },
     src: {
         html: 'dev/*.html',
-        js: 'dev/js/main.js',
-        style: 'dev/style/main.scss',
-        img: 'dev/img/**/*.*',
-        fonts: 'dev/fonts/**/*.*'
+        dashboardMainHTML: 'dev/html/dashboard/*.html',
+        dashboardHTML: 'dev/html/dashboard/*.html',
+        dashboardJS: 'dev/js/dashboardApp.js',
+        dashboardCss: 'dev/css/dashboard/*.css',
+        style: 'dev/css/*.css',
+        img: 'dev/img/*.*',
+        fonts: 'dev/fonts/*.*'
     },
     watch: {
         html: 'dev/**/*.html',
@@ -51,26 +56,19 @@ var config = {
 };
 
 
+// DASHBOARD
 
-gulp.task("html:build", function buildHTML () {
-    gulp.src(path.src.html)
-        .pipe(rigger())
-        .pipe(gulp.dest(path.build.html))
-        .pipe(reload({stream: true}));
-});
-
-
-gulp.task('js:build', function buildJS () {
-    gulp.src(path.src.js)
-        .pipe(rigger())
-        .pipe(sourcemaps.init())
-        .pipe(uglify())
-        .pipe(sourcemaps.write())
+gulp.task('js:buildDashboard', function buildJS () {
+    gulp.src(path.src.dashboardJS)
+        .pipe(rigger()).on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+        //.pipe(sourcemaps.init())
+        //.pipe(uglify()).on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+       // .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.js))
         .pipe(reload({stream: true}));
 });
 
-gulp.task('style:build', function buildStyles () {
+gulp.task('style:buildDashboard', function buildStyles () {
     gulp.src(path.src.style)
         .pipe(sourcemaps.init())
         .pipe(sass())
@@ -97,6 +95,27 @@ gulp.task('fonts:build', function buildFonts () {
     gulp.src(path.src.fonts)
         .pipe(gulp.dest(path.build.fonts))
 });
+
+
+gulp.task("html:buildDashboard", function buildHTML () {
+    gulp.src(path.src.dashboardHTML)
+        .pipe(rigger())
+        .pipe(gulp.dest(path.build.htmlTemplates))
+        .pipe(reload({stream: true}));
+
+    gulp.src(path.src.html)
+        .pipe(rigger())
+        .pipe(gulp.dest(path.build.html))
+        .pipe(reload({stream: true}));
+
+});
+
+
+gulp.task('dashboard:build', ['js:buildDashboard', 'style:buildDashboard','image:build', 'fonts:build', "html:buildDashboard"]);
+
+
+
+// SERVER //
 
 gulp.task('watch', function watches (){
     watch([path.watch.html], function watchHTML () {

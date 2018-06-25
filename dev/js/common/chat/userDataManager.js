@@ -3,30 +3,10 @@ var userDataManager =  (function () {
     }
 
     // INCLUDE
-    function getCurrentDate() {
-        var date = new Date();
-        var minutes = (date.getMinutes().toString().length === 1) ? "0" + date.getMinutes() : date.getMinutes();
-        return date
-            .getHours()
-            .toString()
-            .concat(":", minutes);
-    }
 
-    function createMessageObject (
-        message,
-        date,
-        sender,
-        isRead,
-        id
-    ) {
-        return {
-            sender: sender,
-            message: message,
-            read: isRead,
-            date: date,
-            id: id
-        };
-    }
+    //= ../serviceFunctions/getCurrentDate.js
+    //= ../serviceFunctions/createMessageObject.js
+
     // INCLUDE
 
     UserDataManager.prototype.setup = function setup (configObj) {

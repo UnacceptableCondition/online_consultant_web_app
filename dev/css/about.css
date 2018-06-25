@@ -1,0 +1,77 @@
+@font-face {
+    font-family: Serdolic;
+    src: url(../fonts/Serdolic.ttf)
+}
+
+.root-touchsoft-about{
+    width: 1050px;
+    height: 600px;
+    border: none;
+    color: #fff;
+    font: 14px Serdolic, sans-serif;
+    position: relative;
+    background: #f0d8b0;
+}
+.root-touchsoft-about-wrapper{
+    display: grid;
+    grid-template-columns: 400px 400px;
+    grid-template-rows: 350px 200px 50px;
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    background: url(../img/bg-about.jpg) no-repeat center top / cover;
+}
+.root-touchsoft-about-general-information{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    padding: 30px;
+}
+.root-touchsoft-about-named{
+    text-align: center;
+    text-transform: uppercase;
+}
+.root-touchsoft-about-text{
+    text-align: justify;
+}
+.root-touchsoft-about-text_indent{
+    display: block;
+    text-indent: 70px;
+}
+.root-touchsoft-about-contacts{
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    text-align: right;
+    padding: 30px;
+}
+.root-touchsoft-about-contacts-name{
+    line-height: 12px;
+}
+.root-touchsoft-about-social-networks{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    height:50px;
+    background: #68a78d;
+    box-sizing: border-box;
+}
+.root-touchsoft-about-sprite{
+    display: inline-flex;
+    width: 50px;
+    height: 50px;
+    background: url(../img/networks.png) no-repeat;
+    background-size: 190px;
+}
+.root-touchsoft-about-social-networks-dribbble{
+    background-position: -45px 0;
+}
+.root-touchsoft-about-social-networks-linkedin{
+    background-position: -91px 0;
+}
+.root-touchsoft-about-social-networks-twitter{
+    background-position: -140px 0;
+}

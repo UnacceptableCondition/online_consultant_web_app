@@ -88,7 +88,6 @@ var messageListManager = (function setupMessageListManager () {
 
     MessageListManager.prototype.createMessageContainerDiv = function createMessageContainerDiv (isRead, sender) {
         var messageContainerDiv = document.createElement("div");
-        // console.log([isRead, sender, this.config.CURRENT_USER_NAME]);
         if (!isRead && this.config.currentUserSettings.userName !== sender) {
             messageContainerDiv.classList.add(this.config.CSS_USER_NOT_READ_MESSAGES);
         }

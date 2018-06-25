@@ -1,11 +1,11 @@
 // Модуль для получения данных
 // Все API функции возвращают промисы
-var dataSource = (function createDataSource () {
+var dataSource = (function createDataSource (dataConnector) {
     var dataSourceInstance;
     var dataSourceAPI;
 
     function DataSource() {
-        this.dataConnector = dataConnector;
+        dataConnector = dataConnector;
     }
 
     DataSource.prototype.createRequestPath = function createRequestPath(
@@ -25,7 +25,7 @@ var dataSource = (function createDataSource () {
     };
 
     DataSource.prototype.getHTML = function getHTML (requestPath) {
-        return this.dataConnector.request(
+        return dataConnector.request(
             requestPath,
             null,
             "GET", 'application/x-www-form-urlencoded; charset=UTF-8'
@@ -38,7 +38,7 @@ var dataSource = (function createDataSource () {
     DataSource.prototype.getUserData = function getUserData(userId) {
         var userData = {};
         var requestPath = this.createRequestPath(dataBaseUrl, userId, null);
-        return this.dataConnector
+        return dataConnector
             .request(requestPath, null, "GET", "application/json")
             .then(function setUserData(data) {
                 if (data) {
@@ -59,7 +59,7 @@ var dataSource = (function createDataSource () {
         fieldName
     ) {
         var requestPath = this.createRequestPath(dataBaseUrl, userId, fieldName);
-        return this.dataConnector.request(
+        return dataConnector.request(
             requestPath,
             null,
             "GET",
@@ -74,7 +74,7 @@ var dataSource = (function createDataSource () {
         value
     ) {
         var requestPath = this.createRequestPath(dataBaseUrl, userId, fieldName);
-        return this.dataConnector.request(
+        return dataConnector.request(
             requestPath,
             JSON.stringify(value),
             "PUT",
@@ -97,7 +97,7 @@ var dataSource = (function createDataSource () {
                 itIsRead: messageObject.read
             }
         );
-        return this.dataConnector.request(
+        return dataConnector.request(
             requestPath,
             jsonMessage,
             "POST",
@@ -111,7 +111,7 @@ var dataSource = (function createDataSource () {
     DataSource.prototype.getAllUsers = function getAllUsers() {
         var usersDataList = {};
         var requestPath = this.createRequestPath(dataBaseUrl, null, null);
-        return this.dataConnector
+        return dataConnector
             .request(requestPath, null, "GET", "application/json")
             .then(function setUsersList(data) {
                 if (data) {
@@ -153,4 +153,4 @@ var dataSource = (function createDataSource () {
     };
 
     return dataSourceAPI;
-})();
+})(dataConnector);

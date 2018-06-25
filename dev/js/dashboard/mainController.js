@@ -1,12 +1,21 @@
-var matches = {
+var matchesHtmlPath = {
     dashboard: mainConfig.DASHBOARD_HTML_PATH,
-    configuration: mainConfig.LAUNCHER_HTML_PATH
+    configuration: mainConfig.LAUNCHER_HTML_PATH,
+    about: mainConfig.ABOUT_HTML_PATH
 };
+
 
 var closeFunctions = {
-    dashboard: dashboardController.closeApp
+    dashboard: dashboard.closeApp.bind(dashboard),
+    configuration: launcher.closeApp.bind(launcher),
+    about: about.closeApp.bind(about)
 };
 
+var startFunctions = {
+    dashboard: dashboard.startApp.bind(dashboard),
+    configuration: launcher.startApp.bind(launcher),
+    about: about.startApp.bind(about)
+};
 
 // Создать обработчик URL
 function handleUrl(url) {
@@ -15,24 +24,24 @@ function handleUrl(url) {
         return
     }
     hash = url.split('#').pop();
-    closePreviosPage(hash);
+    closePreviousPage(hash);
 
 
-    getElement('a.active', true).forEach(function (element) {
-        element.classList.remove('active')
+    getElement('a.' + mainConfig.NAVIGATION_ACTIVE_CSS, true).forEach(function (element) {
+        element.classList.remove(mainConfig.NAVIGATION_ACTIVE_CSS)
     });
     getElement('a[href="' + hash + '"]', true).forEach(function (element) {
-        element.classList.add('active');
+        element.classList.add(mainConfig.NAVIGATION_ACTIVE_CSS);
     });
 
     clearElementContent(mainConfig.CONTENT_CLASS);
-    viewFactory.createView(matches[hash], null, mainConfig.CONTENT_CLASS).then(function () {
-        dashboardController.startApp();
+    viewFactory.createView(matchesHtmlPath[hash], null, mainConfig.CONTENT_CLASS).then(function () {
+         startFunctions[hash]();
     });
 
 }
 
-function closePreviosPage(hash) {
+function closePreviousPage(hash) {
      Object.keys(closeFunctions).map(function (key) {
          if(key !== hash) {
              closeFunctions[key]();
@@ -46,4 +55,4 @@ window.addEventListener('hashchange', function (element) {
 });
 
 // При загрузке страницы - считать состояние и запустить обработчик
-handleUrl(window.location.href);
+handleUrl(window.location.href + "#dashboard");

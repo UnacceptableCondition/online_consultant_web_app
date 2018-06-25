@@ -1,4 +1,4 @@
-var dashboardController = (function createController(config, dataSource, uDataManager, uListManager, sorter){
+var dashboard = (function createController(config, dataSource, uDataManager, uListManager, sorter){
 
     var intervalId = [];
 

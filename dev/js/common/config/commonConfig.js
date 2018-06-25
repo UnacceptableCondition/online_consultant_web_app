@@ -1,10 +1,11 @@
 var dataBaseUrl = mainConfig.DATA_BASE_URL;
 
-var getElement = function getElementFromDOM (selector, isAll) {
+var getElement = function getElementFromDOM (selector, isAll, itIsId) {
+    var selectorStart = (itIsId) ? "#" : ".";
     if(isAll) {
-        return document.querySelectorAll("." + selector);
+        return document.querySelectorAll(selectorStart + selector);
     }
-    return document.querySelector("." + selector);
+    return document.querySelector(selectorStart + selector);
 };
 
 

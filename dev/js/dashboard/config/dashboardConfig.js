@@ -67,11 +67,10 @@ var mainConfig = {
     // Css класс для элеменат с сообщение, если юзер не прочитал сообщения
     CSS_USER_NOT_READ_MESSAGES: "root-touchsoft-dashboard_message-not-read",
 
-    DATA_BASE_URL: "https://touchsoftchatproject.firebaseio.com",
+    DATA_BASE_URL: "https://onlineconsultantwebapp.firebaseio.com",
 
     UPDATE_USERS_TIME: 5000,
     ONLINE_INTERVAL: 120000,
-
 
     ABOUT_HTML_PATH: "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/dev/html/dashboard/about.html",
     LAUNCHER_HTML_PATH: "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/dev/html/chatLauncher.html",

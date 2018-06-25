@@ -22,8 +22,7 @@ var mainConfig = {
     },
 
     // dataSource
-    DATA_BASE_URL: "https://touchsoftchatproject.firebaseio.com",
-    // ПОПРАВИТЬ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    DATA_BASE_URL: "https://onlineconsultantwebapp.firebaseio.com",
 
 
     // userDataManager
@@ -64,9 +63,9 @@ var mainConfig = {
     // chatViewConfig
     // откуда загружает html и css чата
     HTML_FILE_PATH:
-        "https://rawgit.com/UnacceptableCondition/Homework_2/master/html/chat.html",
+        "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/dev/html/chatApplication/chat.html",
     CSS_FILE_PATH:
-        "https://rawgit.com/UnacceptableCondition/Homework_2/master/css/chat.css",
+        "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/dev/css/chat.css",
 
     // messageListManagerConfig
     // Css класс для элеменат с сообщение, если юзер не прочитал сообщения

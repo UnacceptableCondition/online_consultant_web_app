@@ -54,11 +54,11 @@ var mainConfig = {
     },
     router: {
         // URL загрузки страницы about
-        ABOUT_HTML_PATH: "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/dev/html/dashboard/about.html",
+        ABOUT_HTML_PATH: "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/app/html/dashboard/about.html",
         // URL загрузки страницы configuration
-        LAUNCHER_HTML_PATH: "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/dev/html/dashboard/chatLauncher.html",
+        LAUNCHER_HTML_PATH: "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/app/html/dashboard/chatLauncher.html",
         // URL загрузки страницы dashboard
-        DASHBOARD_HTML_PATH: "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/dev/html/dashboard/dashboard.html",
+        DASHBOARD_HTML_PATH: "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/app/html/dashboard/dashboard.html",
         // Css класс элемента, в который загружается необходимая часть страницы
         CONTENT_CLASS: "content",
         // Css класс, отмечающий активную страницу в панели навигации

@@ -2,59 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ca758c6-1d1f-4c80-826d-1bc8253ec648" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test/Tests.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/common/serviceFunctions/getHash.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/dashboard/launcher.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dev/chatDev.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dev/js/dashboard/launcher.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/css/about.css" afterPath="$PROJECT_DIR$/app/css/about.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/css/chat.css" afterPath="$PROJECT_DIR$/app/css/chat.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/css/chatLauncher.css" afterPath="$PROJECT_DIR$/app/css/chatLauncher.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/css/dashboard.css" afterPath="$PROJECT_DIR$/app/css/dashboard.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/dashboardMain.html" afterPath="$PROJECT_DIR$/app/dashboardMain.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/fonts/Bitstream-Vera-Serif.ttf" afterPath="$PROJECT_DIR$/app/fonts/Bitstream-Vera-Serif.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/fonts/Gotham-Book.ttf" afterPath="$PROJECT_DIR$/app/fonts/Gotham-Book.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/fonts/Lato-Bold.ttf" afterPath="$PROJECT_DIR$/app/fonts/Lato-Bold.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/fonts/Made-evolve-sans-medium.otf" afterPath="$PROJECT_DIR$/app/fonts/Made-evolve-sans-medium.otf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/fonts/SeasideResortNF.ttf" afterPath="$PROJECT_DIR$/app/fonts/SeasideResortNF.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/fonts/Serdolic.ttf" afterPath="$PROJECT_DIR$/app/fonts/Serdolic.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/fonts/mont-heavy-demo.ttf" afterPath="$PROJECT_DIR$/app/fonts/mont-heavy-demo.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/html/chatApplication/chat.html" afterPath="$PROJECT_DIR$/app/html/chatApplication/chat.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/html/dashboard/about.html" afterPath="$PROJECT_DIR$/app/html/dashboard/about.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/html/dashboard/chatLauncher.html" afterPath="$PROJECT_DIR$/app/html/dashboard/chatLauncher.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/html/dashboard/dashboard.html" afterPath="$PROJECT_DIR$/app/html/dashboard/dashboard.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/img/bg-about.jpg" afterPath="$PROJECT_DIR$/app/img/bg-about.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/img/message.png" afterPath="$PROJECT_DIR$/app/img/message.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/img/networks.png" afterPath="$PROJECT_DIR$/app/img/networks.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/chatApp.js" afterPath="$PROJECT_DIR$/app/js/chatApp.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/chatApplication/chatController.js" afterPath="$PROJECT_DIR$/app/js/chatApplication/chatController.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/chatApplication/chatCustomizer.js" afterPath="$PROJECT_DIR$/app/js/chatApplication/chatCustomizer.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/chatApplication/config/userChatConfig.js" afterPath="$PROJECT_DIR$/app/js/chatApplication/config/userChatConfig.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/common/chat/messageListManager.js" afterPath="$PROJECT_DIR$/app/js/common/chat/messageListManager.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/common/chat/userDataManager.js" afterPath="$PROJECT_DIR$/app/js/common/chat/userDataManager.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/common/config/commonConfig.js" afterPath="$PROJECT_DIR$/app/js/common/config/commonConfig.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/common/dataSource/dataConnector.js" afterPath="$PROJECT_DIR$/app/js/common/dataSource/dataConnector.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/common/dataSource/dataSource.js" afterPath="$PROJECT_DIR$/app/js/common/dataSource/dataSource.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/common/serviceFunctions/clearElementContent.js" afterPath="$PROJECT_DIR$/app/js/common/serviceFunctions/clearElementContent.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/common/serviceFunctions/createMessageObject.js" afterPath="$PROJECT_DIR$/app/js/common/serviceFunctions/createMessageObject.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/common/serviceFunctions/getCurrentDate.js" afterPath="$PROJECT_DIR$/app/js/common/serviceFunctions/getCurrentDate.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/common/sorter.js" afterPath="$PROJECT_DIR$/app/js/common/sorter.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/common/viewFactory.js" afterPath="$PROJECT_DIR$/app/js/common/viewFactory.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/dashboard/about.js" afterPath="$PROJECT_DIR$/app/js/dashboard/about.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/dashboard/config/dashboardConfig.js" afterPath="$PROJECT_DIR$/app/js/dashboard/config/dashboardConfig.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/dashboard/dashboard.js" afterPath="$PROJECT_DIR$/app/js/dashboard/dashboard.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/dashboard/mainController.js" afterPath="$PROJECT_DIR$/app/js/dashboard/mainController.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/dashboard/userList/dashboardUserListManager.js" afterPath="$PROJECT_DIR$/app/js/dashboard/userList/dashboardUserListManager.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/dashboardApp.js" afterPath="$PROJECT_DIR$/app/js/dashboardApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test/Tests.html" afterPath="$PROJECT_DIR$/Test/Tests.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/dashboardMain.html" afterPath="$PROJECT_DIR$/app/dashboardMain.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/dashboard/config/dashboardConfig.js" afterPath="$PROJECT_DIR$/app/js/dashboard/config/dashboardConfig.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/chat.html" afterPath="$PROJECT_DIR$/deploy/chat.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/dashboardMain.html" afterPath="$PROJECT_DIR$/deploy/dashboardMain.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/html/chatLauncher.html" afterPath="$PROJECT_DIR$/deploy/html/chatLauncher.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/js/chatApp.js" afterPath="$PROJECT_DIR$/deploy/js/chatApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/js/dashboardApp.js" afterPath="$PROJECT_DIR$/deploy/js/dashboardApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -78,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tests.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Tests.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Test/Tests.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="27" column="56" lean-forward="false" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+            <state relative-caret-position="17">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -101,8 +53,8 @@
       <file leaf-file-name="test.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Test/test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="369" column="66" lean-forward="false" selection-start-line="369" selection-start-column="66" selection-end-line="369" selection-end-column="66" />
+            <state relative-caret-position="93">
+              <caret line="260" column="30" lean-forward="true" selection-start-line="260" selection-start-column="30" selection-end-line="260" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -111,18 +63,38 @@
       <file leaf-file-name="dashboardMain.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/dashboardMain.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="42" />
+            <state relative-caret-position="331">
+              <caret line="24" column="49" lean-forward="true" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chat.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chat.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deploy/chat.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="43" lean-forward="false" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+            <state relative-caret-position="153">
+              <caret line="9" column="90" lean-forward="true" selection-start-line="9" selection-start-column="90" selection-end-line="9" selection-end-column="90" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboardMain.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy/dashboardMain.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="21" column="6" lean-forward="true" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboardConfig.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/js/dashboard/config/dashboardConfig.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="178">
+              <caret line="60" column="107" lean-forward="false" selection-start-line="60" selection-start-column="107" selection-end-line="60" selection-end-column="107" />
               <folding />
             </state>
           </provider>
@@ -133,26 +105,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
               <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="messageListManager.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/js/common/chat/messageListManager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1887">
-              <caret line="126" column="42" lean-forward="false" selection-start-line="126" selection-start-column="42" selection-end-line="126" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userDataManager.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/js/common/chat/userDataManager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="50" lean-forward="false" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -248,7 +200,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/deploy/js/dashboard.js" />
         <option value="$PROJECT_DIR$/deploy/js/main.js" />
         <option value="$PROJECT_DIR$/deploy/dashboard.html" />
@@ -286,19 +237,20 @@
         <option value="$PROJECT_DIR$/app/js/chatApplication/config/userChatConfig.js" />
         <option value="$PROJECT_DIR$/app/js/dashboard/dashboard.js" />
         <option value="$PROJECT_DIR$/app/js/dashboard/userList/dashboardUserListManager.js" />
-        <option value="$PROJECT_DIR$/app/js/dashboard/config/dashboardConfig.js" />
         <option value="$PROJECT_DIR$/app/js/dashboard/mainController.js" />
         <option value="$PROJECT_DIR$/Test/chatApplicationTest/chatTest.html" />
         <option value="$PROJECT_DIR$/app/js/common/chat/messageListManager.js" />
         <option value="$PROJECT_DIR$/Test/dashboardTest/dashboardTest.html" />
         <option value="$PROJECT_DIR$/app/js/chatApplication/chatCustomizer.js" />
         <option value="$PROJECT_DIR$/Test/dashboardTest/test.js" />
-        <option value="$PROJECT_DIR$/app/dashboardMain.html" />
-        <option value="$PROJECT_DIR$/deploy/dashboardMain.html" />
         <option value="$PROJECT_DIR$/app/js/common/chat/userDataManager.js" />
-        <option value="$PROJECT_DIR$/deploy/chat.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/js/chatApplication/chatController.js" />
+        <option value="$PROJECT_DIR$/deploy/dashboardMain.html" />
+        <option value="$PROJECT_DIR$/deploy/chat.html" />
+        <option value="$PROJECT_DIR$/app/dashboardMain.html" />
+        <option value="$PROJECT_DIR$/app/js/dashboard/config/dashboardConfig.js" />
+        <option value="$PROJECT_DIR$/Test/Tests.html" />
       </list>
     </option>
   </component>
@@ -342,7 +294,44 @@
             <path>
               <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
               <item name="homework5" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homework5" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homework5" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homework5" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homework5" type="462c0819:PsiDirectoryNode" />
               <item name="deploy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homework5" type="462c0819:PsiDirectoryNode" />
+              <item name="deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homework5" type="462c0819:PsiDirectoryNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
@@ -412,12 +401,12 @@
       <workItem from="1529906493180" duration="11586000" />
       <workItem from="1530008998661" duration="14721000" />
       <workItem from="1530084856918" duration="10742000" />
-      <workItem from="1530105009240" duration="12047000" />
+      <workItem from="1530105009240" duration="13367000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="211023000" />
+    <option name="totallyTimeSpent" value="212343000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -430,8 +419,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25892857" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25892857" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29769737" sideWeight="0.50595236" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -592,14 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/dashboard/config/dashboardConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="41" column="22" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="104" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/js/common/config/commonConfig.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -751,14 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy/dashboardMain.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/deploy/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -783,14 +757,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/dashboardMain.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dev/chatDev.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -803,22 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="38" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="369" column="66" lean-forward="false" selection-start-line="369" selection-start-column="66" selection-end-line="369" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/Tests.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="27" column="56" lean-forward="false" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -839,10 +789,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Test/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="260" column="30" lean-forward="true" selection-start-line="260" selection-start-column="30" selection-end-line="260" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/js/dashboard/config/dashboardConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="60" column="107" lean-forward="false" selection-start-line="60" selection-start-column="107" selection-end-line="60" selection-end-column="107" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/dashboardMain.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="21" column="6" lean-forward="true" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/deploy/chat.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="43" lean-forward="false" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+        <state relative-caret-position="153">
+          <caret line="9" column="90" lean-forward="true" selection-start-line="9" selection-start-column="90" selection-end-line="9" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/dashboardMain.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="24" column="49" lean-forward="true" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/Tests.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding />
         </state>
       </provider>

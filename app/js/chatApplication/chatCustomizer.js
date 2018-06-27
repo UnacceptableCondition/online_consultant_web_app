@@ -1,23 +1,19 @@
-var chatCustomizer = (function () {
+var chatCustomizer = (function (config) {
 
     function ChatCustomizer() {}
-
-    ChatCustomizer.prototype.setup = function setup (configObject) {
-        this.config = configObject;
-    };
 
     ChatCustomizer.prototype.setupOuterChatSettings = function setupOuterChatSettings() {
         this.allowMinimize();
         this.setPositionOfMainBlock();
         this.setTitle();
-        //this.setMainCssClass();
+        this.setMainCssClass();
         this.allowDragNDrop();
     };
 
     ChatCustomizer.prototype.allowDragNDrop = function allowDragNDrop() {
-        var clickBlock = getElement(this.config.DOM.TITLE_BLOCK_CLASS);
-        var dragBlock = getElement(this.config.DOM.MAIN_STYLE_CHAT_BLOCK_CLASS);
-        if (this.config.chatSettings.allowDrag === "false") {
+        var clickBlock = getElement(config.DOM.TITLE_BLOCK_CLASS);
+        var dragBlock = getElement(config.DOM.MAIN_STYLE_CHAT_BLOCK_CLASS);
+        if (config.chatSettings.allowDrag === "false") {
             return;
         }
         clickBlock.addEventListener("mousedown", function dragAndDrop(e) {
@@ -69,43 +65,42 @@ var chatCustomizer = (function () {
     };
 
     ChatCustomizer.prototype.setPositionOfMainBlock = function setPositionOfMainBlock() {
-        if (this.config.chatSettings.position === "right") {
-            getElement(this.config.DOM.MAIN_STYLE_CHAT_BLOCK_CLASS).classList.add(
-                this.config.CHAT_POSITION_RIGHT
+        if (config.chatSettings.position === "right") {
+            getElement(config.DOM.MAIN_STYLE_CHAT_BLOCK_CLASS).classList.add(
+                config.CHAT_POSITION_RIGHT
             );
         } else {
-            getElement(this.config.DOM.MAIN_STYLE_CHAT_BLOCK_CLASS).classList.add(
-                this.config.CHAT_POSITION_LEFT
+            getElement(config.DOM.MAIN_STYLE_CHAT_BLOCK_CLASS).classList.add(
+                config.CHAT_POSITION_LEFT
             );
         }
     };
 
     ChatCustomizer.prototype.setTitle = function setTitle() {
-        if(this.config.chatSettings.title.length < 1) {
-            this.config.chatSettings.title = this.config.DEFAULT_CHAT_TITLE;
+        if(config.chatSettings.chatTitle.length < 1) {
+            config.chatSettings.chatTitle = config.DEFAULT_CHAT_TITLE;
         }
-        getElement(this.config.DOM.TITLE_BLOCK_CLASS).innerHTML = this.config.chatSettings.title;
+        getElement(config.DOM.TITLE_BLOCK_CLASS).innerHTML = config.chatSettings.chatTitle;
     };
 
     ChatCustomizer.prototype.allowMinimize = function allowMinimize() {
-        if (this.config.chatSettings.allowMinimize === "false") {
-            getElement(this.config.DOM.CHANGE_STYLE_BUTTON_MAX_SIZE).classList.add(
-                this.config.INVISIBLE_CLASS
+        if (config.chatSettings.allowMinimize === "false") {
+            getElement(config.DOM.CHANGE_STYLE_BUTTON_MAX_SIZE).classList.add(
+                config.INVISIBLE_CLASS
             );
         }
     };
 
     ChatCustomizer.prototype.setMainCssClass = function setMainCssClass() {
-        console.log(this.config.chatSettings.outerCssClass);
-        if(this.config.chatSettings.outerCssClass.length < 1) {
-            this.config.chatSettings.outerCssClass = this.config.DEFAULT_CSS_CLASS_FOR_CHAT;
+        if(config.chatSettings.outerCssClass.length < 1) {
+            config.chatSettings.outerCssClass = config.DEFAULT_CSS_CLASS_FOR_CHAT;
         }
-        getElement(this.config.DOM.MAIN_STYLE_CHAT_BLOCK_CLASS.parentNode).classList.add(
-            this.config.chatSettings.outerCssClass
+        getElement(config.DOM.MAIN_STYLE_CHAT_BLOCK_CLASS).parentNode.classList.add(
+            config.chatSettings.outerCssClass
         );
     };
 
     return new ChatCustomizer();
-})();
+})(mainConfig);
 
 

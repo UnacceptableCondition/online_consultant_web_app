@@ -94,10 +94,9 @@ var dashboard = (function createController(config, dataSource, uDataManager, uLi
     DashboardController.prototype.getAcessToUsersList = function accessToUsersDOM(
         newUserList
     ) {
-        var that = this;
         return this.displayUsersList(newUserList).then(function setDOM () {
             config.users = getElement(
-                config.USER_ELEMENT_CSS_CLASS, true
+                config.userList.USER_ELEMENT_CSS_CLASS, true
             );
         });
     };
@@ -273,7 +272,7 @@ var dashboard = (function createController(config, dataSource, uDataManager, uLi
         var that = this;
         intervalId.push(setInterval(function setIntervalUpdateUsers () {
             that.updateUsers();
-        }, config.UPDATE_USERS_TIME))
+        }, config.interval.UPDATE_USERS_TIME))
     };
 
     DashboardController.prototype.closeApp = function () {

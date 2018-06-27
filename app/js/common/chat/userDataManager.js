@@ -1,4 +1,4 @@
-var userDataManager =  (function () {
+var userDataManager =  (function (config) {
     function UserDataManager () {
     }
 
@@ -9,16 +9,14 @@ var userDataManager =  (function () {
 
     // INCLUDE
 
-    UserDataManager.prototype.setup = function setup (configObj) {
-        this.config = configObj;
-        messageListManager.setup(configObj);
+    UserDataManager.prototype.setup = function setup () {
+        messageListManager.setup();
     };
 
     UserDataManager.prototype.getUserData = function getUserData (userId) {
-        var that = this;
         return dataSource.usersAPI.getUserData(userId).then(function (data) {
-            that.config.currentUserSettings.userName = data.userName;
-            that.config.currentUserSettings.isMinimize = data.isMinimize;
+            config.currentUserSettings.userName = data.userName;
+            config.currentUserSettings.isMinimize = data.isMinimize;
             if(data.messages) {
                 var newMessageList;
                 var messagesObject = [];
@@ -37,23 +35,20 @@ var userDataManager =  (function () {
         });
     };
 
-    // include
     UserDataManager.prototype.createNewUserProfileToDataBase = function () {
         var that = this;
-        Object.keys(this.config.currentUserSettings).map(function (key) {
+        Object.keys(config.currentUserSettings).map(function (key) {
             that.saveSettingField(key);
         });
     };
-    // include
 
     UserDataManager.prototype.saveSettingField = function setField (fieldName) {
-        var that = this;
         this.saveUserSettingsToDataSource(
             [
                 {
-                    userId: that.config.currentUserSettings.userId,
+                    userId: config.currentUserSettings.userId,
                     fieldName: fieldName,
-                    fieldValue: that.config.currentUserSettings[fieldName]
+                    fieldValue: config.currentUserSettings[fieldName]
                 }
             ]
         )
@@ -64,11 +59,12 @@ var userDataManager =  (function () {
         var date = getCurrentDate();
         var messageObject = createMessageObject(message, date, senderName, false);
         messageListManager.addMessageToMessageList(messageObject);
+        messageListManager.displayMessages();
         this.saveMessageToDataSource(messageObject);
     };
 
     UserDataManager.prototype.getMessageFromInputElement = function () {
-        var element = getElement(this.config.CSS_CURRENT_INPUT_CLASS);
+        var element = getElement(config.CSS_CURRENT_INPUT_CLASS);
         var value = element.value;
         element.value = "";
         return value;
@@ -84,10 +80,9 @@ var userDataManager =  (function () {
 
 
     UserDataManager.prototype.saveMessageToDataSource = function saveMessageToDataSource (messageObject) {
-        if(messageObject.sender === this.config.currentUserSettings.userName) {
-            console.log(messageObject.sender);
+        if(messageObject.sender === config.currentUserSettings.userName) {
             var userSettings = [{
-                userId: this.config.currentUserSettings.userId,
+                userId: config.currentUserSettings.userId,
                 fieldName: "sendNewMessage",
                 fieldValue: true
             }];
@@ -96,7 +91,7 @@ var userDataManager =  (function () {
             );
         }
         dataSource.usersAPI.sendMessage(
-            this.config.currentUserSettings.userId,
+            config.currentUserSettings.userId,
             messageObject
         );
     };
@@ -115,4 +110,4 @@ var userDataManager =  (function () {
 
     return new UserDataManager();
 
-})();
+})(mainConfig);

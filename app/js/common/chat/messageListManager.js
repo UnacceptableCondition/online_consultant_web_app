@@ -2,7 +2,7 @@
 /* global chatManagerConfig */
 /* exported chatManager */
 // Модуль для работы со списком сообщений ОДНОГО пользователя
-var messageListManager = (function setupMessageListManager () {
+var messageListManager = (function setupMessageListManager (config) {
     //  //////////////////////////////////
     // Формат  messageList = [
     //    {
@@ -16,14 +16,14 @@ var messageListManager = (function setupMessageListManager () {
     //  ///////////////////////////////////
     function MessageListManager() {}
 
-    MessageListManager.prototype.setup = function (configObj) {
-        this.config = configObj;
+    MessageListManager.prototype.setup = function () {
         this.messageList = [];
         this.cDOM = {
             messagesBlock: getElement(
-                this.config.CSS_CHAT_MESSAGES_CONTAINER
+                config.messages.CSS_CHAT_MESSAGES_CONTAINER
             )
         };
+
     };
 
     // WORK WITH MESSAGE ELEMENT //
@@ -38,20 +38,20 @@ var messageListManager = (function setupMessageListManager () {
         var messageContainerDiv = this.createMessageContainerDiv(isRead, sender);
         var messageDateDiv = this.createDivForMessageBlock(
             messageDate,
-            this.config.DISPLAY_MESSAGE_DATE,
-            [this.config.CSS_CHAT_MESSAGE_DATE]
+            config.DISPLAY_MESSAGE_DATE,
+            [config.messages.CSS_CHAT_MESSAGE_DATE]
         );
 
         var messageSenderDiv = this.createDivForMessageBlock(
             sender,
-            this.config.DISPLAY_SENDER_NAME,
-            [this.config.CSS_CHAT_MESSAGE_SENDER_NAME]
+            config.DISPLAY_SENDER_NAME,
+            [config.messages.CSS_CHAT_MESSAGE_SENDER_NAME]
         );
 
         var messageDiv = this.createDivForMessageBlock(
             message,
-            this.config.DISPLAY_MESSAGE,
-            [this.config.CSS_CHAT_MESSAGE]
+            config.DISPLAY_MESSAGE,
+            [config.messages.CSS_CHAT_MESSAGE]
         );
 
         messageContainerDiv.appendChild(messageDateDiv);
@@ -64,8 +64,8 @@ var messageListManager = (function setupMessageListManager () {
     MessageListManager.prototype.getMessageObjectsForMarkAsRead = function  getMessageObjectsForMarkAsRead (relativeUserName, relativeUserId) {
         var i;
         var messagesIsRead = [];
-        var userName = relativeUserName || this.config.currentUserSettings.userName;
-        var userId = relativeUserId || this.config.currentUserSettings.userId;
+        var userName = relativeUserName || config.currentUserSettings.userName;
+        var userId = relativeUserId || config.currentUserSettings.userId;
         for(i = this.messageList.length - 1; i >= 0; i--) {
             if(this.messageList[i].sender !== userName)
             {
@@ -88,8 +88,9 @@ var messageListManager = (function setupMessageListManager () {
 
     MessageListManager.prototype.createMessageContainerDiv = function createMessageContainerDiv (isRead, sender) {
         var messageContainerDiv = document.createElement("div");
-        if (!isRead && this.config.currentUserSettings.userName !== sender) {
-            messageContainerDiv.classList.add(this.config.CSS_USER_NOT_READ_MESSAGES);
+        messageContainerDiv.classList.add(config.messages.CSS_MESSAGE_CONTAINER);
+        if (!isRead && config.currentUserSettings.userName !== sender) {
+            messageContainerDiv.classList.add(config.messages.CSS_USER_NOT_READ_MESSAGES);
         }
         return messageContainerDiv;
     };
@@ -124,7 +125,6 @@ var messageListManager = (function setupMessageListManager () {
         messageObj
     ) {
         this.messageList.push(messageObj);
-        this.displayMessages();
     };
 
     // Перебирает список сообщений, создает соответсвующие им DOM элементы и вставляет их в чат
@@ -152,4 +152,4 @@ var messageListManager = (function setupMessageListManager () {
 
     return new MessageListManager();
 
-})();
+})(mainConfig);

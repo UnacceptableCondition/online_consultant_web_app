@@ -41,7 +41,7 @@ var mainConfig = {
     chatSettings: {
         allowDrag: false,
         position: "right",
-        title: "TouchSoft Chat",
+        chatTitle: "TouchSoft Chat",
         allowMinimize: true,
         outerCssClass: 'touchsoft-chat_main-block',
         typeOfRequest: "fetch",
@@ -67,17 +67,24 @@ var mainConfig = {
     CSS_FILE_PATH:
         "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/dev/css/chat.css",
 
-    // messageListManagerConfig
-    // Css класс для элеменат с сообщение, если юзер не прочитал сообщения
-    CSS_USER_NOT_READ_MESSAGES: "root-touchsoft-dashboard_message-not-read",
-    // Css класс DOM элемента в котором будем отображать сообщения
-    CSS_CHAT_MESSAGES_CONTAINER: "root_chat_for_touchsoft__top_messages",
-    // Css класс DOM элемента в котором будем отображать имя отправителя
-    CSS_CHAT_MESSAGE_SENDER_NAME: "root-touchsoft-dashboard_chat-message-sender",
-    // Css класс DOM элемента в котором будем отображать дату сообщения
-    CSS_CHAT_MESSAGE_DATE: "root-touchsoft-dashboard_chat-message-date",
-    // Css класс DOM элемента в котором будем отображать сообщение
-    CSS_CHAT_MESSAGE: "root-touchsoft-dashboard_chat-message",
+    // Классы для работы с объектами сообщений для их отображения в чате
+    messages: {
+        // Css класс для элеменат с сообщение, если юзер не прочитал сообщения
+        CSS_USER_NOT_READ_MESSAGES: "root-touchsoft-dashboard_message-not-read",
+        // Css класс DOM элемента в котором будем отображать сообщения
+        CSS_CHAT_MESSAGES_CONTAINER: "root_chat_for_touchsoft__top_messages",
+
+        // message
+        // Css класс элемента в котором находится сообщения,дата и имя отправителя
+        CSS_MESSAGE_CONTAINER: "root-touchsoft-dashboard_chat-message-elements",
+        // Css класс DOM элемента в котором будем отображать имя отправителя
+        CSS_CHAT_MESSAGE_SENDER_NAME: "root-touchsoft-dashboard_chat-message-sender",
+        // Css класс DOM элемента в котором будем отображать дату сообщения
+        CSS_CHAT_MESSAGE_DATE: "root-touchsoft-dashboard_chat-message-date",
+        // Css класс DOM элемента в котором будем отображать сообщение
+        CSS_CHAT_MESSAGE: "root-touchsoft-dashboard_chat-message"
+
+    },
 
     DISPLAY_MESSAGE_DATE: true,
     DISPLAY_SENDER_NAME: true,

@@ -4,7 +4,6 @@ var about = (function () {
 
     }
 
-
     About.prototype.startApp = function startApp () {
 
     };

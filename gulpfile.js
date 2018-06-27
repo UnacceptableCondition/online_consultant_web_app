@@ -26,22 +26,23 @@ var path = {
         fonts: 'deploy/fonts/'
     },
     src: {
-        html: 'dev/*.html',
-        chatJS: 'dev/js/chatApp.js',
-        dashboardMainHTML: 'dev/html/dashboard/*.html',
-        dashboardHTML: 'dev/html/dashboard/*.html',
-        dashboardJS: 'dev/js/dashboardApp.js',
-        dashboardCss: 'dev/css/dashboard/*.css',
-        style: 'dev/css/*.css',
-        img: 'dev/img/*.*',
-        fonts: 'dev/fonts/*.*'
+        html: 'app/*.html',
+        chatJS: 'app/js/chatApp.js',
+        chatJSDev: 'app/js/chatAppDev.js',
+        dashboardMainHTML: 'app/html/dashboard/*.html',
+        dashboardHTML: 'app/html/dashboard/*.html',
+        dashboardJS: 'app/js/dashboardApp.js',
+        dashboardCss: 'app/css/dashboard/*.css',
+        style: 'app/css/*.css',
+        img: 'app/img/*.*',
+        fonts: 'app/fonts/*.*'
     },
     watch: {
-        html: 'dev/**/*.html',
-        js: 'dev/js/**/*.js',
-        style: 'dev/style/**/*.scss',
-        img: 'dev/img/**/*.*',
-        fonts: 'dev/fonts/**/*.*'
+        html: 'app/**/*.html',
+        js: 'app/js/**/*.js',
+        style: 'app/style/**/*.scss',
+        img: 'app/img/**/*.*',
+        fonts: 'app/fonts/**/*.*'
     },
     clean: './build'
 };
@@ -128,7 +129,19 @@ gulp.task('js:buildChat', function buildJS () {
 
 gulp.task('chat:build', ['js:buildChat']);
 
+// CHAT APP
+gulp.task('js:buildChatDev', function buildJS () {
+    gulp.src(path.src.chatJSDev)
+        .pipe(rigger()).on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+        .pipe(sourcemaps.init())
+        .pipe(uglify()).on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(path.build.js))
+        .pipe(reload({stream: true}));
+});
 
+
+gulp.task('chatDev:build', ['js:buildChatDev']);
 
 
 // SERVER //

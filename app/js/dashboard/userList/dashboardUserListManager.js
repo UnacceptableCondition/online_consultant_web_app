@@ -29,15 +29,15 @@ var userListManager = (function createUserList (config, sorter) {
         var userIdDiv = document.createElement("div");
         var userIndicator = document.createElement("div");
 
-        userDiv.classList.add(config.USER_ELEMENT_CSS_CLASS);
+        userDiv.classList.add(config.userList.USER_ELEMENT_CSS_CLASS);
 
-        userIdDiv.classList.add(config.USER_ID_ELEMENT_CSS_CLASS);
+        userIdDiv.classList.add(config.userList.USER_ID_ELEMENT_CSS_CLASS);
         userIdDiv.innerHTML = userId;
 
         if (isOnline) {
-            userIndicator.classList.add(config.USER_INDICATOR_CSS_CLASS_ONLINE);
+            userIndicator.classList.add(config.userList.USER_INDICATOR_CSS_CLASS_ONLINE);
         } else {
-            userIndicator.classList.add(config.USER_INDICATOR_CSS_CLASS_OFFLINE);
+            userIndicator.classList.add(config.userList.USER_INDICATOR_CSS_CLASS_OFFLINE);
         }
 
         userDiv.appendChild(userIdDiv);
@@ -86,7 +86,7 @@ var userListManager = (function createUserList (config, sorter) {
     // возвращает true если юзер онлайн, false - оффлайн
     UserListManager.prototype.userIsOnline = function userIsOnline (lastUserOnlineTime) {
         var date = new Date();
-        return date.getTime() - lastUserOnlineTime <= config.ONLINE_INTERVAL;
+        return date.getTime() - lastUserOnlineTime <= config.interval.ONLINE_INTERVAL;
     };
 
     // Делает невидимыми тех пользователей в списке, в именах которых нет переданной подстроки

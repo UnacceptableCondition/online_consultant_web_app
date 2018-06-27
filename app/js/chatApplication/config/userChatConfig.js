@@ -63,9 +63,9 @@ var mainConfig = {
     // chatViewConfig
     // откуда загружает html и css чата
     HTML_FILE_PATH:
-        "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/dev/html/chatApplication/chat.html",
+        "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/app/html/chatApplication/chat.html",
     CSS_FILE_PATH:
-        "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/dev/css/chat.css",
+        "https://rawgit.com/UnacceptableCondition/online_consultant_web_app/master/app/css/chat.css",
 
     // Классы для работы с объектами сообщений для их отображения в чате
     messages: {

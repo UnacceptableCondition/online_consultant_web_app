@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ca758c6-1d1f-4c80-826d-1bc8253ec648" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/dashboard/dashboard.js" afterPath="$PROJECT_DIR$/app/js/dashboard/dashboard.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/dashboardMain.html" afterPath="$PROJECT_DIR$/deploy/dashboardMain.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/html/about.html" afterPath="$PROJECT_DIR$/deploy/html/about.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/js/dashboardApp.js" afterPath="$PROJECT_DIR$/deploy/js/dashboardApp.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,7 +18,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dashboard.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboard.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/js/dashboard/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="186">
@@ -106,7 +108,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboardMain.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dashboardMain.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/deploy/dashboardMain.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="325">
@@ -296,15 +298,7 @@
             <path>
               <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
               <item name="homework5" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homework5" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="deploy" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -379,12 +373,12 @@
       <workItem from="1530778477800" duration="5348000" />
       <workItem from="1530815312263" duration="8257000" />
       <workItem from="1530863662617" duration="26632000" />
-      <workItem from="1530951750124" duration="7840000" />
+      <workItem from="1530951750124" duration="7995000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="386871000" />
+    <option name="totallyTimeSpent" value="387026000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -783,6 +777,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/js/dashboard/dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="262" column="52" lean-forward="false" selection-start-line="262" selection-start-column="52" selection-end-line="262" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/deploy/chat.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -795,14 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
           <caret line="24" column="49" lean-forward="true" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/dashboard/dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="262" column="52" lean-forward="false" selection-start-line="262" selection-start-column="52" selection-end-line="262" selection-end-column="52" />
           <folding />
         </state>
       </provider>

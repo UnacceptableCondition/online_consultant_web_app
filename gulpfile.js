@@ -62,9 +62,9 @@ var config = {
 
 gulp.task('js:buildDashboard', function buildJS () {
     gulp.src(path.src.dashboardJS)
-        .pipe(rigger()).on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+        .pipe(rigger()).on('error', function getRiggerError (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
         .pipe(sourcemaps.init())
-        .pipe(uglify()).on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+        .pipe(uglify()).on('error', function getUglifyError (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.js))
         .pipe(reload({stream: true}));
@@ -113,14 +113,14 @@ gulp.task("html:buildDashboard", function buildHTML () {
 });
 
 
-gulp.task('dashboard:build', ['js:buildDashboard', 'style:buildDashboard','image:build', 'fonts:build', "html:buildDashboard"]);
+ gulp.task('dashboard:build', ['js:buildDashboard', "html:buildDashboard"]); //, 'style:buildDashboard','image:build', 'fonts:build', "html:buildDashboard"]);
 
 // CHAT APP
 gulp.task('js:buildChat', function buildJS () {
     gulp.src(path.src.chatJS)
-        .pipe(rigger()).on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+        .pipe(rigger()).on('error', function getRiggerError (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
         .pipe(sourcemaps.init())
-        .pipe(uglify()).on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+        .pipe(uglify()).on('error', function getUglifyError (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.js))
         .pipe(reload({stream: true}));
@@ -132,9 +132,9 @@ gulp.task('chat:build', ['js:buildChat']);
 // CHAT APP
 gulp.task('js:buildChatDev', function buildJS () {
     gulp.src(path.src.chatJSDev)
-        .pipe(rigger()).on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+        .pipe(rigger()).on('error', function getRiggerError (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
         .pipe(sourcemaps.init())
-        .pipe(uglify()).on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+        .pipe(uglify()).on('error', function getUglifyError (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.js))
         .pipe(reload({stream: true}));
@@ -161,6 +161,18 @@ gulp.task('watch', function watches (){
     });
     watch([path.watch.fonts], function watchFonts () {
         gulp.start('fonts:build');
+    });
+});
+
+gulp.task('watchChatJS', function watches (){
+    watch([path.watch.js], function watchHTML () {
+        gulp.start('chat:build');
+    });
+});
+
+gulp.task('watchDashboardJS', function watches (){
+    watch([path.watch.js], function watchHTML () {
+        gulp.start('dashboard:build');
     });
 });
 

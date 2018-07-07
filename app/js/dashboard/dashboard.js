@@ -1,15 +1,54 @@
-var dashboard = (function createController(config, dataSource, uDataManager, uListManager, sorter){
+/* exported dashboard */
+/* global getElement */
+/* global userDataManager */
+/* global mainConfig */
+/* global userListManager */
+/* global dataSource */
+/* global sorter */
+var dashboard = (function createDashboardController(config, dataSource, uDataManager, uListManager, sorter, eventEmitter){
 
     var intervalId = [];
 
-    function DashboardController() {}
+    function DashboardController() {
+        this.setupEventEmitter();
+    }
 
-    DashboardController.prototype.startApp = function () {
-        uListManager.setup(config, sorter);
+    DashboardController.prototype.startApp = function startApp () {
         uDataManager.setup(config);
-        this.setupUsersListBlock();
+        this.getUserList();
         this.setupCommonListenerFunctions();
         this.setupIntervalFunctions();
+    };
+
+    DashboardController.prototype.setupEventEmitter = function setupEventEmitter () {
+        var that = this;
+        eventEmitter.addSubscribe("userList", function (data) {
+            var usersList = [];
+            if(data instanceof Array) {
+                data = data[1];
+            }
+            Object.keys(data).map(function setUserSetting(userId) {
+                uListManager.addUserToUsersArray(
+                    data[userId],
+                    userId,
+                    usersList
+                );
+            });
+            uListManager.uList = uListManager.uList.concat(usersList);
+            var condition = that.getCurrentUserIdFromLocalStorage();
+            that.localSettingsSetup(condition);
+            that.setupUserListDOM();
+        });
+        eventEmitter.addSubscribe("lastOnline", function (data) {
+            var userId = data[0];
+            var lastOnline = data[1];
+            uListManager.updateUserOnlineStatus(userId, lastOnline)
+        });
+        eventEmitter.addSubscribe("sendNewMessage", function (data) {
+            var userIndex = uListManager.getUserFromUserListById(data[0]);
+            uListManager.uList[userIndex].sendNewMessage = data[1];
+            that.toggleNewMessageIndicatorToUser();
+        });
     };
 
 
@@ -69,17 +108,9 @@ var dashboard = (function createController(config, dataSource, uDataManager, uLi
         uListManager.displayUsers();
     };
 
-    // Инициализация usersModule - цепочка промисов обновляющая usersList и его представление на экране
-    DashboardController.prototype.setupUsersListBlock = function setupUsersListBlock (newUserList) {
-        this.setupUsersListeners(newUserList);
-    };
-
-    DashboardController.prototype.setupUsersListeners = function setupUsersListeners(
-        newUserList
-    ) {
+    DashboardController.prototype.setupUsersListeners = function setupUsersListeners() {
         var that = this;
-        return this.getAcessToUsersList(newUserList).then(function getAccess () {
-            Array.from(config.users).forEach(function addListeners (element) {
+        Array.from(config.users).forEach(function addListeners (element) {
                 element.addEventListener(
                     "click",
                     that.userListener.bind(
@@ -88,72 +119,41 @@ var dashboard = (function createController(config, dataSource, uDataManager, uLi
                     )
                 );
             });
-        });
     };
 
-    DashboardController.prototype.getAcessToUsersList = function accessToUsersDOM(
-        newUserList
-    ) {
-        return this.displayUsersList(newUserList).then(function setDOM () {
-            config.users = getElement(
-                config.userList.USER_ELEMENT_CSS_CLASS, true
-            );
-        });
+    DashboardController.prototype.setupUserListDOM = function setupUserListDOM () {
+        uListManager.displayUsers();
+        this.getAcessToUsersList();
+        this.toggleNewMessageIndicatorToUser();
+        this.setupUsersListeners();
     };
 
-    // отобразить список юзеров
-    DashboardController.prototype.displayUsersList = function displayUsersList(newUserList) {
-        var that = this;
-        return this.setUsersListToUsersModule(newUserList).then(function displayUList () {
-            uListManager.displayUsers();
-        }).then(function () {
-            that.toggleNewMessageIndicatorToUser();
-        });
+    DashboardController.prototype.getAcessToUsersList = function accessToUsersDOM() {
+        config.users = getElement(
+            config.userList.USER_ELEMENT_CSS_CLASS, true
+        );
     };
 
-
-    // Добавляет юзер лист в юзер лист модуль. Важно: если передан как параметр новый юзер лист
-    // (нужно для обновления), то добавляется он, иначе данные берутся с сервера
-    // объект Promise создается для совместимости
-    DashboardController.prototype.setUsersListToUsersModule = function setUsersListToUsersModule(
-        newUserList
-    ) {
-        var that = this;
-        if (!newUserList) {
-            return this.getUserList()
-                .then(function getUserListObj (usersListObject) {
-                    uListManager.setUserList(usersListObject);
-                })
-                .then(function localSettingsSetup() {
-                    var condition = that.getCurrentUserIdFromLocalStorage();
-                    that.localSettingsSetup(condition);
-                });
-        }
-        return new Promise(function elseResolve (resolve) {
-            resolve(uListManager.setUserList(newUserList));
-        });
-    };
-
-    DashboardController.prototype.getUserList = function () {
-        var usersList = [];
-        return dataSource.usersAPI.getAllUsers().then(function setUserData(userData) {
-            Object.keys(userData).map(function setUserSetting(userId) {
-                uListManager.addUserToUsersArray(
-                    userData[userId],
-                    userId,
-                    usersList
-                );
-                return true;
-            });
-        }).then(function returnUsersList () {
-            return usersList;
-        });
+    DashboardController.prototype.getUserList = function getUserList () {
+        var data;
+        var longPollUserListConnector = dataSource.usersAPI.getUserList(null);
+        longPollUserListConnector.onreadystatechange = function () {
+            if (this.status) {
+                data = longPollResponseParser.parse(this.responseText);
+                if(data) {
+                    eventEmitter.emit(data.type, data.object);
+                }
+            }
+        };
+        longPollUserListConnector.send();
+        config.currentUserListConnection = longPollUserListConnector;
     };
 
 
     DashboardController.prototype.userListener = function userListener(userId) {
         this.startConversationWithUser(userId);
         this.markMessageFromUserAsRead(userId);
+
     };
 
     // Открывает чат с юзером, загружает мессаджи юзера и отображает их
@@ -162,45 +162,15 @@ var dashboard = (function createController(config, dataSource, uDataManager, uLi
     ) {
         var that = this;
         config.currentUserSettings.userId = userId;
+        uDataManager.clearMessageList();
         uDataManager.getUserData(userId)
-            .then(function  () {
+            .then(function saveLocalData () {
                 getElement(config.DOM.CSS_CHAT_CONTAINS_BLOCK_STYLE).classList.remove(config.INVISIBLE_CLASS);
                 that.saveCurrentConditionToLocalStorage();
-            })
-    };
-
-
-    // Обновляет данные пользователей - добавляет новые регистрации + обновляет онлайн статус + если
-    // установлен флаг isConversation - обновляет сообщения пользователей
-    DashboardController.prototype.updateUsers = function updateUsers() {
-        var that = this;
-        var intermediateList = [];
-        dataSource.usersAPI
-            .getAllUsers()
-            .then(function update (userList) {
-                Object.keys(userList).map(function addUsers(userId) {
-                    uListManager.addUserToUsersArray(
-                        userList[userId],
-                        userId,
-                        intermediateList
-                    );
-                    if (config.currentUserSettings.userId) {
-                        that.updateUserMessagesAndDisplayIt();
-                    }
-                    return true;
-                });
-            })
-            .then(function setNewList () {
-                uListManager.uList = intermediateList;
-                if (config.currentDashboardCondition.filterBy) {
-                    that.filter();
-                }
-                if (config.currentDashboardCondition.sortBy) {
-                    that.sort();
-                }
-                that.setupUsersListeners(intermediateList);
             });
+        dataSource.usersAPI.updateSendNewMessageFlag(userId, false);
     };
+
 
     // Обновлет массив сообщений в модуле чата и выводит их на экран
     DashboardController.prototype.updateUserMessagesAndDisplayIt = function updateUserMessagesAndDisplayIt(
@@ -228,6 +198,7 @@ var dashboard = (function createController(config, dataSource, uDataManager, uLi
             "input",
             that.sort.bind(that)
         );
+        document.addEventListener("mousemove", userDataManager.setMessageAsRead.bind(userDataManager));
     };
 
     // Помечает канал юзера как прочитанный (если там есть непрочитанные сообщения)
@@ -246,6 +217,7 @@ var dashboard = (function createController(config, dataSource, uDataManager, uLi
     DashboardController.prototype.closeConversation = function closeConversation () {
         getElement(config.DOM.CSS_CHAT_CONTAINS_BLOCK_STYLE).classList.add(config.INVISIBLE_CLASS);
         config.currentUserSettings.userId = null;
+        config.currentMessageConnection.abort();
         this.saveCurrentConditionToLocalStorage();
     };
 
@@ -270,17 +242,27 @@ var dashboard = (function createController(config, dataSource, uDataManager, uLi
 
     DashboardController.prototype.setupIntervalFunctions = function setupIntervalFunctions () {
         var that = this;
-        intervalId.push(setInterval(function setIntervalUpdateUsers () {
-            that.updateUsers();
-        }, config.interval.UPDATE_USERS_TIME))
+        intervalId.push = setInterval(function () {
+            Object.keys(uListManager.uList).map(function (viewId) {
+                uListManager.updateUserOnlineStatus(
+                    uListManager.uList[viewId].userId,
+                    uListManager.uList[viewId].lastOnline
+                )
+            });
+            that.setupUserListDOM();
+        },config.interval.UPDATE_USERS_TIME)
     };
 
-    DashboardController.prototype.closeApp = function () {
-        intervalId.forEach(function (id) {
+    DashboardController.prototype.closeApp = function closeApp () {
+        intervalId.forEach(function clear (id) {
             clearInterval(id)
-        })
+        });
+        userDataManager.clearMessageList();
+        uListManager.clearUserList();
+        config.currentMessageConnection.abort();
+        config.currentUserListConnection.abort()
     };
 
     return new DashboardController();
 
-})(mainConfig, dataSource, userDataManager, userListManager, sorter);
+})(mainConfig, dataSource, userDataManager, userListManager, sorter, eventEmitter);

@@ -13,6 +13,11 @@
 //= common/dataSource/dataConnector.js
 //= common/dataSource/dataSource.js
 
+// eventEmitter
+
+//= common/eventEmitter.js
+//= common/dataSource/longPollResponseParser.js
+
 // view
 
 //= common/viewFactory.js

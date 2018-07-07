@@ -1,3 +1,4 @@
+/* exported mainConfig */
 var mainConfig = {
     DOM: {
         // Css класс DOM элемента в котором необходимо отображать список юзеров
@@ -19,7 +20,7 @@ var mainConfig = {
         after : [
             "chatTitle", "chatUrl", "chatClass", "chatPositionSelect",
             "allowMinimize", "allowDrag", "requireName", "showTime", "networkRadioXMR",
-            "networkRadioFetch", "scriptCode"
+            "networkRadioFetch","networkRadioLongPoll", "scriptCode"
         ],
         srcStart: "&ltscript src='https://rawgit.com/UnacceptableCondition/Homework_2/master/js/chat.js?",
         srcEnd:  "'&gt&lt/script&gt"
@@ -35,7 +36,7 @@ var mainConfig = {
         USER_INDICATOR_CSS_CLASS_ONLINE: "root-touchsoft-dashboard_user-online"
     },
     chatSettings: {
-        typeOfRequest: "fetch"
+        typeOfRequest: "longPoll"
     },
     currentUserSettings: {
         userId: null,
@@ -50,7 +51,7 @@ var mainConfig = {
 
     interval: {
         UPDATE_USERS_TIME: 5000,
-        ONLINE_INTERVAL: 120000
+        ONLINE_INTERVAL: 12000
     },
     router: {
         // URL загрузки страницы about

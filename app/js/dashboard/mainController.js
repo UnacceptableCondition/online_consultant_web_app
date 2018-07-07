@@ -1,4 +1,10 @@
-var mainController = (function (config) {
+/* global dashboard */
+/* global launcher */
+/* global about */
+/* global clearElementContent */
+/* global viewFactory */
+/* global mainConfig */
+var mainController = (function createMainController (config) {
 
     var matchesHtmlPath = {
         dashboard: config.router.DASHBOARD_HTML_PATH,
@@ -23,9 +29,9 @@ var mainController = (function (config) {
 
     }
 
-    MainController.prototype.startApp = function () {
+    MainController.prototype.startApp = function startApp () {
         var that = this;
-        window.addEventListener('hashchange', function (element) {
+        window.addEventListener('hashchange', function hasChangeEventAdd (element) {
             that.handleUrl(element.newURL);
         });
 
@@ -43,25 +49,26 @@ var mainController = (function (config) {
         this.closePreviousPage(hash);
 
 
-        document.querySelectorAll('a.' + config.router.NAVIGATION_ACTIVE_CSS).forEach(function (element) {
+        document.querySelectorAll('a.' + config.router.NAVIGATION_ACTIVE_CSS).forEach(function removeClassActive (element) {
             element.classList.remove(config.router.NAVIGATION_ACTIVE_CSS)
         });
-        document.querySelectorAll('a[href="#' + hash + '"]').forEach(function (element) {
+        document.querySelectorAll('a[href="#' + hash + '"]').forEach(function addClassActive (element) {
             element.classList.add(config.router.NAVIGATION_ACTIVE_CSS);
         });
 
         clearElementContent(config.router.CONTENT_CLASS);
-        viewFactory.createView(matchesHtmlPath[hash], null, config.router.CONTENT_CLASS).then(function () {
+        viewFactory.createView(matchesHtmlPath[hash], null, config.router.CONTENT_CLASS).then(function invokeStartFunction () {
             startFunctions[hash]();
         });
 
     };
 
     MainController.prototype.closePreviousPage = function closePreviousPage(hash) {
-        Object.keys(closeFunctions).map(function (key) {
+        Object.keys(closeFunctions).map(function invokeCloseFunction (key) {
             if(key !== hash) {
                 closeFunctions[key]();
             }
+            return true;
         })
     };
 

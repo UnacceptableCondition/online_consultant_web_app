@@ -1,4 +1,10 @@
-var chatController = (function (config) {
+/* global userDataManager */
+/* global chatCustomizer */
+/* global getHash */
+/* global getElement */
+/* global mainConfig */
+/* global viewFactory */
+var chatController = (function createChatController (config) {
 
     // INCLUDE //
 
@@ -8,15 +14,15 @@ var chatController = (function (config) {
 
     function ChatController() {}
 
-    ChatController.prototype.startApp = function () {
+    ChatController.prototype.startApp = function startAppBasic () {
         var that = this;
         // localStorage.removeItem(config.LOCAL_STORAGE_NAME);
-        return this.setupChatView().then( function () {
+        return this.setupChatView().then( function startAuthorizationAndBasicListeners () {
             that.authorization(config.chatSettings.requireName);
             that.setupChatBasicListeners();
-        }).then(function () {
+        }).then(function afterSetupViewConfiguration () {
             if(config.currentUserSettings.userId) {
-                userDataManager.getUserData(config.currentUserSettings.userId).then(function () {
+                userDataManager.getUserData(config.currentUserSettings.userId).then(function afterUserDataSetup () {
                     that.setupChatStyle();
                     that.setupIntervalFunctions();
                     that.setupChatSendListeners();
@@ -24,7 +30,7 @@ var chatController = (function (config) {
             } else {
                 that.setupChatStyle();
             }
-        }).then(function () {
+        }).then(function postChatSetup () {
             chatCustomizer.setupOuterChatSettings();
         })
     };
@@ -32,46 +38,49 @@ var chatController = (function (config) {
     // authorization block //
 
     ChatController.prototype.authorization = function authorization (userNameIsRequire) {
-        userDataManager.setup(config);
-        config.currentUserSettings.userId = this.getUserIdFromLocalStorage();
-        if(!config.currentUserSettings.userId) {
+        userDataManager.setup();
+        if(!this.getConditionFromLocalStorage()) {
             if(userNameIsRequire === "false") {
                 config.currentUserSettings.userId = getHash(config.DEFAULT_USER_NAME);
                 config.currentUserSettings.userName = config.DEFAULT_USER_NAME;
-                this.saveUserIdToLocalStorage(config.currentUserSettings.userId);
-                userDataManager.createNewUserProfileToDataBase();
+                this.saveConditionToLocalStorage();
+                userDataManager.createNewUserProfileToDataBase(config.currentUserSettings.userId, config.currentUserSettings.userName);
             }
             else {
                 this.toggleAuthorizationMenuVisible();
             }
+        } else {
+            this.setupChatCondition();
         }
     };
 
-    ChatController.prototype.toggleAuthorizationMenuVisible = function () {
+    ChatController.prototype.toggleAuthorizationMenuVisible = function toggleAuthorizationMenuVisible () {
         getElement(config.DOM.AUTHORIZATION_MENU_CLASS).classList.toggle(
             config.INVISIBLE_CLASS
         )
     };
 
+
     // Если требуется ввести имя, получаем его и заносим юзера в бд
-    ChatController.prototype.getUserNameFromInput = function () {
+    ChatController.prototype.getUserNameFromInput = function getUserNameFromInput () {
         config.currentUserSettings.userName = getElement(
             config.DOM.USER_NAME_INPUT_CLASS
         ).value;
         config.currentUserSettings.userId = getHash(
             config.currentUserSettings.userName
         );
-        userDataManager.setup(config);
-        userDataManager.createNewUserProfileToDataBase();
-        this.saveUserIdToLocalStorage(config.currentUserSettings.userId);
+        config.chatSettings.isMinimize = false;
+        userDataManager.createNewUserProfileToDataBase(config.currentUserSettings.userId, config.currentUserSettings.userName);
+        this.saveConditionToLocalStorage();
         this.toggleAuthorizationMenuVisible();
         this.setupIntervalFunctions();
         this.setupChatSendListeners();
+        userDataManager.getUserData(config.currentUserSettings.userId);
     };
 
     // Setup Chat //
 
-    ChatController.prototype.setupChatSendListeners = function () {
+    ChatController.prototype.setupChatSendListeners = function setupChatSendListeners () {
         // setup chat listeners
         getElement(config.DOM.SEND_MESSAGE_FULL_SIZE_BUTTON).addEventListener(
             'click',
@@ -89,7 +98,7 @@ var chatController = (function (config) {
         document.addEventListener("mousemove", userDataManager.setMessageAsRead.bind(userDataManager));
     };
 
-    ChatController.prototype.setupChatBasicListeners = function () {
+    ChatController.prototype.setupChatBasicListeners = function setupChatBasicListeners () {
         var that = this;
         getElement(config.DOM.SEND_USER_NAME_BUTTON).addEventListener(
             "click",
@@ -120,6 +129,7 @@ var chatController = (function (config) {
                 config.INVISIBLE_CLASS
             );
         }
+        this.changeInputAndSendButtonClass();
     };
 
     ChatController.prototype.minMaxStyleToggle = function minMaxStyleToggle() {
@@ -131,16 +141,14 @@ var chatController = (function (config) {
         );
         config.currentUserSettings.isMinimize = config.currentUserSettings.isMinimize === false;
         this.changeInputAndSendButtonClass();
-        userDataManager.saveSettingField("isMinimize");
+        this.saveConditionToLocalStorage();
     };
 
     ChatController.prototype.activityNotify = function activityNotify () {
-        var date = new Date();
-        config.currentUserSettings.lastOnline = date.getTime();
-        userDataManager.saveSettingField("lastOnline");
+        userDataManager.updateUserOnline(config.currentUserSettings.userId);
     };
 
-    ChatController.prototype.changeInputAndSendButtonClass = function () {
+    ChatController.prototype.changeInputAndSendButtonClass = function changeInputAndSendButtonClass () {
         if(config.currentUserSettings.isMinimize) {
             config.CSS_CURRENT_INPUT_CLASS = config.DOM.CSS_MIN_SIZE_INPUT_MESSAGE_BLOCK_CLASS
         } else {
@@ -150,26 +158,42 @@ var chatController = (function (config) {
 
     // WORK WITH LOCAL STORAGE //
 
-    ChatController.prototype.saveUserIdToLocalStorage = function saveUserIdToLocalStorage(userId) {
-        localStorage.setItem(config.LOCAL_STORAGE_NAME, userId);
+    ChatController.prototype.setupChatCondition = function setupChatCondition () {
+        var condition = this.getConditionFromLocalStorage();
+        config.currentUserSettings.userId = this.getConditionFromLocalStorage().userId;
+        config.currentUserSettings.userName = this.getConditionFromLocalStorage().userName;
+        config.currentUserSettings.isMinimize = condition.isMinimize;
     };
 
-    ChatController.prototype.getUserIdFromLocalStorage = function getUserIdFromLocalStorage () {
-        return localStorage.getItem(config.LOCAL_STORAGE_NAME);
+    ChatController.prototype.saveConditionToLocalStorage = function saveConditionToLocalStorage() {
+        var data = JSON.stringify({
+            userId: config.currentUserSettings.userId,
+            isMinimize: config.currentUserSettings.isMinimize,
+            userName: config.currentUserSettings.userName
+        });
+        localStorage.setItem(config.LOCAL_STORAGE_NAME, data);
+    };
+
+    ChatController.prototype.getConditionFromLocalStorage = function getConditionFromLocalStorage () {
+        return JSON.parse(localStorage.getItem(config.LOCAL_STORAGE_NAME));
     };
 
     // WORK WITH LOCAL STORAGE //
 
-    ChatController.prototype.setupIntervalFunctions = function () {
+    ChatController.prototype.setupIntervalFunctions = function setupIntervalFunctions () {
         var that = this;
-        setInterval( function () {
-            userDataManager.getUserData(config.currentUserSettings.userId);
+        setInterval( function intervalFunctions () {
+            if(config.chatSettings.typeOfRequest !== "longPoll") {
+                userDataManager.getUserData(config.currentUserSettings.userId);
+            }
+            console.log("Test");
             that.activityNotify();
         }, config.UPDATE_USER_DATA_TIME)
     };
 
     return new ChatController();
 
-})(mainConfig);
+})(mainConfig, eventEmitter);
+
 
 chatController.startApp();

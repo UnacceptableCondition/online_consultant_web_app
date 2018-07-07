@@ -108,8 +108,9 @@ function parseSrcForParameters(
 }
 
 function setOuterChatSettingToConfig (outerConfigObject, config) {
-    Object.keys(outerConfigObject).map(function (key) {
+    Object.keys(outerConfigObject).map(function getOuterSettings (key) {
         config.chatSettings[key] = outerConfigObject[key];
+        return true;
     })
 }
 

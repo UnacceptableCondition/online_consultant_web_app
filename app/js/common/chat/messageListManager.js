@@ -1,6 +1,6 @@
 /* global getElement */
-/* global chatManagerConfig */
-/* exported chatManager */
+/* global mainConfig */
+/* exported messageListManager */
 // Модуль для работы со списком сообщений ОДНОГО пользователя
 var messageListManager = (function setupMessageListManager (config) {
     //  //////////////////////////////////
@@ -16,7 +16,7 @@ var messageListManager = (function setupMessageListManager (config) {
     //  ///////////////////////////////////
     function MessageListManager() {}
 
-    MessageListManager.prototype.setup = function () {
+    MessageListManager.prototype.setup = function setup () {
         this.messageList = [];
         this.cDOM = {
             messagesBlock: getElement(
@@ -61,11 +61,11 @@ var messageListManager = (function setupMessageListManager (config) {
         return messageContainerDiv;
     };
 
-    MessageListManager.prototype.getMessageObjectsForMarkAsRead = function  getMessageObjectsForMarkAsRead (relativeUserName, relativeUserId) {
+    MessageListManager.prototype.getMessageObjectsForMarkAsRead = function  getMessageObjectsForMarkAsRead () {
         var i;
         var messagesIsRead = [];
-        var userName = relativeUserName || config.currentUserSettings.userName;
-        var userId = relativeUserId || config.currentUserSettings.userId;
+        var userName = config.ADMIN_NAME || config.currentUserSettings.userName;
+        var userId = config.currentUserSettings.userId;
         for(i = this.messageList.length - 1; i >= 0; i--) {
             if(this.messageList[i].sender !== userName)
             {
@@ -73,18 +73,20 @@ var messageListManager = (function setupMessageListManager (config) {
                     messagesIsRead.push(
                         {
                             userId: userId,
-                            fieldName:"messages/" + this.messageList[i].id + "/itIsRead",
+                            fieldName: this.messageList[i].id + "/read",
                             fieldValue: true
                         }
                     );
+                    this.messageList[i].read = true;
                 } else {
                     break;
                 }
             }
         }
-
         return messagesIsRead;
     };
+
+
 
     MessageListManager.prototype.createMessageContainerDiv = function createMessageContainerDiv (isRead, sender) {
         var messageContainerDiv = document.createElement("div");
@@ -95,9 +97,9 @@ var messageListManager = (function setupMessageListManager (config) {
         return messageContainerDiv;
     };
 
-    MessageListManager.prototype.createDivForMessageBlock = function (text, isDisplay, styleClasses) {
+    MessageListManager.prototype.createDivForMessageBlock = function createDivForMessageBlock (text, isDisplay, styleClasses) {
         var div = document.createElement("div");
-        styleClasses.forEach(function (style) {
+        styleClasses.forEach(function classAdd (style) {
             div.classList.add(style);
         });
         div.innerHTML = text;
@@ -117,6 +119,9 @@ var messageListManager = (function setupMessageListManager (config) {
     };
 
     MessageListManager.prototype.updateMessageList = function updateMessageList (newMessageList) {
+        if(this.getMessageObjectsForMarkAsRead().length > 0) {
+            config.currentUserSettings.readLastMessage = false;
+        }
         this.messageList = newMessageList;
         this.displayMessages();
     };

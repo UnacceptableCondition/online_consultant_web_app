@@ -1,3 +1,8 @@
+/* exported userListManager */
+/* global clearElementContent */
+/* global getElement */
+/* global mainConfig */
+/* global sorter */
 var userListManager = (function createUserList (config, sorter) {
     //  ////////////////////////////////////////////////////////////////////////
     /* Формат объекта в списке юзера
@@ -15,10 +20,10 @@ var userListManager = (function createUserList (config, sorter) {
       */
     //  ////////////////////////////////////////////////////////////////////////
     function UserListManager() {
-        this.uList = {};
+        this.uList = [];
     }
 
-    UserListManager.prototype.setup = function () {};
+    UserListManager.prototype.setup = function setup () {};
 
     // Создает DOM елемент для отображения юзера в списке
     UserListManager.prototype.createUserElement = function createUserElement(
@@ -68,6 +73,17 @@ var userListManager = (function createUserList (config, sorter) {
         });
     };
 
+    UserListManager.prototype.updateUserOnlineStatus = function updateUserView (userId, lastOnline) {
+        var userIndex = this.getUserFromUserListById(userId);
+        this.uList[userIndex].lastOnline = lastOnline;
+        this.uList[userIndex].online = this.userIsOnline(lastOnline);
+        this.uList[userIndex].userElement = this.createUserElement(
+            userId,
+            this.userIsOnline(lastOnline)
+        );
+
+    };
+
     // Возвращает index юзера в списке юзера если он там находится. В противно случае возвращает null
     UserListManager.prototype.getUserFromUserListById = function getUserFromUserListById(userId) {
         var userManager = this;
@@ -99,6 +115,10 @@ var userListManager = (function createUserList (config, sorter) {
     // Сортирует список юзеров по полю
     UserListManager.prototype.sortUsersByField = function sortUsersByOnline() {
         sorter.quickSort(this.uList, 0, this.uList.length - 1, config.currentDashboardCondition.sortBy);
+    };
+
+    UserListManager.prototype.clearUserList = function clearUserList () {
+        this.uList = [];
     };
 
     // Отобразить/ Обновить представление юзеров на странице

@@ -1,19 +1,47 @@
+/* exported dataSource */
+/* global dataBaseUrl */
+/* global dataConnector */
 // Модуль для получения данных
 // Все API функции возвращают промисы
-var dataSource = (function createDataSource (dataConnector) {
+var dataSource = (function createDataSource (dataConnector, config) {
     var dataSourceInstance;
     var dataSourceAPI;
+    var USER_LIST = "userList";
+    var USER_MESSAGES = "usersMessages";
+    var USERS_SETTINGS = "usersSettings";
+    var newUserData = {
+        isMinimize: false,
+        readLastMessage: true
+    };
+
+    function longPollConnect (dataType, userId) {
+        var requestPath = this.createRequestPath(dataBaseUrl, userId, null, dataType);
+        return dataConnector.createLongPollConnection(requestPath);
+    }
+
+    function basicConnect (dataType, userId) {
+        var requestPath = this.createRequestPath(dataBaseUrl, userId, null, dataType);
+        return dataConnector.request.bind(null, requestPath, null, "GET", "application/json")
+    }
 
     function DataSource() {
-        dataConnector = dataConnector;
+        if(config.chatSettings.typeOfRequest === "longPoll") {
+            DataSource.prototype.getData = longPollConnect
+        } else {
+            DataSource.prototype.getData = basicConnect
+        }
     }
 
     DataSource.prototype.createRequestPath = function createRequestPath(
         dataBaseURL,
         userId,
-        requestPostfix
+        requestPostfix,
+        requestPrefix
     ) {
-        var path = dataBaseURL + "/users";
+        var path = dataBaseURL;
+        if(requestPrefix !== null) {
+            path += "/" + requestPrefix
+        }
         if (userId !== null) {
             path += "/" + userId;
         }
@@ -32,119 +60,82 @@ var dataSource = (function createDataSource (dataConnector) {
         );
     };
 
-    // Работа с КОНКРЕТНЫМ юзером
 
-    // Получить все сообщения и настройки пользователя
-    DataSource.prototype.getUserData = function getUserData(userId) {
-        var userData = {};
-        var requestPath = this.createRequestPath(dataBaseUrl, userId, null);
-        return dataConnector
-            .request(requestPath, null, "GET", "application/json")
-            .then(function setUserData(data) {
-                if (data) {
-                    Object.keys(data).map(function setData (key) {
-                        userData[key] = data[key];
-                        return true;
-                    });
-                }
-            })
-            .then(function returnUsersList() {
-                return userData;
-            });
-    };
-
-    // Получает опр поле настроек пользователя
-    DataSource.prototype.getSettingField = function getAmountOfNoReadMessage(
-        userId,
-        fieldName
-    ) {
-        var requestPath = this.createRequestPath(dataBaseUrl, userId, fieldName);
-        return dataConnector.request(
-            requestPath,
-            null,
-            "GET",
-            "application/json"
-        );
-    };
-
-    // Устанавливает опр поле настроек пользователя
-    DataSource.prototype.setSettingField = function getAmountOfNoReadMessage(
-        userId,
-        fieldName,
-        value
-    ) {
-        var requestPath = this.createRequestPath(dataBaseUrl, userId, fieldName);
+    DataSource.prototype.setData = function setData (dataType, requestType, fieldName, userId, value) {
+        var requestPath;
+        if(requestType === "PUT") {
+            requestPath = this.createRequestPath(dataBaseUrl, userId, fieldName, dataType);
+        } else {
+            requestPath = this.createRequestPath(dataBaseUrl, userId, null, dataType);
+        }
         return dataConnector.request(
             requestPath,
             JSON.stringify(value),
-            "PUT",
+            requestType,
             "application/json"
         );
     };
 
-    // Отправить сообщение пользователю
-    DataSource.prototype.sendMessage = function sendMessageToUser(
-        userId,
-        messageObject
-    ) {
-        var requestPath = this.createRequestPath(dataBaseUrl, userId, "messages");
-        var jsonMessage = JSON.stringify(
-            {
-                date: messageObject.date,
-                message: messageObject.message,
-                title: "message",
-                user: messageObject.sender,
-                itIsRead: messageObject.read
-            }
-        );
-        return dataConnector.request(
-            requestPath,
-            jsonMessage,
-            "POST",
-            "application/json"
-        );
+    DataSource.prototype.addNewUserToDataSource = function addNewUserToDataSource (userId, userName) {
+        var date = new Date;
+        var that = this;
+        newUserData.userName = userName;
+        Object.keys(newUserData).map(function (settingName) {
+            that.setData(USERS_SETTINGS, "PUT", settingName, userId, newUserData[settingName]);
+        });
+        this.setData(USER_LIST, "PUT", null, userId, {"lastOnline": date.getTime(), "sendNewMessage": false});
     };
-
-    // Работа со ВСЕМИ юзерами
-
-    // получить все данные, всех пользователей
-    DataSource.prototype.getAllUsers = function getAllUsers() {
-        var usersDataList = {};
-        var requestPath = this.createRequestPath(dataBaseUrl, null, null);
-        return dataConnector
-            .request(requestPath, null, "GET", "application/json")
-            .then(function setUsersList(data) {
-                if (data) {
-                    Object.keys(data).map(function setData(key) {
-                        usersDataList[key] = data[key];
-                        return true
-                    });
-                }
-            })
-            .then(function returnUsersList() {
-                return usersDataList;
-            });
-    };
-
     // Создаем instance объекта, задаем API
 
     dataSourceInstance = new DataSource();
     dataSourceAPI = {
         usersAPI: {
-            getUserData: dataSourceInstance.getUserData.bind(
+            getUserList: dataSourceInstance.getData.bind(
+                dataSourceInstance,
+                USER_LIST
+            ),
+            getUserSettings: dataSourceInstance.getData.bind(
+                dataSourceInstance,
+                USERS_SETTINGS
+            ),
+            getUserMessages: dataSourceInstance.getData.bind(
+                dataSourceInstance,
+                USER_MESSAGES
+            ),
+            getSettingField: dataSourceInstance.getData.bind(
+                dataSourceInstance,
+                USERS_SETTINGS
+            ),
+            sendMessage: dataSourceInstance.setData.bind(
+                dataSourceInstance,
+                USER_MESSAGES,
+                "POST"
+
+            ),
+            setSettingField: dataSourceInstance.setData.bind(
+                dataSourceInstance,
+                USERS_SETTINGS,
+                "PUT"
+            ),
+            addNewUserToDataSource: dataSourceInstance.addNewUserToDataSource.bind(
                 dataSourceInstance
             ),
-            sendMessage: dataSourceInstance.sendMessage.bind(
-                dataSourceInstance
+            updateLastOnline: dataSourceInstance.setData.bind(
+                dataSourceInstance,
+                USER_LIST,
+                "PUT",
+                "lastOnline"
             ),
-            setField: dataSourceInstance.setSettingField.bind(
-                dataSourceInstance
+            updateSendNewMessageFlag: dataSourceInstance.setData.bind(
+                dataSourceInstance,
+                USER_LIST,
+                "PUT",
+                "sendNewMessage"
             ),
-            getField: dataSourceInstance.getSettingField.bind(
-                dataSourceInstance
-            ),
-            getAllUsers: dataSourceInstance.getAllUsers.bind(
-                dataSourceInstance
+            updateMessageIsReadField: dataSourceInstance.setData.bind(
+                dataSourceInstance,
+                USER_MESSAGES,
+                "PUT"
             )
         },
         commonAPI: {
@@ -153,4 +144,35 @@ var dataSource = (function createDataSource (dataConnector) {
     };
 
     return dataSourceAPI;
-})(dataConnector);
+})(dataConnector, mainConfig);
+//
+// var userId = "Atjers21530277744958";
+// var message = {
+//     date: "testDate",
+//     itIsRead: true,
+//     message: "testMessage",
+//     user: "ivan"
+// };
+// dataSource.usersAPI.sendMessage(null, userId, message);
+// dataSource.usersAPI.sendMessage(null, userId,  message);
+// dataSource.usersAPI.sendMessage({test: "test"}, userId,   message);
+
+
+// dataSource.usersAPI.getUserMessages(userId).then(function (data) {
+//     console.log(data);
+// });
+
+// dataSource.usersAPI.setSettingField("testField", userId, false);
+// var userName = "atjers";
+
+// dataSource.usersAPI.addNewUserToDataSource(userId, userName);
+
+// dataSource.usersAPI.getUserList(null).then(function (data) {
+//     console.log(data);
+// });
+
+
+// dataSource.usersAPI.updateLastOnline(userId, 111111111);
+// dataSource.usersAPI.getUserSettings(userId).then(function (data) {
+//     console.log(data);
+// });

@@ -1,10 +1,13 @@
-var viewFactory = (function (dataSource) {
+/* exported viewFactory */
+/* global getElement */
+/* global dataSource */
+var viewFactory = (function createViewFactory (dataSource) {
 
     function ViewFactory () {}
 
     ViewFactory.prototype.createView = function createChatView (htmlPath, cssPath, containerClass) {
         var that = this;
-        return new Promise(function(resolve, reject) {
+        return new Promise(function createViewPromise (resolve, reject) {
             if(htmlPath) {
                 if(cssPath) {
                     that.includeViewCssToPage(that.createCSSLink(
@@ -23,7 +26,7 @@ var viewFactory = (function (dataSource) {
 
     ViewFactory.prototype.includeViewHTMLToPage = function includeChatHTMLToPage (htmlPath, containerClass) {
         var containerDiv = (containerClass) ? getElement(containerClass) : document.body;
-        return dataSource.commonAPI.getHTML(htmlPath).then(function (html) {
+        return dataSource.commonAPI.getHTML(htmlPath).then(function setHtml (html) {
             containerDiv.innerHTML = html;
         })
     };

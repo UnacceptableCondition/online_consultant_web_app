@@ -1,5 +1,6 @@
+/* exported about */
 // STUB //
-var about = (function () {
+var about = (function createAboutPageApp () {
     function About() {
 
     }

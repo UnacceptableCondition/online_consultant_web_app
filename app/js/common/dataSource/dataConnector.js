@@ -1,3 +1,5 @@
+/* exported dataConnector */
+/* global dataConnectorConfig */
 // Модуль предоставляет способ отправки запроса к источнику данных
 // Для реквеста необходим путь, тело запроса, тип запроса
 // request возвращает Promise
@@ -56,14 +58,27 @@ var dataConnector = (function getDataSourceAPI(dataConnectorConfigObj) {
         });
     };
 
+    DataBaseConnector.prototype.longPoll = function longPoll (targetUrl) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open('GET', targetUrl, true);
+        xhttp.setRequestHeader('Accept', 'text/event-stream');
+        return xhttp;
+        // xhttp.send();
+    };
+
     dataBaseConnector = new DataBaseConnector();
     if (dataConnectorConfigObj.typeOfRequest === "fetch") {
         dataBaseAPI = {
             request: dataBaseConnector.requestFetch
         };
-    } else {
+    } else if (dataConnectorConfigObj.typeOfRequest === "XHR") {
         dataBaseAPI = {
             request: dataBaseConnector.requestXMR
+        };
+    } else {
+        dataBaseAPI = {
+            request: dataBaseConnector.requestXMR,
+            createLongPollConnection: dataBaseConnector.longPoll
         };
     }
 

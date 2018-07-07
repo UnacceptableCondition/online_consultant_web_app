@@ -1,3 +1,12 @@
+/* global QUnit */
+/* global dataSource */
+/* global userListManager */
+/* global mainConfig */
+/* global messageListManager */
+/* global viewFactory */
+/* global getElement */
+/* global chatCustomizer */
+/* global userDataManager */
 var tests = QUnit.test;
 var module = QUnit.module;
 var testConfig = {
@@ -209,7 +218,6 @@ tests("createMessageElement should create valid message element", function test(
         isRead
     );
     var nodeList = messageElement.childNodes;
-    console.log(nodeList);
     assert.equal(messageElement.tagName, "DIV", "tagName true");
     assert.ok(
         messageElement.classList.contains(
@@ -259,7 +267,7 @@ tests("addMessageToMessageList should add message", function test(assert) {
 module("viewFactory tests");
 tests("add html to page", function test(assert) {
     var done = assert.async();
-    viewFactory.includeViewHTMLToPage(mainConfig.router.ABOUT_HTML_PATH, "content").then(function () {
+    viewFactory.includeViewHTMLToPage(mainConfig.router.ABOUT_HTML_PATH, "content").then(function testIncludeHtml () {
         assert.ok(
             getElement("root-touchsoft-about"),
             "add html to page"

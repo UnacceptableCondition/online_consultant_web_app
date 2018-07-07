@@ -1,3 +1,4 @@
+/* exported createMessageObject */
 function createMessageObject (
     message,
     date,

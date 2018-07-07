@@ -1,4 +1,4 @@
-//config
+// config
 
 //= chatApplication/config/userChatConfig.js
 //= common/config/commonConfig.js
@@ -7,6 +7,11 @@
 
 //= common/dataSource/dataConnector.js
 //= common/dataSource/dataSource.js
+
+// eventEmitter
+
+//= common/eventEmitter.js
+//= common/dataSource/longPollResponseParser.js
 
 // messageManager
 

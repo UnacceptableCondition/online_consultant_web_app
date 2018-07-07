@@ -1,4 +1,8 @@
-var chatCustomizer = (function (config) {
+/* exported chatCustomizer */
+/* global chatCustomizer */
+/* global getElement */
+/* global mainConfig */
+var chatCustomizer = (function createChatCustomizer (config) {
 
     function ChatCustomizer() {}
 

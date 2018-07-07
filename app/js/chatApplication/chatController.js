@@ -190,7 +190,6 @@ var chatController = (function createChatController (config) {
             if(config.chatSettings.typeOfRequest !== "longPoll") {
                 userDataManager.getUserData(config.currentUserSettings.userId);
             }
-            console.log("Test");
             that.activityNotify();
         }, config.UPDATE_USER_DATA_TIME)
     };

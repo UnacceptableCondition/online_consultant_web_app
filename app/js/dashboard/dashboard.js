@@ -259,7 +259,9 @@ var dashboard = (function createDashboardController(config, dataSource, uDataMan
         });
         userDataManager.clearMessageList();
         uListManager.clearUserList();
-        config.currentMessageConnection.abort();
+        if(config.currentMessageConnection) {
+            config.currentMessageConnection.abort();
+        }
         config.currentUserListConnection.abort()
     };
 

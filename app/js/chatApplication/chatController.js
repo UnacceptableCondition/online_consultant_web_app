@@ -175,7 +175,11 @@ var chatController = (function createChatController (config) {
     };
 
     ChatController.prototype.getConditionFromLocalStorage = function getConditionFromLocalStorage () {
-        return JSON.parse(localStorage.getItem(config.LOCAL_STORAGE_NAME));
+        var condition = localStorage.getItem(config.LOCAL_STORAGE_NAME);
+        if(condition) {
+            return JSON.parse(condition);
+        }
+        return false;
     };
 
     // WORK WITH LOCAL STORAGE //

@@ -5,7 +5,6 @@
 // Все API функции возвращают промисы
 var dataSource = (function createDataSource (dataConnector, config) {
     var dataSourceInstance;
-    var dataSourceAPI;
     var USER_LIST = "userList";
     var USER_MESSAGES = "usersMessages";
     var USERS_SETTINGS = "usersSettings";
@@ -13,6 +12,8 @@ var dataSource = (function createDataSource (dataConnector, config) {
         isMinimize: false,
         readLastMessage: true
     };
+
+    function DataSource() {}
 
     function longPollConnect (dataType, userId) {
         var requestPath = this.createRequestPath(dataBaseUrl, userId, null, dataType);
@@ -22,14 +23,6 @@ var dataSource = (function createDataSource (dataConnector, config) {
     function basicConnect (dataType, userId) {
         var requestPath = this.createRequestPath(dataBaseUrl, userId, null, dataType);
         return dataConnector.request.bind(null, requestPath, null, "GET", "application/json")
-    }
-
-    function DataSource() {
-        if(config.chatSettings.typeOfRequest === "longPoll") {
-            DataSource.prototype.getData = longPollConnect
-        } else {
-            DataSource.prototype.getData = basicConnect
-        }
     }
 
     DataSource.prototype.createRequestPath = function createRequestPath(
@@ -85,65 +78,79 @@ var dataSource = (function createDataSource (dataConnector, config) {
         });
         this.setData(USER_LIST, "PUT", null, userId, {"lastOnline": date.getTime(), "sendNewMessage": false});
     };
-    // Создаем instance объекта, задаем API
 
-    dataSourceInstance = new DataSource();
-    dataSourceAPI = {
-        usersAPI: {
-            getUserList: dataSourceInstance.getData.bind(
-                dataSourceInstance,
-                USER_LIST
-            ),
-            getUserSettings: dataSourceInstance.getData.bind(
-                dataSourceInstance,
-                USERS_SETTINGS
-            ),
-            getUserMessages: dataSourceInstance.getData.bind(
-                dataSourceInstance,
-                USER_MESSAGES
-            ),
-            getSettingField: dataSourceInstance.getData.bind(
-                dataSourceInstance,
-                USERS_SETTINGS
-            ),
-            sendMessage: dataSourceInstance.setData.bind(
-                dataSourceInstance,
-                USER_MESSAGES,
-                "POST"
-
-            ),
-            setSettingField: dataSourceInstance.setData.bind(
-                dataSourceInstance,
-                USERS_SETTINGS,
-                "PUT"
-            ),
-            addNewUserToDataSource: dataSourceInstance.addNewUserToDataSource.bind(
-                dataSourceInstance
-            ),
-            updateLastOnline: dataSourceInstance.setData.bind(
-                dataSourceInstance,
-                USER_LIST,
-                "PUT",
-                "lastOnline"
-            ),
-            updateSendNewMessageFlag: dataSourceInstance.setData.bind(
-                dataSourceInstance,
-                USER_LIST,
-                "PUT",
-                "sendNewMessage"
-            ),
-            updateMessageIsReadField: dataSourceInstance.setData.bind(
-                dataSourceInstance,
-                USER_MESSAGES,
-                "PUT"
-            )
-        },
-        commonAPI: {
-            getHTML: dataSourceInstance.getHTML.bind(dataSourceInstance)
+    DataSource.prototype.getDataSourceAPI = function getDataSourceAPI (typeOfRequest) {
+        if(typeOfRequest) {
+            config.chatSettings.typeOfRequest = typeOfRequest;
         }
+        if(config.chatSettings.typeOfRequest === "longPoll") {
+            DataSource.prototype.getData = longPollConnect
+        } else {
+            DataSource.prototype.getData = basicConnect
+        }
+        return {
+            usersAPI: {
+                getUserList: dataSourceInstance.getData.bind(
+                    dataSourceInstance,
+                    USER_LIST
+                ),
+                getUserSettings: dataSourceInstance.getData.bind(
+                    dataSourceInstance,
+                    USERS_SETTINGS
+                ),
+                getUserMessages: dataSourceInstance.getData.bind(
+                    dataSourceInstance,
+                    USER_MESSAGES
+                ),
+                getSettingField: dataSourceInstance.getData.bind(
+                    dataSourceInstance,
+                    USERS_SETTINGS
+                ),
+                sendMessage: dataSourceInstance.setData.bind(
+                    dataSourceInstance,
+                    USER_MESSAGES,
+                    "POST"
+
+                ),
+                setSettingField: dataSourceInstance.setData.bind(
+                    dataSourceInstance,
+                    USERS_SETTINGS,
+                    "PUT"
+                ),
+                addNewUserToDataSource: dataSourceInstance.addNewUserToDataSource.bind(
+                    dataSourceInstance
+                ),
+                updateLastOnline: dataSourceInstance.setData.bind(
+                    dataSourceInstance,
+                    USER_LIST,
+                    "PUT",
+                    "lastOnline"
+                ),
+                updateSendNewMessageFlag: dataSourceInstance.setData.bind(
+                    dataSourceInstance,
+                    USER_LIST,
+                    "PUT",
+                    "sendNewMessage"
+                ),
+                updateMessageIsReadField: dataSourceInstance.setData.bind(
+                    dataSourceInstance,
+                    USER_MESSAGES,
+                    "PUT"
+                )
+            },
+            commonAPI: {
+                getHTML: dataSourceInstance.getHTML.bind(dataSourceInstance),
+                getDataSourceAPI: dataSourceInstance.getDataSourceAPI.bind(dataSourceInstance)
+            }
+        };
     };
 
-    return dataSourceAPI;
+    // Создаем instance объекта, задаем API
+    dataSourceInstance = new DataSource();
+
+
+
+    return dataSourceInstance.getDataSourceAPI();
 })(dataConnector, mainConfig);
 //
 // var userId = "Atjers21530277744958";

@@ -155,6 +155,7 @@ var longPollResponseParser = (function createLongPollResponseParser() {
     };
 
     LongPollResponseParser.prototype.parse = function parse(text) {
+        console.log(text);
         var result = text.split(eventRegular);
         var changeType = this.getTypeOfChanges(result[result.length - 1]);
         var resultOfParse = { type: changeType };

@@ -18,7 +18,6 @@ var eventEmitter = (function createEventEmitter () {
         }
 
         return removeSubscribe
-
     };
 
     EventEmitter.prototype.emit = function emit (eventName, data) {

@@ -5,9 +5,30 @@
 // request возвращает Promise
 var dataConnector = (function getDataSourceAPI(dataConnectorConfigObj) {
     var dataBaseConnector;
-    var dataBaseAPI;
 
     function DataBaseConnector() {}
+
+    DataBaseConnector.prototype.setupDataBaseAPI = function setupDataBaseAPI (typeOfRequest) {
+        var dataBaseAPI;
+        if (typeOfRequest === "fetch") {
+            dataBaseAPI = {
+                request: dataBaseConnector.requestFetch,
+                getNewConnectorAPI: dataBaseConnector.setupDataBaseAPI
+            };
+        } else if (typeOfRequest === "XHR") {
+            dataBaseAPI = {
+                request: dataBaseConnector.requestXMR,
+                getNewConnectorAPI: dataBaseConnector.setupDataBaseAPI
+            };
+        } else {
+            dataBaseAPI = {
+                request: dataBaseConnector.requestXMR,
+                createLongPollConnection: dataBaseConnector.longPoll,
+                getNewConnectorAPI: dataBaseConnector.setupDataBaseAPI
+            };
+        }
+        return dataBaseAPI;
+    };
 
     DataBaseConnector.prototype.requestFetch = function requestFetch(
         requestPath,
@@ -63,24 +84,9 @@ var dataConnector = (function getDataSourceAPI(dataConnectorConfigObj) {
         xhttp.open('GET', targetUrl, true);
         xhttp.setRequestHeader('Accept', 'text/event-stream');
         return xhttp;
-        // xhttp.send();
     };
 
     dataBaseConnector = new DataBaseConnector();
-    if (dataConnectorConfigObj.typeOfRequest === "fetch") {
-        dataBaseAPI = {
-            request: dataBaseConnector.requestFetch
-        };
-    } else if (dataConnectorConfigObj.typeOfRequest === "XHR") {
-        dataBaseAPI = {
-            request: dataBaseConnector.requestXMR
-        };
-    } else {
-        dataBaseAPI = {
-            request: dataBaseConnector.requestXMR,
-            createLongPollConnection: dataBaseConnector.longPoll
-        };
-    }
+    return dataBaseConnector.setupDataBaseAPI(dataConnectorConfigObj.typeOfRequest);
 
-    return dataBaseAPI;
 })(dataConnectorConfig);

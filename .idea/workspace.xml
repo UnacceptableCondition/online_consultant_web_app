@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ca758c6-1d1f-4c80-826d-1bc8253ec648" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test/dataConnectorTests.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test/dataSourceTests.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test/longPollResponseParserTests.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test/Tests.html" afterPath="$PROJECT_DIR$/Test/Tests.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test/longPollResponseParserTests.js" afterPath="$PROJECT_DIR$/Test/longPollResponseParserTests.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test/test.js" afterPath="$PROJECT_DIR$/Test/test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/common/dataSource/dataConnector.js" afterPath="$PROJECT_DIR$/app/js/common/dataSource/dataConnector.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/common/dataSource/dataSource.js" afterPath="$PROJECT_DIR$/app/js/common/dataSource/dataSource.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/common/dataSource/longPollResponseParser.js" afterPath="$PROJECT_DIR$/app/js/common/dataSource/longPollResponseParser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/common/eventEmitter.js" afterPath="$PROJECT_DIR$/app/js/common/eventEmitter.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/chat.html" afterPath="$PROJECT_DIR$/deploy/chat.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/dashboardMain.html" afterPath="$PROJECT_DIR$/deploy/dashboardMain.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/js/chatApp.js" afterPath="$PROJECT_DIR$/deploy/js/chatApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/js/dashboardApp.js" afterPath="$PROJECT_DIR$/deploy/js/dashboardApp.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,11 +20,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="longPollResponseParserTests.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Tests.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Test/Tests.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="longPollResponseParserTests.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Test/longPollResponseParserTests.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="40" column="93" lean-forward="false" selection-start-line="40" selection-start-column="93" selection-end-line="40" selection-end-column="93" />
+            <state relative-caret-position="581">
+              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -42,28 +43,40 @@
       <file leaf-file-name="dashboardMain.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deploy/dashboardMain.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+            <state relative-caret-position="306">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controll.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/longpull/controll.js">
+      <file leaf-file-name="test.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Test/test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state relative-caret-position="-1326">
+              <caret line="23" column="7" lean-forward="false" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chat.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy/chat.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="10" selection-end-column="119" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="long.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="long.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/longpull/long.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="153">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -92,31 +105,9 @@
       <file leaf-file-name="dataConnectorTests.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Test/dataConnectorTests.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-782">
-              <caret line="8" column="28" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+            <state relative-caret-position="107">
+              <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chat.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy/chat.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Test/test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="42" column="31" lean-forward="false" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="31" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -124,8 +115,8 @@
       <file leaf-file-name="dataSourceTests.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Test/dataSourceTests.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-291">
-              <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+            <state relative-caret-position="496">
+              <caret line="57" column="21" lean-forward="true" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -143,7 +134,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>status</find>
       <find>updateUserOnline</find>
       <find>update</find>
       <find>displayUsersList</find>
@@ -164,7 +154,6 @@
       <find>displa</find>
       <find>setMessageAsRead</find>
       <find>sendMe</find>
-      <find>console</find>
       <find>markMessageFromUserAsRead</find>
       <find>startFunctions</find>
       <find>setMessa</find>
@@ -173,6 +162,8 @@
       <find>touchsoft_chat-launcher_chatTitle-label</find>
       <find>getConditionFromLocalStorage</find>
       <find>newUserData</find>
+      <find>console</find>
+      <find>equal</find>
     </findStrings>
     <replaceStrings>
       <replace>MessagesManager</replace>
@@ -250,19 +241,19 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/js/dashboard/dashboard.js" />
         <option value="$PROJECT_DIR$/app/js/chatApplication/chatController.js" />
-        <option value="$PROJECT_DIR$/longpull/long.html" />
         <option value="$PROJECT_DIR$/longpull/controll.js" />
         <option value="$PROJECT_DIR$/app/js/common/dataSource/dataConnector.js" />
-        <option value="$PROJECT_DIR$/Test/test.js" />
         <option value="$PROJECT_DIR$/app/js/common/dataSource/dataSource.js" />
         <option value="$PROJECT_DIR$/Test/dataSourceTests.js" />
-        <option value="$PROJECT_DIR$/Test/Tests.html" />
-        <option value="$PROJECT_DIR$/deploy/chat.html" />
         <option value="$PROJECT_DIR$/Test/dataConnectorTests.js" />
         <option value="$PROJECT_DIR$/app/js/common/eventEmitter.js" />
         <option value="$PROJECT_DIR$/app/js/common/dataSource/longPollResponseParser.js" />
-        <option value="$PROJECT_DIR$/deploy/dashboardMain.html" />
+        <option value="$PROJECT_DIR$/Test/Tests.html" />
         <option value="$PROJECT_DIR$/Test/longPollResponseParserTests.js" />
+        <option value="$PROJECT_DIR$/Test/test.js" />
+        <option value="$PROJECT_DIR$/deploy/chat.html" />
+        <option value="$PROJECT_DIR$/deploy/dashboardMain.html" />
+        <option value="$PROJECT_DIR$/longpull/long.html" />
       </list>
     </option>
   </component>
@@ -275,7 +266,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="325" />
     <option name="width" value="552" />
     <option name="height" value="688" />
@@ -325,20 +316,7 @@
             <path>
               <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
               <item name="homework5" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="dataSource" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homework5" type="462c0819:PsiDirectoryNode" />
               <item name="deploy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homework5" type="462c0819:PsiDirectoryNode" />
-              <item name="longpull" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="homework5" type="b2602c69:ProjectViewProjectNode" />
@@ -422,12 +400,12 @@
       <workItem from="1531125928532" duration="7478000" />
       <workItem from="1531158569196" duration="3344000" />
       <workItem from="1531226856029" duration="11111000" />
-      <workItem from="1531305050446" duration="8646000" />
+      <workItem from="1531305050446" duration="9597000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="421353000" />
+    <option name="totallyTimeSpent" value="422304000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -439,7 +417,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22321428" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -737,14 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test/Tests.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="20" column="40" lean-forward="false" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/js/chatApplication/chatController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3183">
@@ -769,52 +739,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="42" column="31" lean-forward="false" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="31" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy/chat.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/dataSourceTests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-291">
-          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/dataConnectorTests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-782">
-          <caret line="8" column="28" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/longpull/controll.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/longpull/long.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -835,18 +763,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy/dashboardMain.html">
+    <entry file="file://$PROJECT_DIR$/Test/Tests.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+        <state relative-caret-position="408">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Test/longPollResponseParserTests.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="40" column="93" lean-forward="false" selection-start-line="40" selection-start-column="93" selection-end-line="40" selection-end-column="93" />
+        <state relative-caret-position="581">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/dataSourceTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="57" column="21" lean-forward="true" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/dataConnectorTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1326">
+          <caret line="23" column="7" lean-forward="false" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/chat.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="10" selection-end-column="119" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/dashboardMain.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/longpull/long.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>

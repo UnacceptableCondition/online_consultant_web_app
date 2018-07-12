@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ca758c6-1d1f-4c80-826d-1bc8253ec648" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dev/chatDev.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/chatApplication/chatController.js" afterPath="$PROJECT_DIR$/app/js/chatApplication/chatController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/common/chat/userDataManager.js" afterPath="$PROJECT_DIR$/app/js/common/chat/userDataManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/common/dataSource/dataSource.js" afterPath="$PROJECT_DIR$/app/js/common/dataSource/dataSource.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/dashboardMain.html" afterPath="$PROJECT_DIR$/deploy/dashboardMain.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/js/chatApp.js" afterPath="$PROJECT_DIR$/deploy/js/chatApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/js/dashboardApp.js" afterPath="$PROJECT_DIR$/deploy/js/dashboardApp.js" />
-    </list>
+    <list default="true" id="1ca758c6-1d1f-4c80-826d-1bc8253ec648" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -444,12 +435,12 @@
       <workItem from="1531226856029" duration="11111000" />
       <workItem from="1531305050446" duration="11682000" />
       <workItem from="1531390294481" duration="588000" />
-      <workItem from="1531391763439" duration="10867000" />
+      <workItem from="1531391763439" duration="10920000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="435844000" />
+    <option name="totallyTimeSpent" value="435897000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

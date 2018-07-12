@@ -7,18 +7,94 @@
 /* global eventEmitter */
 /* global mainConfig */
 var userDataManager =  (function createUserDataManager (config, eventEmitter, longPollResponseParser) {
+
+    // INCLUDE
+
+    //= ../serviceFunctions/getCurrentDate.js
+    //= ../serviceFunctions/createMessageObject.js
+
+    // INCLUDE
+
+    // basic
+    function getUserDataBasic (userId) {
+        var that = this;
+        return new Promise(function getCorrespondence (resolve) {
+            return that.getUserCorrespondence(userId).then( function getResolve () {
+                resolve()
+            });
+        })
+    }
+
+    function updateMessageListBasic (data) {
+        var newMessageList;
+        var messagesObject = [];
+        if(data) {
+            Object.keys(data).map(function pushData (key) {
+                data[key].id = key;
+                messagesObject.push(data[key]);
+                return true;
+            });
+        }
+        messageListManager.displayMessages();
+        newMessageList = messageListManager.createMessageList(messagesObject);
+        messageListManager.updateMessageList(newMessageList);
+    }
+
+    function getUserCorrespondenceBasic (userId) {
+        var that = this;
+        return dataSource.usersAPI.getUserMessages(userId)().then(function updateMessagesList (data) {
+            that.updateMessageList(data);
+        })
+    }
+
+    function getUserDataFromLongPollConnection(userId) {
+        var that = this;
+        return new Promise(function getLongPollCorrespondence(resolve) {
+            that.getUserCorrespondence(userId);
+            resolve();
+        });
+    }
+
+    function getUserCorrespondenceFromLongPollConnection(userId) {
+        var data;
+        if(config.currentMessageConnection) {
+            config.currentMessageConnection.abort();
+        }
+        config.currentMessageConnection = dataSource.usersAPI.getUserMessages(userId);
+        config.currentMessageConnection.onreadystatechange = function setupConnection () {
+            if (this.readyState === 3 && this.status === 200) {
+                data = longPollResponseParser.parse(this.responseText);
+                if (data) {
+                    eventEmitter.emit(data.type, data.object);
+                }
+            }
+        };
+        config.currentMessageConnection.send();
+    }
+
+    function updateMessageListAfterLongPoll (data) {
+        if(data) {
+            Object.keys(data).map(function addToMessageListLongPoll (key) {
+                data[key].id = key;
+                messageListManager.addMessageToMessageList(data[key]);
+                return true;
+            });
+        }
+        messageListManager.displayMessages();
+    }
+
     function UserDataManager () {
         var that = this;
         if(config.chatSettings.typeOfRequest === "longPoll") {
             UserDataManager.prototype.getUserData = getUserDataFromLongPollConnection.bind(this);
             UserDataManager.prototype.getUserCorrespondence = getUserCorrespondenceFromLongPollConnection.bind(this);
             UserDataManager.prototype.updateMessageList = updateMessageListAfterLongPoll.bind(this);
-            eventEmitter.addSubscribe("message", function (data) {
+            eventEmitter.addSubscribe("message", function subscribeMessage (data) {
                 that.updateMessageList(data);
             });
-            eventEmitter.addSubscribe("read", function (data) {
+            eventEmitter.addSubscribe("read", function subscribeRead (data) {
                 if(data) {
-                    messageListManager.messageList.forEach(function (message) {
+                    messageListManager.messageList.forEach(function displayMessages (message) {
                         if(message.id = data.id){
                             message.read = data.value;
                             messageListManager.displayMessages();
@@ -33,84 +109,9 @@ var userDataManager =  (function createUserDataManager (config, eventEmitter, lo
         }
     }
 
-    // INCLUDE
-
-    //= ../serviceFunctions/getCurrentDate.js
-    //= ../serviceFunctions/createMessageObject.js
-
-    // INCLUDE
-
     UserDataManager.prototype.setup = function setup () {
         messageListManager.setup();
     };
-
-
-    // basic
-    function getUserDataBasic (userId) {
-        var that = this;
-        return new Promise(function (resolve) {
-            return that.getUserCorrespondence(userId).then( function () {
-                    resolve()
-             //   })
-            });
-        })
-    }
-
-    function updateMessageListBasic (data) {
-            var newMessageList;
-            var messagesObject = [];
-            if(data) {
-                Object.keys(data).map(function (key) {
-                    data[key].id = key;
-                    messagesObject.push(data[key]);
-                });
-            }
-            messageListManager.displayMessages();
-            newMessageList = messageListManager.createMessageList(messagesObject);
-            messageListManager.updateMessageList(newMessageList);
-    }
-
-    function getUserCorrespondenceBasic (userId) {
-        var that = this;
-        return dataSource.usersAPI.getUserMessages(userId)().then(function (data) {
-            that.updateMessageList(data);
-        })
-    }
-    
-    function getUserDataFromLongPollConnection(userId) {
-        var that = this;
-        return new Promise(function(resolve) {
-            that.getUserCorrespondence(userId);
-            resolve();
-        });
-    }
-
-    function getUserCorrespondenceFromLongPollConnection(userId) {
-        var data;
-        if(config.currentMessageConnection) {
-            config.currentMessageConnection.abort();
-        }
-        config.currentMessageConnection = dataSource.usersAPI.getUserMessages(userId);
-        config.currentMessageConnection.onreadystatechange = function () {
-            if (this.readyState == 3 && this.status == 200) {
-                data = longPollResponseParser.parse(this.responseText);
-                if (data) {
-                    eventEmitter.emit(data.type, data.object);
-                }
-            }
-        };
-        config.currentMessageConnection.send();
-    }
-
-    function updateMessageListAfterLongPoll (data) {
-        if(data) {
-            Object.keys(data).map(function (key) {
-                data[key].id = key;
-                messageListManager.addMessageToMessageList(data[key])
-            });
-        }
-        messageListManager.displayMessages();
-    }
 
     UserDataManager.prototype.clearMessageList = function clearMessageList () {
         messageListManager.messageList = [];

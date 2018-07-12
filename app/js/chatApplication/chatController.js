@@ -4,6 +4,7 @@
 /* global getElement */
 /* global mainConfig */
 /* global viewFactory */
+/* global eventEmitter */
 var chatController = (function createChatController (config) {
 
     // INCLUDE //

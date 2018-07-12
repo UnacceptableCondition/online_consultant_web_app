@@ -1,4 +1,5 @@
 /* exported dataSource */
+/* exported mainConfig */
 /* global dataBaseUrl */
 /* global dataConnector */
 // Модуль для получения данных
@@ -73,8 +74,9 @@ var dataSource = (function createDataSource (dataConnector, config) {
         var date = new Date;
         var that = this;
         newUserData.userName = userName;
-        Object.keys(newUserData).map(function (settingName) {
+        Object.keys(newUserData).map(function addNewSettings (settingName) {
             that.setData(USERS_SETTINGS, "PUT", settingName, userId, newUserData[settingName]);
+            return true;
         });
         this.setData(USER_LIST, "PUT", null, userId, {"lastOnline": date.getTime(), "sendNewMessage": false});
     };
@@ -152,34 +154,3 @@ var dataSource = (function createDataSource (dataConnector, config) {
 
     return dataSourceInstance.getDataSourceAPI();
 })(dataConnector, mainConfig);
-//
-// var userId = "Atjers21530277744958";
-// var message = {
-//     date: "testDate",
-//     itIsRead: true,
-//     message: "testMessage",
-//     user: "ivan"
-// };
-// dataSource.usersAPI.sendMessage(null, userId, message);
-// dataSource.usersAPI.sendMessage(null, userId,  message);
-// dataSource.usersAPI.sendMessage({test: "test"}, userId,   message);
-
-
-// dataSource.usersAPI.getUserMessages(userId).then(function (data) {
-//     console.log(data);
-// });
-
-// dataSource.usersAPI.setSettingField("testField", userId, false);
-// var userName = "atjers";
-
-// dataSource.usersAPI.addNewUserToDataSource(userId, userName);
-
-// dataSource.usersAPI.getUserList(null).then(function (data) {
-//     console.log(data);
-// });
-
-
-// dataSource.usersAPI.updateLastOnline(userId, 111111111);
-// dataSource.usersAPI.getUserSettings(userId).then(function (data) {
-//     console.log(data);
-// });

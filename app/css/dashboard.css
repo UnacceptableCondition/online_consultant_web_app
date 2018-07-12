@@ -217,17 +217,16 @@ body{
 }
 .root-touchsoft-dashboard_active-user {
     width: 700px;
-    border: none;
-    position: relative;
-}
-.navigation-active{
-    background: linear-gradient(to bottom, #dd4871, #842C42);
+    height: 540px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
 }
 .root-touchsoft-dashboard_chat{
     width: 300px;
     height: 500px;
     border: 1px solid #68a78d;
-    margin: 20px;
+    margin: 20px 20px;
     background: #68a78d;
     border-radius: 5px;
 }
@@ -287,9 +286,9 @@ body{
     height: 30px;
     border-radius: 50%;
     border: 1px dashed #dd4871;
-    position: absolute;
-    top: 5px;
-    right: 5px;
+    margin-top: 2px;
+    margin-left: 22px;
+    position: relative;
     background:#F6F6F6;
     cursor: pointer;
 }
@@ -315,4 +314,63 @@ body{
 }
 .root-touchsoft-dashboard_message-not-read{
     color: #dd4871;
+}
+.navigation-active{
+    background: linear-gradient(to bottom, #dd4871, #842C42);
+    /*border-bottom: 2px solid rgba(23, 23, 23, 0.38);*/
+}
+.root-touchsoft-dashboard_control{
+    width: 300px;
+    height: 500px;
+    border: 1px solid black;
+    margin-top: 20px;
+}
+.root-touchsoft-dashboard_select-panel{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    /*border: 1px solid black;*/
+}
+.root-touchsoft-dashboard_name-command{
+    font:14px Gotham Book, sans-serif;
+    margin: 5px;
+}
+.root-touchsoft-dashboard_control_sort-wrapper-select{
+    margin: 5px;
+}
+.root-touchsoft-dashboard_control_filter-input{
+    width: 90px;
+    margin: 5px;
+}
+.root-touchsoft-dashboard_control_send-button{
+    width: 50px;
+    height: 30px;
+    border: 1px solid black;
+    margin: 0 auto;
+    text-align: center;
+    background: white;
+    box-sizing: border-box;
+}
+.root-touchsoft-dashboard_control-log{
+    width: 280px;
+    height: 275px;
+    border: 1px solid black;
+    margin: 10px;
+    position: relative;
+    z-index: 0;
+    background: #F6F6F6;
+}
+.root-touchsoft-dashboard_control-log:before{
+    content:'Log';
+    width: 35px;
+    height: 20px;
+    font:14px Gotham Book, sans-serif;
+    text-align: center;
+    position: absolute;
+    top: -10px;
+    left: 5px;
+    z-index: 1;
+    background: #F6F6F6;
+
 }

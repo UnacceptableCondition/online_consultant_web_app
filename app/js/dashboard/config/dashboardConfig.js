@@ -12,7 +12,9 @@ var mainConfig = {
         // ID DOM элемента дял ввода параметра фильтрации пользователей
         CSS_FILTER_INPUT_ID: "root-touchsoft-dashboard_filter-input",
         // ID DOM элемента дял ввода параметра сортировки пользователей
-        CSS_SORT_SELECT_ID: "root-touchsoft-dashboard_sort"
+        CSS_SORT_SELECT_ID: "root-touchsoft-dashboard_sort",
+        // Класс control panel елемент
+        CSS_CONTROL_PANEL_CLASS: ""
 
     },
     launcher: {

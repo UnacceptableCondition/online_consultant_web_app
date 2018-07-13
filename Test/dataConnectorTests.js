@@ -7,12 +7,11 @@
 /* global getElement */
 /* global chatCustomizer */
 /* global userDataManager */
-
 module("dataConnector tests");
-    dataConnector = dataConnector.getNewConnectorAPI("fetch");
     tests("fetch request method must returns Promise object",
         function test(assert) {
-            var returnedObject = dataConnector.request(
+            var connect = dataConnector.getNewConnectorAPI("fetch");
+            var returnedObject = connect.request(
                 "https://geoip-db.com/json/",
                 null,
                 "GET",
@@ -24,7 +23,8 @@ module("dataConnector tests");
         function test(assert) {
             var jsonData;
             var done = assert.async();
-            dataConnector.request(
+            var connect = dataConnector.getNewConnectorAPI("fetch");
+            connect.request(
                 "https://geoip-db.com/json/",
                 null,
                 "GET",
@@ -38,10 +38,10 @@ module("dataConnector tests");
                 done();
             });
         });
-    dataConnector = dataConnector.getNewConnectorAPI("XHR");
     tests("XHR request method must returns Promise object",
         function test(assert) {
-            var returnedObject = dataConnector.request(
+            var connect = dataConnector.getNewConnectorAPI("XHR");
+            var returnedObject = connect.request(
                 "https://geoip-db.com/json/",
                 null,
                 "GET",
@@ -53,7 +53,8 @@ module("dataConnector tests");
         function test(assert) {
             var jsonData;
             var done = assert.async();
-            dataConnector.request(
+            var connect = dataConnector.getNewConnectorAPI("XHR");
+            connect.request(
                 "https://geoip-db.com/json/",
                 null,
                 "GET",
@@ -67,9 +68,10 @@ module("dataConnector tests");
                 done();
             });
         });
-    dataConnector = dataConnector.getNewConnectorAPI("longPoll");
+
     tests("createLongPollConnection method must returns xhr object",
         function test(assert) {
-            var longPollConnection = dataConnector.createLongPollConnection();
+            var connect = dataConnector.getNewConnectorAPI("longPoll");
+            var longPollConnection = connect.createLongPollConnection();
             assert.ok(longPollConnection instanceof XMLHttpRequest, "it's xhr");
         });

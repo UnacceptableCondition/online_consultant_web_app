@@ -1,5 +1,6 @@
 /* global QUnit */
-/* global dataSource */
+/* global module */
+/* global tests */
 /* global userListManager */
 /* global mainConfig */
 /* global messageListManager */

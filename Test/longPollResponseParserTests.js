@@ -1,6 +1,11 @@
+/* global longPollResponseParser */
+/* global QUnit */
 var tests = QUnit.test;
 var module = QUnit.module;
-module("longPollResponseParser tests");
+var testUser = {
+    id: "Ivan1529913706139",
+    name: "Ivan"
+};
 var testMessages =
     "event: put\n" +
     'data: {"path":"/","data":{"-LGnyE2qtOY5mhlILvkY":{"date":"12:00","message":"1","read":true,"sender":"Test121212212121"}}}';
@@ -13,6 +18,8 @@ var testUserList =
 var testLastOnlineUpdate =
     "event: put\n" +
     'data: {"path":"/Test1212122121211530882419518/lastOnline","data":1531315098909}';
+module("longPollResponseParser tests");
+
 tests("parse method must returns valid messages data", function test(assert) {
     var messageData = longPollResponseParser.parse(testMessages).object[
         "-LGnyE2qtOY5mhlILvkY"
@@ -43,7 +50,7 @@ tests("parse method must returns valid new message data", function test(
 });
 tests("parse method must returns valid user list data", function test(assert) {
     var user = longPollResponseParser.parse(testUserList).object[
-        "Ivan1529913706139"
+        testUser.id
         ];
     assert.equal(user.lastOnline, 1531314276077, "it has valid lastOnline field");
     assert.equal(user.sendNewMessage, false, "it has valid sendNewMessage field");

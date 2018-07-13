@@ -1,12 +1,7 @@
-/* global QUnit */
-/* global dataSource */
-/* global userListManager */
-/* global mainConfig */
-/* global messageListManager */
-/* global viewFactory */
-/* global getElement */
-/* global chatCustomizer */
-/* global userDataManager */
+
+/* global module */
+/* global tests */
+/* global dataConnector */
 module("dataConnector tests");
     tests("fetch request method must returns Promise object",
         function test(assert) {
@@ -29,7 +24,7 @@ module("dataConnector tests");
                 null,
                 "GET",
                 "multipart/form-data"
-            ).then(function (data) {
+            ).then(function assertData (data) {
                 jsonData = JSON.parse(data);
                 assert.ok(jsonData.city, "it has city field");
                 assert.ok(jsonData.country_code, "it has country_code field");
@@ -59,7 +54,7 @@ module("dataConnector tests");
                 null,
                 "GET",
                 "multipart/form-data"
-            ).then(function (data) {
+            ).then(function assertData (data) {
                 jsonData = JSON.parse(data);
                 assert.ok(jsonData.city, "it has city field");
                 assert.ok(jsonData.country_code, "it has country_code field");

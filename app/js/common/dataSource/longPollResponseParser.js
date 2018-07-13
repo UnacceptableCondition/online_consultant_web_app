@@ -5,7 +5,8 @@ var longPollResponseParser = (function createLongPollResponseParser() {
         lastOnline: /"path":"\/\w{1,}\/lastOnline/,
         sendNewMessage: /"path":"\/\w{1,}\/sendNewMessage/,
         setting: /readLastMessage/,
-        read: /read/
+        read: /read/,
+        getIp: /getIp/
     };
 
     var eventRegular = /event: put/;
@@ -136,7 +137,14 @@ var longPollResponseParser = (function createLongPollResponseParser() {
                 .slice(0, -1);
         }
     };
-
+// ////////////////////////////////////////////////////////////////////////////////////////////
+    LongPollResponseParser.prototype.parseUserIpData = function parseUserIpData (
+        response,
+        changeType
+    ) {
+        return response.split("data: {\"path\":\"/getIp\",\"data\":").pop().trim().slice(0, -1);
+    };
+// ////////////////////////////////////////////////////////////////////////////////////////////////
     LongPollResponseParser.prototype.parseUsersSettings = function parseUsersSettings(
         response
     ) {
@@ -173,6 +181,8 @@ var longPollResponseParser = (function createLongPollResponseParser() {
             } else if (changeType === "setting") {
                 resultOfParse.object = this.parseUsersSettings(result, changeType);
                 return resultOfParse;
+            } else if (changeType === "getIp") {
+
             }
         }
     };

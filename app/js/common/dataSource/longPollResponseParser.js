@@ -1,3 +1,4 @@
+/* exported longPollResponseParser */
 var longPollResponseParser = (function createLongPollResponseParser() {
     var typesOfChange = {
         message: /message/,
@@ -27,6 +28,8 @@ var longPollResponseParser = (function createLongPollResponseParser() {
                 if (typesOfChange[typeName].test(answerData)) {
                     return typeName;
                 }
+                return false;
+
             }
         );
         return type[0];
@@ -128,22 +131,22 @@ var longPollResponseParser = (function createLongPollResponseParser() {
                 .split('data: {"path":"/')
                 .pop()
                 .slice(0, -1);
-        } else {
+        }
             return response
                 .split('data: {"path":"/')
                 .pop()
                 .split(",")[0]
                 .trim()
                 .slice(0, -1);
-        }
+
     };
 // ////////////////////////////////////////////////////////////////////////////////////////////
-    LongPollResponseParser.prototype.parseUserIpData = function parseUserIpData (
-        response,
-        changeType
-    ) {
-        return response.split("data: {\"path\":\"/getIp\",\"data\":").pop().trim().slice(0, -1);
-    };
+//     LongPollResponseParser.prototype.parseUserIpData = function parseUserIpData (
+//         response,
+//         changeType
+//     ) {
+//         return response.split("data: {\"path\":\"/getIp\",\"data\":").pop().trim().slice(0, -1);
+//     };
 // ////////////////////////////////////////////////////////////////////////////////////////////////
     LongPollResponseParser.prototype.parseUsersSettings = function parseUsersSettings(
         response
@@ -163,7 +166,6 @@ var longPollResponseParser = (function createLongPollResponseParser() {
     };
 
     LongPollResponseParser.prototype.parse = function parse(text) {
-        console.log(text);
         var result = text.split(eventRegular);
         var changeType = this.getTypeOfChanges(result[result.length - 1]);
         var resultOfParse = { type: changeType };
@@ -181,10 +183,11 @@ var longPollResponseParser = (function createLongPollResponseParser() {
             } else if (changeType === "setting") {
                 resultOfParse.object = this.parseUsersSettings(result, changeType);
                 return resultOfParse;
-            } else if (changeType === "getIp") {
-
             }
+            return false;
         }
+        return false;
+
     };
 
     return new LongPollResponseParser();

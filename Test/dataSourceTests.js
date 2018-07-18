@@ -6,13 +6,12 @@ var testUser = {
     id: "Ivan1529913706139",
     name: "Ivan"
 };
+var source = dataSource.commonAPI.getDataSourceAPI("XHR");
 module("dataSource tests");
-dataSource = dataSource.commonAPI.getDataSourceAPI("XHR");
-dataSource = dataSource.commonAPI.getDataSourceAPI("XHR");
 tests("addNewUserToDataSource method must create new user to data base",
     function test(assert) {
         var done = assert.async();
-        dataSource.usersAPI.addNewUserToDataSource(
+        source.usersAPI.addNewUserToDataSource(
             testUser.id, testUser.name
         );
         setTimeout(function getNewUser () {
@@ -31,7 +30,7 @@ tests("addNewUserToDataSource method must create new user to data base",
 tests("getUserList method must returns valid data",
     function test(assert) {
         var done = assert.async();
-        dataSource.usersAPI.getUserList(null)().then(function assertData (userList) {
+        source.usersAPI.getUserList(null)().then(function assertData (userList) {
             assert.ok(userList[testUser.id].lastOnline, "it has lastOnline field");
             assert.ok(userList[testUser.id].sendNewMessage === false, "it has sendNewMessage field");
             done();
@@ -47,13 +46,13 @@ tests("sendMessage method must sets message data to data base",
             message: "testMessage",
             read: true
         };
-        dataSource.usersAPI.sendMessage(null, "Ivan1529913706139", value).then(function setRequest () {
+        source.usersAPI.sendMessage(null, "Ivan1529913706139", value).then(function setRequest () {
             dataConnector.request(
                 "https://onlineconsultantwebapp.firebaseio.com/usersMessages/Ivan1529913706139.json",
                 null,
                 "GET",
                 "application/json"
-            ).then(function (data) {
+            ).then(function afterGetData (data) {
                 Object.keys(data).map(function assertData (key) {
                     assert.ok(data[key].date === "testDate", "it has valid date field");
                     assert.ok(data[key].sender === "testSender", "it has valid sender field");
@@ -68,7 +67,7 @@ tests("sendMessage method must sets message data to data base",
 tests("getUserMessages method must returns messages data",
     function test(assert) {
         var done = assert.async();
-        dataSource.usersAPI.getUserMessages("Ivan1529913706139")().then(function setRequest  (data) {
+        source.usersAPI.getUserMessages("Ivan1529913706139")().then(function setRequest  (data) {
             Object.keys(data).map(function assertData (key) {
                 assert.ok(data[key].date === "testDate", "it has valid date field");
                 assert.ok(data[key].sender === "testSender", "it has valid sender field");

@@ -1,3 +1,4 @@
+/* exported eventEmitter */
 var eventEmitter = (function createEventEmitter () {
     function EventEmitter() {
         this.events = {};
@@ -12,7 +13,7 @@ var eventEmitter = (function createEventEmitter () {
         this.events[eventName].push(callback);
 
         function removeSubscribe () {
-            that.events[eventName] = that.events[eventName].filter(function (elementCallback) {
+            that.events[eventName] = that.events[eventName].filter(function remove (elementCallback) {
                 return elementCallback !== callback
             })
         }
@@ -23,7 +24,7 @@ var eventEmitter = (function createEventEmitter () {
     EventEmitter.prototype.emit = function emit (eventName, data) {
         var event = this.events[eventName];
         if( event ) {
-            event.forEach(function (callback) {
+            event.forEach(function invoke (callback) {
                 callback.call(null, data);
             });
         }

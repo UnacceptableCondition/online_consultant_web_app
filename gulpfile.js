@@ -113,7 +113,7 @@ gulp.task("html:buildDashboard", function buildHTML () {
 });
 
 
- gulp.task('dashboard:build', ['js:buildDashboard', "html:buildDashboard"]); //, 'style:buildDashboard','image:build', 'fonts:build', "html:buildDashboard"]);
+ gulp.task('dashboard:build', ['js:buildDashboard', "html:buildDashboard"]); // , 'style:buildDashboard','image:build', 'fonts:build', "html:buildDashboard"]);
 
 // CHAT APP
 gulp.task('js:buildChat', function buildJS () {

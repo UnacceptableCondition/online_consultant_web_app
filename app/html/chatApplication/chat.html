@@ -1,39 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
 <div>
     <div class="root_chat_for_touchsoft invisible">
         <div class="root_chat_for_touchsoft_input-name-block invisible">
-            <div>Введите ваше имя: </div>
-            <input type="text" class="root_chat_for_touchsoft_input-name">
-            <button class="root_chat_for_touchsoft_input-name-button">Ок</button>
+            <div class="root_chat_for_touchsoft-name-wrapper">
+                <div class="root_chat_for_touchsoft_information-enter-name">Enter your name</div>
+                <div class="root_chat_for_touchsoft_wrapper_input-name">
+                    <input type="text" class="root_chat_for_touchsoft_input-name">
+                </div>
+                <button class="root_chat_for_touchsoft_input-name-button">Ok</button>
+            </div>
         </div>
-        <div class="root_chat_for_touchsoft-title">
+        <div class="root_chat_for_touchsoft-wrapper">
+            <div class="root_chat_for_touchsoft-title">
 
-        </div>
+            </div>
+            <div class="root_chat_for_touchsoft__top_minimize-button">
+                <div class="root_chat_for_touchsoft__top_figure">
+
+                </div>
+            </div>
         <div class="root_chat_for_touchsoft__top">
             <div class="root_chat_for_touchsoft__top_messages">
 
             </div>
-            <div class="root_chat_for_touchsoft__top_minimize-button">
-                <span>-</span>
-            </div>
         </div>
         <div class="root_chat_for_touchsoft__bottom">
             <div class="root_chat_for_touchsoft__bottom_user-message">
-                <textarea name="messageArea" class="root_chat_for_touchsoft__textarea" cols="30" rows="10"></textarea>
+                <textarea name="messageArea" class="root_chat_for_touchsoft__textarea" placeholder="Enter you message and send"></textarea>
             </div>
             <div class="root_chat_for_touchsoft__bottom_send-button">
                 <span>Send</span>
             </div>
         </div>
     </div>
+    </div>
     <div class="root_chat_for_touchsoft_minimize-style invisible">
         <div class="root_chat_for_touchsoft_minimize-style__message">
-            <input type="text" class="root_chat_for_touchsoft_minimize-style__message-input">
+            <input type="text" class="root_chat_for_touchsoft_minimize-style__message-input" placeholder="Enter you message and send">
         </div>
         <div class="root_chat_for_touchsoft_minimize-style__send-button">
             <span>send</span>
         </div>
         <div class="root_chat_for_touchsoft_minimize-style__max-button">
-            <span>{}</span>
+            <div class="root_chat_for_touchsoft_minimize-style_figure">
+
+            </div>
         </div>
     </div>
 </div>
+<script src="chatAppDev.js?title='test'&botName=''
++&chatUrl='https://touchsoftchatproject.firebaseio.com'&outerCssClass='maincss'&position='
++left'&allowMinimize='true'&allowDrag='true'&showDateTime='true'&requireName='true'&typeOfRequest='XHR'"></script>
+</body>
+</html>

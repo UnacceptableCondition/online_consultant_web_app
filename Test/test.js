@@ -1,4 +1,3 @@
-/* global QUnit */
 /* global module */
 /* global tests */
 /* global userListManager */

@@ -1,5 +1,5 @@
 /* exported dataSource */
-/* exported mainConfig */
+/* global mainConfig */
 /* global dataBaseUrl */
 /* global dataConnector */
 // Модуль для получения данных

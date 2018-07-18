@@ -1,87 +1,174 @@
-
-
-/*BEGIN COMMON STYLES*/
-
-.root_chat_for_touchsoft-title, .root_chat_for_touchsoft__top, .root_chat_for_touchsoft__top_messages, .root_chat_for_touchsoft__top_minimize-button,
-.root_chat_for_touchsoft__bottom, .root_chat_for_touchsoft__bottom_user-message, .root_chat_for_touchsoft__bottom_send-button,
-.root_chat_for_touchsoft_minimize-style, .root_chat_for_touchsoft_input-name-block, .root_chat_for_touchsoft_minimize-style__message, .root_chat_for_touchsoft_minimize-style__button {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-
+@font-face {
+    font-family: "Mont Heavy Demo";
+    src: url(../fonts/mont-heavy-demo.ttf)
+}
+@font-face {
+    font-family: "Lato Bold";
+    src: url(../fonts/Lato-Bold.ttf)
+}
+@font-face {
+    font-family: "Gotham Book";
+    src: url(../fonts/Gotham-Book.ttf)
+}
+@font-face {
+    font-family: "Made Evolve";
+    src: url(../fonts/Made-evolve-sans-medium.otf)
+}
+@font-face {
+    font-family: SeasideResortNF;
+    src: url(../fonts/SeasideResortNF.ttf)
 }
 
-.root_chat_for_touchsoft__top_minimize-button, .root_chat_for_touchsoft__bottom_send-button,
-.root_chat_for_touchsoft_minimize-style__max-button, .root_chat_for_touchsoft_minimize-style__send-button,
-.root_chat_for_touchsoft_input-name-block, .root_chat_for_touchsoft-title{
+.root_chat_for_touchsoft-wrapper {
+    display: grid;
+    grid-template-columns: 270px 30px;
+    grid-template-rows: 40px 280px 130px;
+    width: 300px;
+    height: 450px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    user-select: none;
+    margin: 15px auto;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
-    cursor: pointer;
-}
-
-.root_chat_for_touchsoft__top, .root_chat_for_touchsoft__bottom {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-}
-
-/*END COMMON STYLES*/
-
-.root_chat_for_touchsoft {
-    width: 300px;
-    height: 450px;
-    border: 2px solid gainsboro;
-    border-radius: 5px;
-    background-color: white;
-    z-index: 2;
-
-    /*FLEX COLUMN*/
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
-
-
-/*BEGIN TOP BLOCK*/
-.root_chat_for_touchsoft__top{
-    height: 70%;
-    width: 100%;
-    padding-top: 1%;
-}
-
-.root_chat_for_touchsoft__top_messages{
-    height: 100%;
-    min-width: 90%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    padding: 5px;
-    overflow-y: scroll;
-
-}
-
-.root_chat_for_touchsoft__top_minimize-button{
-    height: 8%;
-    width: 8%;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    background-color: grey;
-
 }
 .root_chat_for_touchsoft-title{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
     text-align: center;
     padding-top: 10px;
-    border-radius: 5px;
-    width: 100%;
-    height:40px;
-    background-color: #33acaf;
+    color: #fff;
+    font: 14px "Lato Bold", sans-serif;
+    background-color: #68a78d;
     cursor: move;
     cursor: -moz-grab;
     cursor: -webkit-grab;
+    box-sizing: border-box;
+    box-shadow: inset -2px -2px 8px rgba(0,0,0,0.5);
+}
+.root_chat_for_touchsoft__top_minimize-button{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    text-align: center;
+    background-color: #dd4871;
+    border-left: 1px solid #fff;
+    box-sizing: border-box;
+    box-shadow: inset 1px -1px 5px rgba(0,0,0,0.5);
+}
+.root_chat_for_touchsoft__top_figure{
+    width: 15px;
+    height: 6px;
+    background: linear-gradient(-135deg, #fff 50%, transparent 50%);
+    margin: 15px auto;
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
+}
 
+.root_chat_for_touchsoft__top{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.root_chat_for_touchsoft__bottom{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    display: grid;
+    grid-template-columns: 250px 50px;
+    background: #f0e9ce;
+
+}
+.root_chat_for_touchsoft__top_messages{
+    height: 100%;
+    min-width: 90%;
+    padding: 5px;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    /*background: #f0e9ce;*/
+}
+::-webkit-scrollbar{
+    width: 15px;
+    background: #ffffff;
+}
+::-webkit-scrollbar-thumb {
+    background-color:#68a78d;
+    border: 3px solid #ffffff;
+    border-radius: 15px;
+}
+.root-touchsoft-dashboard_chat-message-elements{
+    display:grid;
+    grid-template-columns: 40px 70px;
+    grid-gap: 5px;
+    width: 100%;
+    margin: 5px 0 5px 0;
+    outline: 0;
+    line-height: 18px;
+    word-wrap: break-word;
+}
+.root-touchsoft-dashboard_chat-message-date{
+    font: 14px "Lato Bold", sans-serif;
+    color: #68a78d;
+}
+.root-touchsoft-dashboard_chat-message-sender{
+    font: 14px "Lato Bold", sans-serif;
+    color: #68a78d;
+    text-decoration: underline;
+}
+.root-touchsoft-dashboard_chat-message{
+    grid-column-start: 2;
+    width: 200px;
+    font: 14px "Made Envolve", sans-serif;
+    color: #000000;
+}
+.root_chat_for_touchsoft__bottom_user-message{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    height: 100px;
+    margin: 13px 5px;
+    box-sizing: border-box;
+}
+.root_chat_for_touchsoft__textarea{
+    width: 100%;
+    height: 100%;
+    resize: none;
+    font: 16px "Lato Bold", sans-serif;
+    outline: none;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 2px rgba(0,0,0,0.5);
+    border: none;
+}
+.root_chat_for_touchsoft__bottom_send-button{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    box-sizing: border-box;
+    height: 100px;
+    color: #fff;
+    font: 13px "Mont Heavy Demo", sans-serif;
+    background: linear-gradient(180deg, #68a78d, #6FBDA1, #68a78d);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 145px;
+    box-shadow: 0px 0px 31px -2px #68a78d;
+    border-radius: 1px;
+    margin: 13px 3px;
+    position: relative;
+}
+.root_chat_for_touchsoft__bottom_send-button:after{
+    content:'';
+    width: 40px;
+    height: 50px;
+    background: url(../img/airplane-white.png) no-repeat;
+    background-size: 45px;
+    position: absolute;
+    top: 14px;
+    left: 0;
 }
 
 .root_chat_for_touchsoft-title:active {
@@ -89,90 +176,104 @@
     cursor: -moz-grabbing;
     cursor: -webkit-grabbing;
 }
-
-/*END TOP BLOCK*/
-
-
-
-
-/*BEGIN BOTTOM BLOCK*/
-.root_chat_for_touchsoft__bottom{
-    height: 30%;
+.root_chat_for_touchsoft-name-wrapper{
     width: 100%;
-    padding: 1% 0 1% 0;
+    height: 30%;
+    border: 1px solid #68a78d;
+    background: linear-gradient(180deg, #68a78d, #6FBDA1, #68a78d);
+    color: white;
+    font: 14px "Mont Heavy Demo", sans-serif;
+    text-transform: uppercase;
+    margin: 150px auto;
+    box-shadow: 0px 0px 31px -2px #68a78d;
+
 }
-
-
-.root_chat_for_touchsoft__bottom_user-message {
-    width: 80%;
-    height: 100%;
-}
-
-.root_chat_for_touchsoft__bottom_send-button {
-    width: 20%;
-    height: 100%;
+.root_chat_for_touchsoft_input-name-block{
+    width: 400px;
+    height: 480px;
+    border-radius: 5px;
+    background-color: white;
+    z-index: 3;
+    position: absolute;
+    margin: 0 auto;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    padding-top: 15%;
-    background-color: grey;
-
+    /*border: 1px solid #68a78d;*/
 }
-
-.root_chat_for_touchsoft__textarea {
-    width: 95%;
-    height: 95%;
-    resize: none;
-
+.root_chat_for_touchsoft_information-enter-name, .root_chat_for_touchsoft_wrapper_input-name,
+.root_chat_for_touchsoft_input-name-button{
+    margin: 15px auto;
+}
+.root_chat_for_touchsoft_input-name {
     outline: none;
+    border: none;
+    border-radius: 3px;
+}
+.root_chat_for_touchsoft_input-name-button{
+    display: block;
+    width: 135px;
+    background: repeating-linear-gradient(45deg, #fff, #fff 5px, #68a78d 5px, #68a78d 10px);
+    border: none;
+    color: #000;
+    font: 23px SeasideResortNF, sans-serif;
+    box-sizing: border-box;
 }
 
-/*END BOTTOM BLOCK*/
-
-
-
-
-
-/*BEGIN MIN-STYLE CHAT*/
+.root_chat_for_touchsoft {
+    width: 400px;
+    height: 480px;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: white;
+    z-index: 2;
+    margin: 0 auto;
+    cursor: pointer;
+}
 
 .root_chat_for_touchsoft_minimize-style{
     width: 500px;
     height: 40px;
-    border: 2px solid gainsboro;
+    border: 2px solid #68a78d;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
     border-radius: 5px;
-    background-color: white;
+    background-color: #68a78d;
     padding: 0 5px;
     z-index: 2;
 
-    /*FLEX COLUMN*/
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
 
-    /*POSITION*/
     position: fixed;
     bottom: 10px;
-    left: 25%
+    left: 25%;
 }
 
 .root_chat_for_touchsoft_minimize-style__message{
     width: 80%;
     height: 80%;
+    box-sizing: border-box;
 }
 
 .root_chat_for_touchsoft_minimize-style__message-input {
     width: 100%;
-    height: 80%;
+    height: 90%;
+    border: none;
+    outline: none;
+    border-radius: 5px;
 }
 
 .root_chat_for_touchsoft_minimize-style__max-button{
     width: 5%;
-    height:  60%;
+    height: 60%;
     text-align: center;
     padding-top: 1%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    background-color: grey;
+    box-shadow: 0 0 10px #dd4871;
+    background-color: #dd4871;
+    border-radius: 5px;
+}
+.root_chat_for_touchsoft_minimize-style__max-button:hover{
+    box-shadow: inset 0 0 10px #712b38;
 }
 
 .root_chat_for_touchsoft_minimize-style__send-button{
@@ -180,15 +281,30 @@
     height:  60%;
     text-align: center;
     padding-top: 1%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    background-color: grey;
+    box-shadow: 0 0 10px #dd4871;
+    background-color: #dd4871;
+    border-radius: 5px;
+    color: #fff;
+    font: 14px "Made Evolve", sans-serif;
+    letter-spacing: 1px;
+    cursor: pointer;
 }
-
-/*END MIN-STYLE CHAT*/
-
-
-
-/*TOGGLE CLASSES */
+.root_chat_for_touchsoft_minimize-style_figure{
+    width: 15px;
+    height: 5px;
+    border: 2px solid white;
+    box-sizing: border-box;
+    margin: 6px auto;
+}
+.root_chat_for_touchsoft_minimize-style_figure:hover{
+    height: 15px;
+    transition: 0.3s;
+    transform: scale(1.2);
+    margin: 2px auto;
+}
+.root_chat_for_touchsoft_minimize-style__send-button:hover{
+    box-shadow: inset 0 0 10px #712b38;
+}
 
 .invisible {
     visibility: hidden;
@@ -206,25 +322,3 @@
     left: 10px;
 }
 
-/* INPUT NAME */
-
-.root_chat_for_touchsoft_input-name-block {
-    width: 300px;
-    height: 450px;
-    border: 2px solid gainsboro;
-    border-radius: 5px;
-    background-color: white;
-    z-index: 3;
-    position: absolute;
-    top: 0;
-    text-align: center;
-
-    /*FLEX*/
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.root_chat_for_touchsoft_input-name, .root_chat_for_touchsoft_input-name-button {
-
-}

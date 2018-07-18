@@ -6,6 +6,7 @@
 /* global getElement */
 /* global eventEmitter */
 /* global mainConfig */
+/* global longPollResponseParser */
 var userDataManager =  (function createUserDataManager (config, eventEmitter, longPollResponseParser) {
 
     // INCLUDE
@@ -95,7 +96,7 @@ var userDataManager =  (function createUserDataManager (config, eventEmitter, lo
             eventEmitter.addSubscribe("read", function subscribeRead (data) {
                 if(data) {
                     messageListManager.messageList.forEach(function displayMessages (message) {
-                        if(message.id = data.id){
+                        if(message.id === data.id){
                             message.read = data.value;
                             messageListManager.displayMessages();
                         }
@@ -155,7 +156,6 @@ var userDataManager =  (function createUserDataManager (config, eventEmitter, lo
     UserDataManager.prototype.setMessageAsRead = function setMessageAsRead () {
         var messageObjects = messageListManager.getMessageObjectsForMarkAsRead();
         if(messageObjects.length > 0) {
-            console.log(messageObjects);
             messageObjects.forEach(function setRead (element) {
                 dataSource.usersAPI.updateMessageIsReadField(
                     element.fieldName,

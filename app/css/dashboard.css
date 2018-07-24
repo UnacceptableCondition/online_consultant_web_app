@@ -410,7 +410,7 @@ body{
     box-sizing: border-box;
     cursor: pointer;
 }
-.root-touchsoft-dashboard_control_send-button:after{
+.root-touchsoft-dashboard_control_send-command-button:after{
     content: '';
     display: block;
     width: 25px;

@@ -174,11 +174,12 @@ var dashboard = (function createDashboardController(config, dataSource, uDataMan
         uDataManager.clearMessageList();
         uDataManager.getUserData(userId)
             .then(function saveLocalData () {
-                getElement(config.DOM.CSS_CHAT_CONTAINS_BLOCK_STYLE).classList.remove(config.INVISIBLE_CLASS);
+                getElement(config.DOM.CSS_ACTIVE_USER_BLOCK).classList.remove(config.INVISIBLE_CLASS);
                 that.saveCurrentConditionToLocalStorage();
             });
         dataSource.usersAPI.updateSendNewMessageFlag(userId, false);
     };
+
 
 
     // Обновлет массив сообщений в модуле чата и выводит их на экран
@@ -224,7 +225,7 @@ var dashboard = (function createDashboardController(config, dataSource, uDataMan
 
     // Закрывает канал общения с юзером и чат
     DashboardController.prototype.closeConversation = function closeConversation () {
-        getElement(config.DOM.CSS_CHAT_CONTAINS_BLOCK_STYLE).classList.add(config.INVISIBLE_CLASS);
+        getElement(config.DOM.CSS_ACTIVE_USER_BLOCK).classList.add(config.INVISIBLE_CLASS);
         config.currentUserSettings.userId = null;
         config.currentMessageConnection.abort();
         cPanel.close();

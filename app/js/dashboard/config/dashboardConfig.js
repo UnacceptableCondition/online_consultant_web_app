@@ -13,13 +13,16 @@ var mainConfig = {
         CSS_FILTER_INPUT_ID: "root-touchsoft-dashboard_filter-input",
         // ID DOM элемента дял ввода параметра сортировки пользователей
         CSS_SORT_SELECT_ID: "root-touchsoft-dashboard_sort",
+        // Класс элемента в котором отображается чат и контрол панель
+        CSS_ACTIVE_USER_BLOCK: "root-touchsoft-dashboard_active-user",
 
         // CONTROL PANEL
         // Класс control panel елемент
         CSS_CONTROL_PANEL_LOG_CLASS: "root-touchsoft-dashboard_control-log",
         CSS_CONTROL_PANEL_SELECT_CLASS: "root-touchsoft-dashboard_control_select_command",
         CSS_CONTROL_SEND_COMMAND_BUTTON_CLASS: "root-touchsoft-dashboard_control_send-command-button",
-        CSS_CONTROL_PARAMETERS_CLASS: "root-touchsoft-dashboard_control_parameter-input"
+        CSS_CONTROL_PARAMETERS_CLASS: "root-touchsoft-dashboard_control_parameter-input",
+        CSS_CONTROL_PANEL_LOG_ELEMENT_CLASS: "root-touchsoft-dashboard_control-log-inner-information"
 
     },
     launcher: {

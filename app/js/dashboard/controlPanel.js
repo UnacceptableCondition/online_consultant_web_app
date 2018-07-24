@@ -43,11 +43,13 @@ var controlPanel = (function (config, dataConnector, log, parser) {
         connection = dataConnector.createLongPollConnection(
             config.COMMAND_PATH_PREFIX + user + "/commandsResponse/.json"
         );
+        log.clear();
         connection.onreadystatechange = function commandChangeCallback () {
             if (this.readyState === 3 && this.status === 200) {
                 var data  = parser.parse(this.responseText);
                 if(data) {
-                    logElement.innerHTML = JSON.stringify(data.object);
+                    // logElement.innerHTML = JSON.stringify(data.object);
+                    log.write(data.object);
                 }
             }
         };

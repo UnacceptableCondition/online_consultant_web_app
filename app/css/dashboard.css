@@ -446,7 +446,7 @@ body{
     color: #000;
 }
 .root-touchsoft-dashboard_control-log-inner-information{
-    height:100%;
+    /*height:100%;*/
     width: 100%;
     padding: 5px;
     overflow-y: scroll;
@@ -455,4 +455,23 @@ body{
     outline: 0;
     line-height: 18px;
     word-wrap: break-word;
+}
+.root-touchsoft-dashboard_chat-message-elements{
+    display:grid;
+    grid-template-columns: 40px 70px;
+    grid-gap: 5px;
+    width: 100%;
+    margin: 5px 0 5px 0;
+    outline: 0;
+    line-height: 18px;
+    word-wrap: break-word;
+}
+.root-touchsoft-dashboard_chat-message-date{
+    font: 14px "Lato Bold", sans-serif;
+    color: #68a78d;
+}
+.root-touchsoft-dashboard_chat-message-sender{
+    font: 14px "Lato Bold", sans-serif;
+    color: #68a78d;
+    text-decoration: underline;
 }

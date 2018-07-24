@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ca758c6-1d1f-4c80-826d-1bc8253ec648" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/dashboard/log.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/dashboardMain.html" afterPath="$PROJECT_DIR$/app/dashboardMain.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/html/dashboard/dashboard.html" afterPath="$PROJECT_DIR$/app/html/dashboard/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/chatApp.js" afterPath="$PROJECT_DIR$/app/js/chatApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/chatApplication/chatController.js" afterPath="$PROJECT_DIR$/app/js/chatApplication/chatController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/chatApplication/config/userChatConfig.js" afterPath="$PROJECT_DIR$/app/js/chatApplication/config/userChatConfig.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/common/chat/userDataManager.js" afterPath="$PROJECT_DIR$/app/js/common/chat/userDataManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/common/dataSource/longPollResponseParser.js" afterPath="$PROJECT_DIR$/app/js/common/dataSource/longPollResponseParser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/common/serviceFunctions/getHash.js" afterPath="$PROJECT_DIR$/app/js/common/serviceFunctions/getHash.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/dashboard/controlPanel.js" afterPath="$PROJECT_DIR$/app/js/dashboard/controlPanel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/dashboard/dashboard.js" afterPath="$PROJECT_DIR$/app/js/dashboard/dashboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/dashboardApp.js" afterPath="$PROJECT_DIR$/app/js/dashboardApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/chat.html" afterPath="$PROJECT_DIR$/deploy/chat.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/dashboardMain.html" afterPath="$PROJECT_DIR$/deploy/dashboardMain.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/html/dashboard.html" afterPath="$PROJECT_DIR$/deploy/html/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/js/chatApp.js" afterPath="$PROJECT_DIR$/deploy/js/chatApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/js/dashboardApp.js" afterPath="$PROJECT_DIR$/deploy/js/dashboardApp.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -53,16 +37,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chatApp.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/js/chatApp.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="chatController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/js/chatApplication/chatController.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -73,11 +47,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="instructionPerformer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="instructionPerformer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/js/chatApplication/instructionPerformer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="175" column="24" lean-forward="true" selection-start-line="175" selection-start-column="24" selection-end-line="175" selection-end-column="24" />
+            <state relative-caret-position="68">
+              <caret line="4" column="19" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/html/dashboard/dashboard.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="44" selection-end-column="131" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/deploy/html/dashboard.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -118,16 +112,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3587">
               <caret line="211" column="33" lean-forward="false" selection-start-line="211" selection-start-column="23" selection-end-line="211" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboardMain.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy/dashboardMain.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -215,7 +199,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/readme" />
         <option value="$PROJECT_DIR$/app/js/common/dataSource/DataSourceLongPolling.js" />
         <option value="$PROJECT_DIR$/app/js/common/dataSource/longPollAnswerParser.js" />
         <option value="$PROJECT_DIR$/app/js/common/EventEmitter.js" />
@@ -255,7 +238,6 @@
         <option value="$PROJECT_DIR$/app/js/chatApplication/instructionObserver.js" />
         <option value="$PROJECT_DIR$/app/js/chatApplication/config/userChatConfig.js" />
         <option value="$PROJECT_DIR$/app/dashboardMain.html" />
-        <option value="$PROJECT_DIR$/app/html/dashboard/dashboard.html" />
         <option value="$PROJECT_DIR$/app/js/common/chat/userDataManager.js" />
         <option value="$PROJECT_DIR$/app/js/dashboard/dashboard.js" />
         <option value="$PROJECT_DIR$/app/js/dashboardApp.js" />
@@ -266,6 +248,8 @@
         <option value="$PROJECT_DIR$/app/js/chatApplication/chatController.js" />
         <option value="$PROJECT_DIR$/app/js/common/dataSource/longPollResponseParser.js" />
         <option value="$PROJECT_DIR$/app/js/chatApplication/instructionPerformer.js" />
+        <option value="$PROJECT_DIR$/app/html/dashboard/dashboard.html" />
+        <option value="$PROJECT_DIR$/deploy/html/dashboard.html" />
       </list>
     </option>
   </component>
@@ -278,7 +262,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="325" />
     <option name="width" value="552" />
     <option name="height" value="688" />
@@ -327,50 +311,13 @@
             <path>
               <item name="onlineConsultantProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="onlineConsultantProject" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="onlineConsultantProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="onlineConsultantProject" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="chatApplication" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="onlineConsultantProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="onlineConsultantProject" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="chatApplication" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="onlineConsultantProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="onlineConsultantProject" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="onlineConsultantProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="onlineConsultantProject" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="dataSource" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="onlineConsultantProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="onlineConsultantProject" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="deploy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="onlineConsultantProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="onlineConsultantProject" type="462c0819:PsiDirectoryNode" />
               <item name="deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="onlineConsultantProject" type="b2602c69:ProjectViewProjectNode" />
@@ -468,12 +415,12 @@
       <workItem from="1532153593763" duration="19366000" />
       <workItem from="1532239835849" duration="8410000" />
       <workItem from="1532333579709" duration="6713000" />
-      <workItem from="1532433463070" duration="782000" />
+      <workItem from="1532433463070" duration="1198000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="530531000" />
+    <option name="totallyTimeSpent" value="530947000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -485,7 +432,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29761904" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -544,13 +491,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/js/dashboard/about.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="40" lean-forward="false" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/deploy/js/dashboardApp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
@@ -773,13 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/html/dashboard/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" column="127" lean-forward="false" selection-start-line="44" selection-start-column="127" selection-end-line="44" selection-end-column="127" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/js/dashboardApp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -877,8 +810,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/js/chatApplication/instructionPerformer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="175" column="24" lean-forward="true" selection-start-line="175" selection-start-column="24" selection-end-line="175" selection-end-column="24" />
+        <state relative-caret-position="68">
+          <caret line="4" column="19" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/html/dashboard/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="44" selection-end-column="131" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/html/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
           <folding />
         </state>
       </provider>

@@ -27,9 +27,14 @@
 //= common/chat/messageListManager.js
 //= common/chat/userDataManager.js
 
+// log
+
+//= dashboard/log.js
+
 // dashboard
 
 //= dashboard/userList/dashboardUserListManager.js
+//= dashboard/controlPanel.js
 //= dashboard/dashboard.js
 //= dashboard/launcher.js
 //= dashboard/about.js

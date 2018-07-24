@@ -17,7 +17,8 @@ var mainConfig = {
         // чат в стиле min
         MINIMIZE_STYLE_CHAT_BLOCK_CLASS: "root_chat_for_touchsoft_minimize-style",
         SET_MIN_STYLE_BUTTON: "root_chat_for_touchsoft_minimize-style__max-button",
-        SET_MAX_STYLE_BUTTON: "root_chat_for_touchsoft__top_minimize-button"
+        SET_MAX_STYLE_BUTTON: "root_chat_for_touchsoft__top_minimize-button",
+        CHAT_QUESTION_CSS: "root_chat_for_touchsoft_information-enter-name"
 
     },
 
@@ -90,7 +91,10 @@ var mainConfig = {
     DISPLAY_SENDER_NAME: true,
     DISPLAY_MESSAGE: true,
 
-    UPDATE_USER_DATA_TIME: 5000
+    UPDATE_USER_DATA_TIME: 5000,
+
+    COMMAND_PATH_PREFIX: "https://onlineconsultantwebapp.firebaseio.com/usersSettings/"
+
 };
 
 // INCLUDE

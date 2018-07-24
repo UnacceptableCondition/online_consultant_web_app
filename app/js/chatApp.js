@@ -13,6 +13,10 @@
 //= common/eventEmitter.js
 //= common/dataSource/longPollResponseParser.js
 
+// instructions
+
+//= chatApplication/instructionPerformer.js
+
 // messageManager
 
 //= common/chat/messageListManager.js

@@ -1,6 +1,4 @@
-var controlPanel = (function (config, dataConnector, eventEmitter) {
-
-    config.currentUserSettings.userId = "IVAN";
+var controlPanel = (function (config, dataConnector, log, parser) {
 
     var logElement;
     var selectCommand;
@@ -39,34 +37,27 @@ var controlPanel = (function (config, dataConnector, eventEmitter) {
 
     function setupLongPollConnection (userId) {
         var user = (userId) ? userId : config.currentUserSettings.userId;
+        if(connection) {
+            connection.abort();
+        }
         connection = dataConnector.createLongPollConnection(
             config.COMMAND_PATH_PREFIX + user + "/commandsResponse/.json"
         );
         connection.onreadystatechange = function commandChangeCallback () {
             if (this.readyState === 3 && this.status === 200) {
-                // // data = longPollResponseParser.parse(this.responseText);
-                // // if (data) {
-                //     eventEmitter.emit(data.type, data.object);
-                // }
-                var firstIpDataRegular = /data: {"path":"\/","data":{"getIp":/;
-                var hasNullData = /data: null/;
-                var data = this.responseText.split(/event: put/).pop();
-                if(!hasNullData.test(data)) {
-                    if(firstIpDataRegular.test(data)) {
-                        data = JSON.parse(data.split(firstIpDataRegular).pop().trim().slice(0,-2));
-                    } else {
-                        data = JSON.parse(data.split(/event: put/).pop().split("data: {\"path\":\"/getIp\",\"data\":").pop().trim().slice(0,-1));
-                    }
+                var data  = parser.parse(this.responseText);
+                if(data) {
+                    logElement.innerHTML = JSON.stringify(data.object);
                 }
-                logElement.innerHTML = JSON.stringify(data);
-
             }
         };
         connection.send()
     }
 
     function closeLongPollConnection () {
-        connection.abort();
+        if(connection) {
+            connection.abort();
+        }
     }
 
     function requestCommand (commandObject, requestPath) {
@@ -109,7 +100,7 @@ var controlPanel = (function (config, dataConnector, eventEmitter) {
 
     function setupListeners () {
         selectCommand.addEventListener("change", function () {
-            alert(selectCommand.value);
+            // alert(selectCommand.value);
         });
         sendButton.addEventListener("click", sendButtonListener);
     }
@@ -137,7 +128,4 @@ var controlPanel = (function (config, dataConnector, eventEmitter) {
 
     return new ControlPanel();
 
-})(mainConfig, dataConnector, eventEmitter);
-
-controlPanel.firstInit();
-controlPanel.setup();
+})(mainConfig, dataConnector, log, longPollResponseParser);

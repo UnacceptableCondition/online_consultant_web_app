@@ -135,10 +135,16 @@ var userDataManager =  (function createUserDataManager (config, eventEmitter, lo
         dataSource.usersAPI.updateLastOnline(userId, date.getTime())
     };
 
-    UserDataManager.prototype.sendMessage = function sendMessage (senderName) {
+    UserDataManager.prototype.sendMessage = function sendMessage () {
         var message = this.getMessageFromInputElement();
         var date = getCurrentDate();
-        var messageObject = createMessageObject(message, date, senderName, false);
+        var userName = config.currentUserSettings.userName || config.ADMIN_NAME;
+        var messageObject = createMessageObject(
+            message,
+            date,
+            userName,
+            false
+        );
         if(config.chatSettings.typeOfRequest !== "longPoll") {
             messageListManager.addMessageToMessageList(messageObject);
             messageListManager.displayMessages();

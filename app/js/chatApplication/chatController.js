@@ -5,7 +5,13 @@
 /* global mainConfig */
 /* global viewFactory */
 /* global eventEmitter */
-var chatController = (function createChatController (config) {
+var chatController = (function createChatController (config, instructionPerformer, userDataManager) {
+
+    var dataForGetUserNameCallback = [
+        "authorization",
+        "enter your name, please",
+        ""
+    ];
 
     // INCLUDE //
 
@@ -13,7 +19,9 @@ var chatController = (function createChatController (config) {
 
     // INCLUDE //
 
-    function ChatController() {}
+    function ChatController() {
+        this.createNewUser = userDataManager.createNewUserProfileToDataBase
+    }
 
     ChatController.prototype.startApp = function startAppBasic () {
         var that = this;
@@ -22,17 +30,12 @@ var chatController = (function createChatController (config) {
             that.authorization(config.chatSettings.requireName);
             that.setupChatBasicListeners();
         }).then(function afterSetupViewConfiguration () {
-            if(config.currentUserSettings.userId) {
-                userDataManager.getUserData(config.currentUserSettings.userId).then(function afterUserDataSetup () {
-                    that.setupChatStyle();
-                    that.setupIntervalFunctions();
-                    that.setupChatSendListeners();
-                });
-            } else {
+            userDataManager.getUserData(config.currentUserSettings.userId).then(function afterUserDataSetup () {
                 that.setupChatStyle();
-            }
-        }).then(function postChatSetup () {
-            chatCustomizer.setupOuterChatSettings();
+                that.setupChatSendListeners();
+                chatCustomizer.setupOuterChatSettings();
+                instructionPerformer.setupLongPollConnection();
+            });
         })
     };
 
@@ -41,17 +44,27 @@ var chatController = (function createChatController (config) {
     ChatController.prototype.authorization = function authorization (userNameIsRequire) {
         userDataManager.setup();
         if(!this.getConditionFromLocalStorage()) {
+            config.currentUserSettings.userId = getHash(
+                config.DEFAULT_USER_NAME
+            );
             if(userNameIsRequire === "false") {
-                config.currentUserSettings.userId = getHash(config.DEFAULT_USER_NAME);
                 config.currentUserSettings.userName = config.DEFAULT_USER_NAME;
                 this.saveConditionToLocalStorage();
                 userDataManager.createNewUserProfileToDataBase(config.currentUserSettings.userId, config.currentUserSettings.userName);
+                this.setupIntervalFunctions();
             }
             else {
-                this.toggleAuthorizationMenuVisible();
+                instructionPerformer.execute(
+                    "askQuestion",
+                    dataForGetUserNameCallback,
+                    "pending",
+                    this.getUserNameFromInput,
+                    this
+                )
             }
         } else {
             this.setupChatCondition();
+            this.setupIntervalFunctions();
         }
     };
 
@@ -67,16 +80,10 @@ var chatController = (function createChatController (config) {
         config.currentUserSettings.userName = getElement(
             config.DOM.USER_NAME_INPUT_CLASS
         ).value;
-        config.currentUserSettings.userId = getHash(
-            config.currentUserSettings.userName
-        );
         config.chatSettings.isMinimize = false;
-        userDataManager.createNewUserProfileToDataBase(config.currentUserSettings.userId, config.currentUserSettings.userName);
-        this.saveConditionToLocalStorage();
-        this.toggleAuthorizationMenuVisible();
+        this.createNewUser(config.currentUserSettings.userId, config.currentUserSettings.userName);
         this.setupIntervalFunctions();
-        this.setupChatSendListeners();
-        userDataManager.getUserData(config.currentUserSettings.userId);
+        this.saveConditionToLocalStorage();
     };
 
     // Setup Chat //
@@ -101,10 +108,6 @@ var chatController = (function createChatController (config) {
 
     ChatController.prototype.setupChatBasicListeners = function setupChatBasicListeners () {
         var that = this;
-        getElement(config.DOM.SEND_USER_NAME_BUTTON).addEventListener(
-            "click",
-            that.getUserNameFromInput.bind(that)
-        );
         getElement(config.DOM.SET_MAX_STYLE_BUTTON).addEventListener(
             'click',
             that.minMaxStyleToggle.bind(that)
@@ -197,7 +200,7 @@ var chatController = (function createChatController (config) {
 
     return new ChatController();
 
-})(mainConfig, eventEmitter);
+})(mainConfig, instructionPerformer, userDataManager);
 
 
 chatController.startApp();

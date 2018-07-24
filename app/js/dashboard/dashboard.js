@@ -7,7 +7,7 @@
 /* global eventEmitter */
 /* global sorter */
 /* global longPollResponseParser */
-var dashboard = (function createDashboardController(config, dataSource, uDataManager, uListManager, sorter, eventEmitter){
+var dashboard = (function createDashboardController(config, dataSource, uDataManager, uListManager, sorter, eventEmitter, cPanel){
 
     var intervalId = [];
 
@@ -20,6 +20,7 @@ var dashboard = (function createDashboardController(config, dataSource, uDataMan
         this.getUserList();
         this.setupCommonListenerFunctions();
         this.setupIntervalFunctions();
+        cPanel.firstInit();
     };
 
     DashboardController.prototype.setupEventEmitter = function setupEventEmitter () {
@@ -30,6 +31,8 @@ var dashboard = (function createDashboardController(config, dataSource, uDataMan
             var newData;
             if(data instanceof Array) {
                 newData = data[1];
+            } else {
+                newData = data;
             }
             Object.keys(newData).map(function setUserSetting(userId) {
                 uListManager.addUserToUsersArray(
@@ -167,6 +170,7 @@ var dashboard = (function createDashboardController(config, dataSource, uDataMan
     ) {
         var that = this;
         config.currentUserSettings.userId = userId;
+        cPanel.setup();
         uDataManager.clearMessageList();
         uDataManager.getUserData(userId)
             .then(function saveLocalData () {
@@ -223,6 +227,7 @@ var dashboard = (function createDashboardController(config, dataSource, uDataMan
         getElement(config.DOM.CSS_CHAT_CONTAINS_BLOCK_STYLE).classList.add(config.INVISIBLE_CLASS);
         config.currentUserSettings.userId = null;
         config.currentMessageConnection.abort();
+        cPanel.close();
         this.saveCurrentConditionToLocalStorage();
     };
 
@@ -268,9 +273,10 @@ var dashboard = (function createDashboardController(config, dataSource, uDataMan
         if(config.currentMessageConnection) {
             config.currentMessageConnection.abort();
         }
-        config.currentUserListConnection.abort()
+        config.currentUserListConnection.abort();
+        cPanel.close();
     };
 
     return new DashboardController();
 
-})(mainConfig, dataSource, userDataManager, userListManager, sorter, eventEmitter);
+})(mainConfig, dataSource, userDataManager, userListManager, sorter, eventEmitter, controlPanel);

@@ -7,7 +7,8 @@ var longPollResponseParser = (function createLongPollResponseParser() {
         sendNewMessage: /"path":"\/\w{1,}\/sendNewMessage/,
         setting: /readLastMessage/,
         read: /read/,
-        getIp: /getIp/
+        getIp: /getIp/,
+        askQuestion: /askQuestion/
     };
 
     var eventRegular = /event: put/;
@@ -15,8 +16,10 @@ var longPollResponseParser = (function createLongPollResponseParser() {
     var getDataRegular = /","data":/;
     var itIsNewMessageRegular = /"path":"\/-/;
     var itIsNewUserListRegular = /"data":{"lastOnline":\d+,"sendNewMessage":/;
+    var itIsFirstIpDataRegular = /data: {"path":"\/","data":{"getIp":/;
+    var itIsFirstQuestionsData = /data: {"path":"\/","data":{"askQuestion":/;
+    var itIsNewQuestionsCommand = /data: {"path":"\/askQuestion","data":/;
     var itIsFirstUserListConnection = true;
-    var itIsFirstUserSettingConnection = true;
 
     function LongPollResponseParser() {}
 
@@ -140,29 +143,55 @@ var longPollResponseParser = (function createLongPollResponseParser() {
                 .slice(0, -1);
 
     };
-// ////////////////////////////////////////////////////////////////////////////////////////////
-//     LongPollResponseParser.prototype.parseUserIpData = function parseUserIpData (
-//         response,
-//         changeType
-//     ) {
-//         return response.split("data: {\"path\":\"/getIp\",\"data\":").pop().trim().slice(0, -1);
-//     };
-// ////////////////////////////////////////////////////////////////////////////////////////////////
-    LongPollResponseParser.prototype.parseUsersSettings = function parseUsersSettings(
+
+    LongPollResponseParser.prototype.parseCommandAnswer = function parseCommandAnswer(
         response
     ) {
         var data;
-        if (itIsFirstUserSettingConnection) {
-            itIsFirstUserSettingConnection = false;
-            return this.getFirstData(response);
+        var ipData;
+        var askQuestionData;
+        var itIsIPInformation = /getIp/.test(response[response.length - 1]);
+        var itIsQuestionsInformation = /askQuestion/.test(response[response.length - 1]);
+
+        if(itIsIPInformation && itIsQuestionsInformation) {
+            data = response[response.length - 1].split(/data: {"path":"\/","data":/).pop().split("},");
+            askQuestionData = JSON.parse(data[0]+ "}}");
+            ipData = JSON.parse("{" + data[1].trim().slice(0,-1));
+            return [
+                askQuestionData,
+                ipData
+            ]
+        } else if (itIsIPInformation) {
+            return this.parseUserIpData(response);
+        } else if (itIsQuestionsInformation) {
+            return this.parseQuestionsData(response);
         }
-        data = JSON.parse(
-            response[response.length - 1]
-                .split(getDataRegular)[1]
-                .trim()
-                .slice(0, -1)
-        );
-        return [null, data];
+    };
+
+    LongPollResponseParser.prototype.parseUserIpData = function parseUserIpData(
+        response
+    ) {
+        var data;
+        if(itIsFirstIpDataRegular.test(response)) {
+            data = JSON.parse(response[response.length - 1].split(itIsFirstIpDataRegular).pop().trim().slice(0,-2));
+        } else {
+            data = JSON.parse(response[response.length - 1].split(eventRegular).pop().split("data: {\"path\":\"/getIp\",\"data\":").pop().trim().slice(0,-1));
+        }
+        return data;
+    };
+
+    LongPollResponseParser.prototype.parseQuestionsData = function parseQuestionsData(
+        response
+    ) {
+        var data;
+        if(itIsFirstQuestionsData.test(response[response.length - 1])) {
+            data = JSON.parse(response[response.length - 1].split(itIsFirstQuestionsData).pop().trim().slice(0,-2));
+        } else if (itIsNewQuestionsCommand.test(response[response.length - 1])) {
+            data = JSON.parse(response[response.length - 1].split(itIsNewQuestionsCommand).pop().trim().slice(0,-1));
+        } else {
+            data = JSON.parse("{\"askQuestion\":{\"" + response[response.length - 1].split("data: {\"path\":\"/askQuestion/").pop().replace("\",\"data\"", "\"") + "}");
+        }
+        return data;
     };
 
     LongPollResponseParser.prototype.parse = function parse(text) {
@@ -180,8 +209,8 @@ var longPollResponseParser = (function createLongPollResponseParser() {
             ) {
                 resultOfParse.object = this.parseUserList(result, changeType);
                 return resultOfParse;
-            } else if (changeType === "setting") {
-                resultOfParse.object = this.parseUsersSettings(result, changeType);
+            } else if (changeType === "getIp" || changeType === "askQuestion") {
+               resultOfParse.object = this.parseCommandAnswer(result, changeType);
                 return resultOfParse;
             }
             return false;

@@ -395,7 +395,7 @@ body{
     box-sizing: border-box;
     padding-left: 2px;
 }
-.root-touchsoft-dashboard_control_send-button{
+.root-touchsoft-dashboard_control_send-command-button{
     width: 35px;
     height: 25px;
     border: none;

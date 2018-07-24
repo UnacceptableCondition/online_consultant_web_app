@@ -4,7 +4,6 @@
     <list default="true" id="1ca758c6-1d1f-4c80-826d-1bc8253ec648" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/css/dashboard.css" afterPath="$PROJECT_DIR$/app/css/dashboard.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/html/dashboard/dashboard.html" afterPath="$PROJECT_DIR$/app/html/dashboard/dashboard.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/css/dashboard.css" afterPath="$PROJECT_DIR$/deploy/css/dashboard.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/html/dashboard.html" afterPath="$PROJECT_DIR$/deploy/html/dashboard.html" />
     </list>
@@ -53,8 +52,8 @@
       <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deploy/html/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1343">
-              <caret line="79" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+            <state relative-caret-position="85">
+              <caret line="56" column="80" lean-forward="false" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -63,8 +62,8 @@
       <file leaf-file-name="dashboard.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/css/dashboard.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="342" column="16" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="457" selection-end-column="1" />
+            <state relative-caret-position="214">
+              <caret line="403" column="21" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="457" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -73,7 +72,7 @@
       <file leaf-file-name="dashboard.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/deploy/css/dashboard.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
+            <state relative-caret-position="332">
               <caret line="457" column="1" lean-forward="false" selection-start-line="457" selection-start-column="1" selection-end-line="457" selection-end-column="1" />
               <folding />
             </state>
@@ -132,7 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>message</find>
       <find>commandPerformer</find>
       <find>setupListeners</find>
       <find>console</find>
@@ -160,8 +158,9 @@
       <find>root-touchsoft-dashboard_control_filter</find>
       <find>root-touchsoft-dashboard_control_sort</find>
       <find>root-touchsoft-dashboard_control-wrapper-select</find>
-      <find>root-touchsoft-dashboard_control_parameter</find>
       <find>root-touchsoft-dashboard_control_sort-option</find>
+      <find>root-touchsoft-dashboard_control_parameter</find>
+      <find>root-touchsoft-dashboard_control_send-button</find>
     </findStrings>
     <replaceStrings>
       <replace>messagesManagerRef</replace>
@@ -249,9 +248,9 @@
         <option value="$PROJECT_DIR$/app/js/chatApplication/chatController.js" />
         <option value="$PROJECT_DIR$/app/js/common/dataSource/longPollResponseParser.js" />
         <option value="$PROJECT_DIR$/app/js/chatApplication/instructionPerformer.js" />
-        <option value="$PROJECT_DIR$/app/css/dashboard.css" />
-        <option value="$PROJECT_DIR$/deploy/html/dashboard.html" />
         <option value="$PROJECT_DIR$/app/html/dashboard/dashboard.html" />
+        <option value="$PROJECT_DIR$/deploy/html/dashboard.html" />
+        <option value="$PROJECT_DIR$/app/css/dashboard.css" />
         <option value="$PROJECT_DIR$/deploy/css/dashboard.css" />
       </list>
     </option>
@@ -265,7 +264,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="325" />
     <option name="width" value="552" />
     <option name="height" value="688" />
@@ -451,12 +450,12 @@
       <workItem from="1532153593763" duration="19366000" />
       <workItem from="1532239835849" duration="8410000" />
       <workItem from="1532333579709" duration="6713000" />
-      <workItem from="1532433463070" duration="2587000" />
+      <workItem from="1532433463070" duration="2990000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="532336000" />
+    <option name="totallyTimeSpent" value="532739000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -468,7 +467,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29761904" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -476,7 +476,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31907895" sideWeight="0.48511904" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31907895" sideWeight="0.48511904" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -844,14 +844,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy/html/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="79" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/html/dashboard/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="526">
@@ -860,17 +852,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/html/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="56" column="80" lean-forward="false" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/css/dashboard.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="342" column="16" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="457" selection-end-column="1" />
+        <state relative-caret-position="214">
+          <caret line="403" column="21" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="457" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/deploy/css/dashboard.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
+        <state relative-caret-position="332">
           <caret line="457" column="1" lean-forward="false" selection-start-line="457" selection-start-column="1" selection-end-line="457" selection-end-column="1" />
           <folding />
         </state>

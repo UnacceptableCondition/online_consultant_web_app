@@ -1,24 +1,24 @@
 <div class="root-touchsoft-dashboard">
     <div class="root-touchsoft-dashboard_users">
         <div class="root-touchsoft-dashboard_users-filter">
-        <h1 class="root-touchsoft-dashboard_name">Interlocutors</h1>
-        <hr class="root-touchsoft-dashboard__decorate">
-        <div class="root-touchsoft-dashboard_filter-wrapper">
-            <div class="root-touchsoft-dashboard_filter">
-                <h2 class="root-touchsoft-dashboard_filter-name">Search</h2>
-                <input type="text" class="root-touchsoft-dashboard_filter-input" id="input-filter" placeholder="enter name...">
+            <h1 class="root-touchsoft-dashboard_name">Interlocutors</h1>
+            <hr class="root-touchsoft-dashboard__decorate">
+            <div class="root-touchsoft-dashboard_filter-wrapper">
+                <div class="root-touchsoft-dashboard_filter">
+                    <h2 class="root-touchsoft-dashboard_filter-name">Search</h2>
+                    <input type="text" class="root-touchsoft-dashboard_filter-input" id="input-filter" placeholder="enter name...">
+                </div>
+                <div class="root-touchsoft-dashboard_sort-wrapper">
+                    <h2 class="root-touchsoft-dashboard_filter-name">Sort by</h2>
+                    <div class="root-touchsoft-dashboard_sort-wrapper-select">
+                        <select name="sort"  class="root-touchsoft-dashboard_sort">
+                            <option selected value="online" class="root-touchsoft-dashboard_sort-option">Online</option>
+                            <option value="userName" class="root-touchsoft-dashboard_sort-option">Имя</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-        <div class="root-touchsoft-dashboard_sort-wrapper">
-            <h2 class="root-touchsoft-dashboard_filter-name">Sort by</h2>
-            <div class="root-touchsoft-dashboard_sort-wrapper-select">
-                <select name="sort"  class="root-touchsoft-dashboard_sort">
-                    <option selected value="online" class="root-touchsoft-dashboard_sort-option">Online</option>
-                    <option value="userName" class="root-touchsoft-dashboard_sort-option">Имя</option>
-                </select>
-            </div>
-        </div>
-        </div>
-        <hr class="root-touchsoft-dashboard__decorate">
+            <hr class="root-touchsoft-dashboard__decorate">
         </div>
         <div class="root-touchsoft-dashboard_users-list">
 
@@ -39,22 +39,23 @@
         <div class="root-touchsoft-dashboard_control">
             <div class="root-touchsoft-dashboard_select-panel">
                 <div class="root-touchsoft-dashboard_name-command">Command:</div>
-                <div class="root-touchsoft-dashboard_control_sort-wrapper-select">
-                    <select name="sort"  class="root-touchsoft-dashboard_control_sort">
-                        <option selected value="getIp" class="root-touchsoft-dashboard_control_sort-option">get user information</option>
-                        <option value="askQuestion" class="root-touchsoft-dashboard_control_sort-option">ask user question</option>
+                <div class="root-touchsoft-dashboard_control-wrapper-select">
+                    <select name="sort"  class="root-touchsoft-dashboard_control_select_command">
+                        <option selected value="getIp" class="root-touchsoft-dashboard_control_select_command-option">get user information</option>
+                        <option value="askQuestion" class="root-touchsoft-dashboard_control_select_command-option">ask question</option>
                     </select>
                 </div>
-                    <div class="root-touchsoft-dashboard_control_filter">
-                        <input type="text" class="root-touchsoft-dashboard_control_filter-input" id="input-control-param1" placeholder="Param 1">
-                    </div>
-                    <div class="root-touchsoft-dashboard_filter">
-                        <input type="text" class="root-touchsoft-dashboard_control_filter-input" id="input-control-param2" placeholder="Param 2">
-                    </div>
-                    <div class="root-touchsoft-dashboard_filter">
-                        <input type="text" class="root-touchsoft-dashboard_control_filter-input" id="input-control-param3" placeholder="Param 3">
-                    </div>
-                <div class="root-touchsoft-dashboard_control_send-button">
+                <div class="root-touchsoft-dashboard_control_parameter">
+                    <input type="text" class="root-touchsoft-dashboard_control_parameter-input" id="input-control-param1" placeholder="Param 1">
+                </div>
+                <div class="root-touchsoft-dashboard_control_parameter">
+                    <input type="text" class="root-touchsoft-dashboard_control_parameter-input" id="input-control-param2" placeholder="Param 2">
+                </div>
+                <div class="root-touchsoft-dashboard_control_parameter">
+                    <input type="text" class="root-touchsoft-dashboard_control_parameter-input" id="input-control-param3" placeholder="Param 3">
+                </div>
+                <div class="root-touchsoft-dashboard_control_send-command-button">
+                    Run
                 </div>
             </div>
             <div class="root-touchsoft-dashboard_control-log">

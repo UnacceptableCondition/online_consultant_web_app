@@ -342,7 +342,7 @@ body{
     font-weight: 900;
     margin: 5px;
 }
-.root-touchsoft-dashboard_control_sort-wrapper-select{
+.root-touchsoft-dashboard_control-wrapper-select{
     margin: 5px;
     width: 180px;
     height: 25px;
@@ -352,7 +352,7 @@ body{
     box-sizing: border-box;
     position: relative;
 }
-.root-touchsoft-dashboard_control_sort{
+.root-touchsoft-dashboard_control_select_command{
     width:100%;
     height: 100%;
     border-radius: 5px;
@@ -383,7 +383,7 @@ body{
     right: 5px;
     z-index: 1;
 }
-.root-touchsoft-dashboard_control_filter-input{
+.root-touchsoft-dashboard_control_parameter-input{
     width: 90px;
     margin: 5px;
     height: 25px;

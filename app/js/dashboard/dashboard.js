@@ -183,11 +183,11 @@ var dashboard = (function createDashboardController(config, dataSource, uDataMan
 
 
     // Обновлет массив сообщений в модуле чата и выводит их на экран
-    DashboardController.prototype.updateUserMessagesAndDisplayIt = function updateUserMessagesAndDisplayIt(
-    ) {
-        uDataManager.getUserData(config.currentUserSettings.userId);
-        this.markMessageFromUserAsRead(config.currentUserSettings.userId);
-    };
+    // DashboardController.prototype.updateUserMessagesAndDisplayIt = function updateUserMessagesAndDisplayIt(
+    // ) {
+    //     uDataManager.getUserData(config.currentUserSettings.userId);
+    //     this.markMessageFromUserAsRead(config.currentUserSettings.userId);
+    // };
 
 
     DashboardController.prototype.setupCommonListenerFunctions = function setupCommonListenerFunctions() {

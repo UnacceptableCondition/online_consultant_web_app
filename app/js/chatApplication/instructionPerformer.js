@@ -1,3 +1,4 @@
+/* global instructionQueueManager */
 var instructionPerformer = (function (config, dataConnector, parser) {
 
     var instructions = {
@@ -6,13 +7,17 @@ var instructionPerformer = (function (config, dataConnector, parser) {
     };
 
     var questionListener = null;
-    var instructionsQueue = [];
+    var isPerformed = false;
 
-    function executeCommand (instructionName, data, typeOfCommand, callback, context, isNeedNotify) {
-        var performerObject = instructions[instructionName].call(null, data, instructionName, callback, context, isNeedNotify);
+    //= instructions/instructionQueueManager.js
+
+    function executeCommand (instructionName, data, typeOfCommand, callback, context, isNeedNotify, isSaveData) {
+        var performerObject = instructions[instructionName].call(null, data, instructionName, callback, context, isNeedNotify, isSaveData);
         if(typeOfCommand === "async") {
             performerObject.then(function () {
-                instructionsCallback(instructionName);
+                notify(instructionName).then(function () {
+                    callback();
+                });
             })
         }
     }
@@ -57,19 +62,18 @@ var instructionPerformer = (function (config, dataConnector, parser) {
         )
     }
 
-    function showQuestion(data, instructionName, callback, context, isNeedNotify) {
-        var bindCallback;
+    function showQuestion(data, instructionName, callback, context, isNeedNotify, isSaveData) {
         var fullCallback;
-        if(callback) {
-            bindCallback = callback.bind(context, instructionName, data);
-        } else {
-            bindCallback = basicQuestionCallback.bind(context, instructionName, data)
-        }
         fullCallback = function () {
-            bindCallback();
             toggleQuestionMenuVisible();
             if(isNeedNotify) {
-                instructionsCallback(instructionName);
+                notify(instructionName);
+            }
+            if(callback) {
+                callback.call(context, data);
+            }
+            if(isSaveData) {
+                basicQuestionCallback.call(context, instructionName, data)
             }
         };
         setupQuestionMenu(data);
@@ -97,12 +101,6 @@ var instructionPerformer = (function (config, dataConnector, parser) {
         callback()
     }
 
-    function instructionsCallback(key) {
-        notify(key).then(function () {
-            checkAvailabilityNewInstructions();
-        })
-    }
-
     function checkAvailabilityNewInstructions () {
         var keyOfCommands;
         var parameters;
@@ -118,7 +116,7 @@ var instructionPerformer = (function (config, dataConnector, parser) {
                 if(keyOfCommands.length > 0) {
                     key = keyOfCommands.pop();
                     parameters = getParameters(data[key]);
-                    instructionPerformer.execute(key, parameters, data[key].typeOfCommand, null, null, true)
+                    instructionPerformer.execute(key, parameters, data[key].typeOfCommand, checkAvailabilityNewInstructions, null, true, true)
                 } else {
                     checkAvailabilityNewInstructions();
                 }
@@ -162,31 +160,30 @@ var instructionPerformer = (function (config, dataConnector, parser) {
             if (this.readyState === 3 && this.status === 200) {
                 data = parser.parse(this.responseText).object;
                 if(data) {
-                    if(data instanceof Array) {
-                        data.forEach(function (instructions) {
-                            Object.keys(instructions).map(function (instructionName) {
-                                if(!instructions[instructionName].isExecute) {
-                                    instructionsQueue.push(instructions[instructionName]);
-                                }
-                            })
-                        });
-                    } else {
-                        instructionsQueue.push(data);
-                    }
-                    console.log(instructionsQueue);
-                    // keyOfCommands = hasInstructionKey(data);
-                    // if(keyOfCommands.length > 0) {
-                    //     key = keyOfCommands.pop();
-                    //     parameters = getParameters(data[key]);
-                    //     instructionPerformer.execute(key, parameters, data[key].typeOfCommand, null, null, true)
-                    // logElement.innerHTML = JSON.stringify(data.object);
-
-                    // console.log(getParameters(data));
-                    // console.log(keyOfCommands);
+                    instructionQueueManager.add(data);
+                    executeAllInstruction();
                 }
             }
         };
         connection.send()
+    }
+
+    function executeAllInstruction (itIsThisStream) {
+        var instruction;
+        if(instructionQueueManager.length > 0 && (itIsThisStream || !isPerformed)) {
+            instruction = instructionQueueManager.next();
+            isPerformed = true;
+            executeCommand(
+                instruction.instuctionName,
+                instruction.parameters,
+                instruction.typeOfCommand,
+                executeAllInstruction.bind(null, true),
+                null, true, true
+            );
+        } else if(itIsThisStream) {
+            isPerformed = false;
+        }
+
     }
 
     return {

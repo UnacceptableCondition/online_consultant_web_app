@@ -34,7 +34,11 @@ var chatController = (function createChatController (config, instructionPerforme
                 that.setupChatStyle();
                 that.setupChatSendListeners();
                 chatCustomizer.setupOuterChatSettings();
-                instructionPerformer.setupLongPollConnection();
+                if(config.chatSettings.typeOfRequest === "longPoll") {
+                    instructionPerformer.setupLongPollConnection();
+                } else {
+                    instructionPerformer.setup();
+                }
             });
         })
     };

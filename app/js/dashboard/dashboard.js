@@ -7,9 +7,12 @@
 /* global eventEmitter */
 /* global sorter */
 /* global longPollResponseParser */
+/* global localStorageManager */
 var dashboard = (function createDashboardController(config, dataSource, uDataManager, uListManager, sorter, eventEmitter, cPanel){
 
     var intervalId = [];
+
+    //= appLocalCondition/dashboardConditionManager.js
 
     function DashboardController() {
         this.setupEventEmitter();
@@ -25,7 +28,6 @@ var dashboard = (function createDashboardController(config, dataSource, uDataMan
 
     DashboardController.prototype.setupEventEmitter = function setupEventEmitter () {
         var that = this;
-        var condition;
         eventEmitter.addSubscribe("userList", function  setupData (data) {
             var usersList = [];
             var newData;
@@ -43,8 +45,9 @@ var dashboard = (function createDashboardController(config, dataSource, uDataMan
                 return true;
             });
             uListManager.uList = uListManager.uList.concat(usersList);
-            condition = that.getCurrentUserIdFromLocalStorage();
-            that.localSettingsSetup(condition);
+            conditionManager.setupCondition(
+                that.localSettingsSetup.bind(that)
+            );
             that.setupUserListDOM();
         });
         eventEmitter.addSubscribe("lastOnline", function lastOnlineSub (data) {
@@ -59,29 +62,7 @@ var dashboard = (function createDashboardController(config, dataSource, uDataMan
         });
     };
 
-
     // DASHBOARD_CONDITION
-    DashboardController.prototype.saveCurrentConditionToLocalStorage = function saveCurrentConditionToLocalStorage() {
-        var serialCondition = JSON.stringify({
-            filter: config.currentDashboardCondition.filterBy,
-            sort: config.currentDashboardCondition.sortBy,
-            currentUserId: config.currentUserSettings.userId
-        });
-        localStorage.setItem(config.LOCAL_STORAGE_NAME, serialCondition);
-    };
-
-    DashboardController.prototype.getCurrentUserIdFromLocalStorage = function getCurrentUserIdFromLocalStorage() {
-        var serialCondition = localStorage.getItem(config.LOCAL_STORAGE_NAME);
-        var condition = null;
-        if (serialCondition) {
-            condition = JSON.parse(serialCondition);
-            config.currentDashboardCondition.filterBy = condition.filter;
-            config.currentDashboardCondition.sortBy = condition.sort;
-            config.currentUserSettings.userId = condition.currentUserId;
-        }
-        return condition;
-    };
-
     DashboardController.prototype.localSettingsSetup = function localSettingsSetup(condition) {
         if (condition) {
             if (condition.filter) {
@@ -103,7 +84,7 @@ var dashboard = (function createDashboardController(config, dataSource, uDataMan
     // фильтрация списка юзеров
     DashboardController.prototype.filter = function filter() {
         config.currentDashboardCondition.filterBy = getElement(config.DOM.CSS_FILTER_INPUT_ID).value;
-        this.saveCurrentConditionToLocalStorage();
+        conditionManager.saveCondition();
         uListManager.filterByName(config.currentDashboardCondition.filterBy);
         uListManager.displayUsers();
     };
@@ -111,7 +92,7 @@ var dashboard = (function createDashboardController(config, dataSource, uDataMan
     // // сортировка списка юзеров
     DashboardController.prototype.sort = function sort() {
         config.currentDashboardCondition.sortBy = getElement(config.DOM.CSS_SORT_SELECT_ID).value;
-        this.saveCurrentConditionToLocalStorage();
+        conditionManager.saveCondition();
         uListManager.sortUsersByField();
         uListManager.displayUsers();
     };
@@ -161,34 +142,23 @@ var dashboard = (function createDashboardController(config, dataSource, uDataMan
     DashboardController.prototype.userListener = function userListener(userId) {
         this.startConversationWithUser(userId);
         this.markMessageFromUserAsRead(userId);
-
     };
 
     // Открывает чат с юзером, загружает мессаджи юзера и отображает их
     DashboardController.prototype.startConversationWithUser = function startConversationWithUser(
         userId
     ) {
-        var that = this;
+        // var that = this;
         config.currentUserSettings.userId = userId;
         cPanel.setup();
         uDataManager.clearMessageList();
         uDataManager.getUserData(userId)
             .then(function saveLocalData () {
                 getElement(config.DOM.CSS_ACTIVE_USER_BLOCK).classList.remove(config.INVISIBLE_CLASS);
-                that.saveCurrentConditionToLocalStorage();
+                conditionManager.saveCondition();
             });
         dataSource.usersAPI.updateSendNewMessageFlag(userId, false);
     };
-
-
-
-    // Обновлет массив сообщений в модуле чата и выводит их на экран
-    // DashboardController.prototype.updateUserMessagesAndDisplayIt = function updateUserMessagesAndDisplayIt(
-    // ) {
-    //     uDataManager.getUserData(config.currentUserSettings.userId);
-    //     this.markMessageFromUserAsRead(config.currentUserSettings.userId);
-    // };
-
 
     DashboardController.prototype.setupCommonListenerFunctions = function setupCommonListenerFunctions() {
         var that = this;
@@ -229,7 +199,7 @@ var dashboard = (function createDashboardController(config, dataSource, uDataMan
         config.currentUserSettings.userId = null;
         config.currentMessageConnection.abort();
         cPanel.close();
-        this.saveCurrentConditionToLocalStorage();
+        conditionManager.saveCondition();
     };
 
     // добавляет новый елемент-индикатор в

@@ -173,7 +173,7 @@ var longPollResponseParser = (function createLongPollResponseParser() {
     ) {
         var data;
         if(itIsFirstIpDataRegular.test(response)) {
-            data = JSON.parse(response[response.length - 1].split(itIsFirstIpDataRegular).pop().trim().slice(0,-2));
+            data = JSON.parse("{\"getIp\":" + response[response.length - 1].split(itIsFirstIpDataRegular).pop().trim().slice(0,-1));
         } else {
             data = JSON.parse(response[response.length - 1].split(eventRegular).pop().split("data: {\"path\":\"/getIp\",\"data\":").pop().trim().slice(0,-1));
         }
@@ -185,7 +185,7 @@ var longPollResponseParser = (function createLongPollResponseParser() {
     ) {
         var data;
         if(itIsFirstQuestionsData.test(response[response.length - 1])) {
-            data = JSON.parse(response[response.length - 1].split(itIsFirstQuestionsData).pop().trim().slice(0,-2));
+            data = JSON.parse("{\"askQuestion\":" + response[response.length - 1].split(itIsFirstQuestionsData).pop().trim().slice(0,-1));
         } else if (itIsNewQuestionsCommand.test(response[response.length - 1])) {
             data = JSON.parse(response[response.length - 1].split(itIsNewQuestionsCommand).pop().trim().slice(0,-1));
         } else {

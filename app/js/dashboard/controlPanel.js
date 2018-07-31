@@ -9,16 +9,21 @@ var controlPanel = (function (config, dataConnector, log, parser) {
     var moduleInit;
     var currentCommand;
     var pathForCurrentCommandRequest;
+    var COMMAND_INPUT_AMOUNT = 3;
+    var DEFAULT_COMMAND_NAME = "getIp";
 
     var commands = {
         getIp: {
-            parametersNumber: 0,
-            type: "async"
+            parametersNumber: 0
         },
         askQuestion: {
-            parametersNumber: 3,
-            type: "pending"
+            parametersNumber: 3
         }
+    };
+
+    var commandsView = {
+        getIp: [],
+        askQuestion:  ["placeholder", "текст вопроса"]
     };
 
     function moduleController (action) {
@@ -48,7 +53,6 @@ var controlPanel = (function (config, dataConnector, log, parser) {
             if (this.readyState === 3 && this.status === 200) {
                 var data  = parser.parse(this.responseText);
                 if(data) {
-                    // logElement.innerHTML = JSON.stringify(data.object);
                     log.write(data.object);
                 }
             }
@@ -78,8 +82,7 @@ var controlPanel = (function (config, dataConnector, log, parser) {
         currentCommand = {
             commandName: selectCommand.value,
             parametersNumber: commands[selectCommand.value].parametersNumber,
-            isExecute: false,
-            typeOfCommand: commands[selectCommand.value].type
+            isExecute: false
         };
         parameterElements.forEach(function (element, index) {
             if(index < currentCommand.parametersNumber) {
@@ -99,10 +102,22 @@ var controlPanel = (function (config, dataConnector, log, parser) {
         requestCommand(currentCommand, pathForCurrentCommandRequest);
     }
 
+    function displayCommandView (commandName) {
+        var numberOfCommandInputs =  commandsView[commandName].length;
+        for(var i = COMMAND_INPUT_AMOUNT - 1; i >= 0; i--) {
+            if(i < numberOfCommandInputs) {
+                parameterElements[i].classList.remove(config.INVISIBLE_CLASS);
+                parameterElements[i].placeholder = commandsView[commandName][i];
+            } else {
+                parameterElements[i].classList.add(config.INVISIBLE_CLASS);
+                parameterElements[i].value = "";
+            }
+        }
+    }
 
     function setupListeners () {
         selectCommand.addEventListener("change", function () {
-            // alert(selectCommand.value);
+            displayCommandView(selectCommand.value);
         });
         sendButton.addEventListener("click", sendButtonListener);
     }
@@ -110,7 +125,8 @@ var controlPanel = (function (config, dataConnector, log, parser) {
     moduleInit = {
         firstInit: [
             getAccessToDOM,
-            setupListeners
+            setupListeners,
+            displayCommandView.bind(null, DEFAULT_COMMAND_NAME)
         ],
         setup: [
             setupLongPollConnection
@@ -120,9 +136,7 @@ var controlPanel = (function (config, dataConnector, log, parser) {
         ]
     };
 
-    function ControlPanel() {
-
-    }
+    function ControlPanel() {}
 
     ControlPanel.prototype.setup = moduleController.bind(null, "setup");
     ControlPanel.prototype.close = moduleController.bind(null, "close");

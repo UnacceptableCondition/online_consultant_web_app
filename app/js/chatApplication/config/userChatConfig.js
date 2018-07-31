@@ -55,7 +55,7 @@ var mainConfig = {
     CHAT_POSITION_LEFT: "root_chat_for_touchsoft_left-position",
 
 
-    LOCAL_STORAGE_NAME: "userID_touchsoft_chat",
+    LOCAL_STORAGE_NAME: "userID_touchsoft_chat_new",
     DEFAULT_USER_NAME: "guest",
 
     DEFAULT_CSS_CLASS_FOR_CHAT: 'touchsoft-chat_main-block',

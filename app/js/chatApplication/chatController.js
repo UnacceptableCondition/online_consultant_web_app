@@ -13,11 +13,15 @@ var chatController = (function createChatController (config, instructionPerforme
         ""
     ];
 
-    // INCLUDE //
+    var conditionManager = (function (config) {
+
+        //= appLocalCondition/chatConditionManager.js
+
+        return getAPI();
+
+    })(mainConfig);
 
     //= ../common/serviceFunctions/getHash.js
-
-    // INCLUDE //
 
     function ChatController() {
         this.createNewUser = userDataManager.createNewUserProfileToDataBase
@@ -26,34 +30,37 @@ var chatController = (function createChatController (config, instructionPerforme
     ChatController.prototype.startApp = function startAppBasic () {
         var that = this;
         // localStorage.removeItem(config.LOCAL_STORAGE_NAME);
-        return this.setupChatView().then( function startAuthorizationAndBasicListeners () {
-            that.authorization(config.chatSettings.requireName);
-            that.setupChatBasicListeners();
-        }).then(function afterSetupViewConfiguration () {
-            userDataManager.getUserData(config.currentUserSettings.userId).then(function afterUserDataSetup () {
-                that.setupChatStyle();
-                that.setupChatSendListeners();
-                chatCustomizer.setupOuterChatSettings();
-                if(config.chatSettings.typeOfRequest === "longPoll") {
-                    instructionPerformer.setupLongPollConnection();
-                } else {
-                    instructionPerformer.setup();
-                }
-            });
-        })
+        return this.setupChatView().then(
+            function startAuthorizationAndBasicListeners () {
+                that.authorization(config.chatSettings.requireName);
+                that.setupChatBasicListeners();
+            }).then(
+            function afterSetupViewConfiguration () {
+                userDataManager.getUserData(
+                    config.currentUserSettings.userId
+                ).then(
+                    function afterUserDataSetup () {
+                        that.setupChatStyle();
+                        that.setupChatSendListeners();
+                        chatCustomizer.setupOuterChatSettings();
+                        instructionPerformer.startApp(
+                            config.chatSettings.typeOfRequest
+                        );
+                });
+            })
     };
 
     // authorization block //
 
     ChatController.prototype.authorization = function authorization (userNameIsRequire) {
         userDataManager.setup();
-        if(!this.getConditionFromLocalStorage()) {
+        if(!conditionManager.setupCondition()) {
             config.currentUserSettings.userId = getHash(
                 config.DEFAULT_USER_NAME
             );
             if(userNameIsRequire === "false") {
                 config.currentUserSettings.userName = config.DEFAULT_USER_NAME;
-                this.saveConditionToLocalStorage();
+                conditionManager.saveCondition();
                 userDataManager.createNewUserProfileToDataBase(config.currentUserSettings.userId, config.currentUserSettings.userName);
                 this.setupIntervalFunctions();
             }
@@ -61,13 +68,12 @@ var chatController = (function createChatController (config, instructionPerforme
                 instructionPerformer.execute(
                     "askQuestion",
                     dataForGetUserNameCallback,
-                    "pending",
                     this.getUserNameFromInput,
                     this
                 )
             }
         } else {
-            this.setupChatCondition();
+            conditionManager.setupCondition();
             this.setupIntervalFunctions();
         }
     };
@@ -87,7 +93,7 @@ var chatController = (function createChatController (config, instructionPerforme
         config.chatSettings.isMinimize = false;
         this.createNewUser(config.currentUserSettings.userId, config.currentUserSettings.userName);
         this.setupIntervalFunctions();
-        this.saveConditionToLocalStorage();
+        conditionManager.saveCondition();
     };
 
     // Setup Chat //
@@ -149,7 +155,7 @@ var chatController = (function createChatController (config, instructionPerforme
         );
         config.currentUserSettings.isMinimize = config.currentUserSettings.isMinimize === false;
         this.changeInputAndSendButtonClass();
-        this.saveConditionToLocalStorage();
+        conditionManager.saveCondition();
     };
 
     ChatController.prototype.activityNotify = function activityNotify () {
@@ -163,34 +169,6 @@ var chatController = (function createChatController (config, instructionPerforme
             config.CSS_CURRENT_INPUT_CLASS = config.DOM.CSS_MAX_SIZE_INPUT_MESSAGE_BLOCK_CLASS
         }
     };
-
-    // WORK WITH LOCAL STORAGE //
-
-    ChatController.prototype.setupChatCondition = function setupChatCondition () {
-        var condition = this.getConditionFromLocalStorage();
-        config.currentUserSettings.userId = this.getConditionFromLocalStorage().userId;
-        config.currentUserSettings.userName = this.getConditionFromLocalStorage().userName;
-        config.currentUserSettings.isMinimize = condition.isMinimize;
-    };
-
-    ChatController.prototype.saveConditionToLocalStorage = function saveConditionToLocalStorage() {
-        var data = JSON.stringify({
-            userId: config.currentUserSettings.userId,
-            isMinimize: config.currentUserSettings.isMinimize,
-            userName: config.currentUserSettings.userName
-        });
-        localStorage.setItem(config.LOCAL_STORAGE_NAME, data);
-    };
-
-    ChatController.prototype.getConditionFromLocalStorage = function getConditionFromLocalStorage () {
-        var condition = localStorage.getItem(config.LOCAL_STORAGE_NAME);
-        if(condition) {
-            return JSON.parse(condition);
-        }
-        return false;
-    };
-
-    // WORK WITH LOCAL STORAGE //
 
     ChatController.prototype.setupIntervalFunctions = function setupIntervalFunctions () {
         var that = this;

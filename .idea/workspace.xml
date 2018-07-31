@@ -2,35 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ca758c6-1d1f-4c80-826d-1bc8253ec648" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/chatApplication/appLocalCondition/chatConditionManager.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/chatApplication/instructions/instructionListBody.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/chatApplication/instructions/instructionPerformerBody.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/chatApplication/instructions/instructionQueueManagerBody.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/chatApplication/instructions/longPollingInstructionConnector.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/chatApplication/instructions/xhrInstructionConnector.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/common/localStorage/localStorageManager.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/dashboard/appLocalCondition/dashboardConditionManager.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/chatApplication/instructions/instructionQueueManager.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/img/airplane-white.png" afterPath="$PROJECT_DIR$/deploy/img/airplane-white.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/img/airplane.png" afterPath="$PROJECT_DIR$/deploy/img/airplane.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/img/checkmark.png" afterPath="$PROJECT_DIR$/deploy/img/checkmark.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test/Tests.html" afterPath="$PROJECT_DIR$/Test/Tests.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test/dataConnectorTests.js" afterPath="$PROJECT_DIR$/Test/dataConnectorTests.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/dashboardMain.html" afterPath="$PROJECT_DIR$/app/dashboardMain.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/chatApplication/chatController.js" afterPath="$PROJECT_DIR$/app/js/chatApplication/chatController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/chatApplication/config/userChatConfig.js" afterPath="$PROJECT_DIR$/app/js/chatApplication/config/userChatConfig.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/chatApplication/instructionPerformer.js" afterPath="$PROJECT_DIR$/app/js/chatApplication/instructionPerformer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/common/dataSource/longPollResponseParser.js" afterPath="$PROJECT_DIR$/app/js/common/dataSource/longPollResponseParser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/dashboard/controlPanel.js" afterPath="$PROJECT_DIR$/app/js/dashboard/controlPanel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/dashboard/dashboard.js" afterPath="$PROJECT_DIR$/app/js/dashboard/dashboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/chat.html" afterPath="$PROJECT_DIR$/deploy/chat.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/css/chat.css" afterPath="$PROJECT_DIR$/deploy/css/chat.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/css/dashboard.css" afterPath="$PROJECT_DIR$/deploy/css/dashboard.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/dashboardMain.html" afterPath="$PROJECT_DIR$/deploy/dashboardMain.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/js/chatApp.js" afterPath="$PROJECT_DIR$/deploy/js/chatApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/js/dashboardApp.js" afterPath="$PROJECT_DIR$/deploy/js/dashboardApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test/test.js" afterPath="$PROJECT_DIR$/Test/test.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -74,7 +46,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chat.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chat.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deploy/chat.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
@@ -116,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Test/test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4463">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="232">
+              <caret line="269" column="0" lean-forward="true" selection-start-line="269" selection-start-column="0" selection-end-line="269" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -131,7 +103,7 @@
       <file leaf-file-name="Tests.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Test/Tests.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="-323">
               <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding />
             </state>
@@ -237,7 +209,6 @@
         <option value="$PROJECT_DIR$/dev/controll.js" />
         <option value="$PROJECT_DIR$/dev/commandPerformer.js" />
         <option value="$PROJECT_DIR$/Test/longPollResponseParserTests.js" />
-        <option value="$PROJECT_DIR$/Test/test.js" />
         <option value="$PROJECT_DIR$/app/js/common/dataSource/dataSource.js" />
         <option value="$PROJECT_DIR$/app/js/common/eventEmitter.js" />
         <option value="$PROJECT_DIR$/Test/dataSourceTests.js" />
@@ -281,6 +252,7 @@
         <option value="$PROJECT_DIR$/app/dashboardMain.html" />
         <option value="$PROJECT_DIR$/deploy/dashboardMain.html" />
         <option value="$PROJECT_DIR$/deploy/chat.html" />
+        <option value="$PROJECT_DIR$/Test/test.js" />
       </list>
     </option>
   </component>
@@ -293,7 +265,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -454,12 +426,12 @@
       <workItem from="1532724657435" duration="379000" />
       <workItem from="1532765336416" duration="14160000" />
       <workItem from="1532939292424" duration="770000" />
-      <workItem from="1533018721577" duration="9712000" />
+      <workItem from="1533018721577" duration="10249000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="598659000" />
+    <option name="totallyTimeSpent" value="599196000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -471,9 +443,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27380952" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27380952" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.375" sideWeight="0.51488096" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -806,24 +779,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4463">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/Tests.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -887,6 +842,24 @@
         <state relative-caret-position="204">
           <caret line="12" column="90" lean-forward="false" selection-start-line="12" selection-start-column="90" selection-end-line="12" selection-end-column="90" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/Tests.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-323">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="269" column="0" lean-forward="true" selection-start-line="269" selection-start-column="0" selection-end-line="269" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

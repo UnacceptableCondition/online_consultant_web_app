@@ -267,3 +267,15 @@ tests("setMainCssClass", function test(assert) {
         "main css class valid"
     );
 });
+module("userDataManager tests");
+tests("getMessageFromInputElement", function test(assert) {
+    var input = document.createElement("input");
+    input.setAttribute("type", "text");
+    input.value = "testValue";
+    input.classList.add(mainConfig.CSS_CURRENT_INPUT_CLASS);
+    document.body.appendChild(input);
+    assert.ok(
+        userDataManager.getMessageFromInputElement() === "testValue",
+        "return correct text"
+    );
+});
